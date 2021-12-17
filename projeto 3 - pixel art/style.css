@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap');
+
+:root {
+  --pixel-size: 40px;
+}
+
+body {
+  background-color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body > * {
+  margin-top: 45px;
+}
+
+h1 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 300;
+}
+
+#color-palette {
+  display: flex;
+}
+
+.color {
+  border: solid 1px #000000;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: 20px;
+  position: relative;
+}
+
+.color:nth-child(1) {
+  background: rgb(0, 0, 0);
+}
+
+.color.selected::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 50%;
+  top: 20%;
+  right: 20%;
+  animation: select-color .2s linear;
+}
+
+#pixel-board {
+  box-shadow:  35px 35px 70px #bebebe,
+             -35px -35px 70px #ffffff;
+  display: -ms-grid;
+  display: grid;
+  justify-items: center;
+  justify-content: center;
+  column-gap: -20px;
+}
+
+.pixel {
+  background-color: rgb(255, 255, 255);
+  width: var(--pixel-size);
+  height: var(--pixel-size);
+  border: 1px solid #000;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes select-color {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Área do fru fru */
+
+input {
+  border-radius: 20px;
+  border: none;
+  width: 285px;
+  height: 40px;
+  transition: .5s all;
+  padding-left: 15px;
+  font-size: 13pt;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  background: linear-gradient(145deg, #cacaca, #f0f0f0);
+  box-shadow:  4px 4px 8px #bebebe,
+             -4px -4px 8px #ffffff;
+}
+
+input:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+input:focus {
+  outline: none;
+}
+
+button, #color-picker {
+  background-color: #e0e0e0;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow:  5px 5px 10px #bebebe,
+  -5px -5px 10px #ffffff;
+  cursor: pointer;
+  transition: .2s all ease;
+}
+
+input[type='color']::color-swatch {
+  border-radius: 30px;
+  /* width: 10px; */
+  /* height: 10px; */
+}
+input[type='color']::-webkit-color-swatch {
+  border-radius: 30px;
+  /* width: 10px; */
+  /* height: 10px; */
+}
+input[type='color']::-moz-color-swatch {
+  border-radius: 30px;
+  /* width: 10px; */
+  /* height: 10px; */
+}
+
+button:hover {
+  background-color: #cacaca;
+}
+
+#basic-properties {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#basic-properties > * {
+  margin-left: 25px;
+}
+
+#basic-properties-buttons-container button {
+  margin-left: 25px;
+}
+
+@media (max-width: 521px) {
+  #basic-properties-buttons-container {
+    margin-top: 30px;
+  }
+
+}
+
+#another-properties-buttons-container {
+  display: flex;
+}
+#another-properties-buttons-container > * {
+  margin-right: 25px;
+}
