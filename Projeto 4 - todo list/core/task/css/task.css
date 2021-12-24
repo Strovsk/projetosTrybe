@@ -26,9 +26,6 @@
   width: 90%;
   text-align: justify;
 }
-.concluir-tarefa {
-  transform: scale(2);
-}
 ul {
   margin-left: 50px;
 }
@@ -49,7 +46,7 @@ li::before {
   width: 7px;
   height: 85%;
   background: #000;
-  border-radius: 15px;
+  border-radius: 20px;
   z-index: 2;
   left: 20px;
   top: 50px;
