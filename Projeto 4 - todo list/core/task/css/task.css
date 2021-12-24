@@ -1,4 +1,4 @@
-#task-date {
+.task-date {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -8,23 +8,23 @@
   -webkit-user-select: none;
   user-select: none;
 }
-#date {
+.date {
   color: rgba(102, 102, 102, .5);
   font-family: Quicksand, sans-serif;
   font-weight: 500;
 }
-#desc-check {
+.desc-check {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   text-indent: 20px;
 }
-#description {
+.description {
   width: 90%;
   text-align: justify;
 }
-#concluir-tarefa {
+.concluir-tarefa {
   transform: scale(2);
 }
 ul {
