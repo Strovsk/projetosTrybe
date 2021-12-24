@@ -10,13 +10,10 @@
       #body-click {
         fill: transparent;
         stroke-width: 3px;
-        stroke: red;
-      }
-      #body-click:hover {
-        fill: rgba(255, 0, 0, .4);
+        <!-- stroke: red; -->
       }
       #tampa {
-        transition: .2s linear all;
+        transition: .05s linear all;
       }
       #body-click:hover + #tampa, #tampa:hover {
         transform: origin(0, 0);
