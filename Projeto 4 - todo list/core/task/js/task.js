@@ -28,8 +28,17 @@ class Task {
     this.doneIconSvgG;
     this.doneIconSvgPath;
     this.doneIconSvgRect;
-
     this.createDoneSvg();
+
+    // Trash icon svg
+    this.trashIconSvgContainer;
+    this.trashIconSvgG;
+    this.trashIconSvgPathVaso;
+    this.trashIconSvgPathVasoDetalhe;
+    this.trashIconSvgPathTampa;
+    this.trashIconSvgRectBody;
+    this.createTrashSvg();
+
     this.genElement();
   }
   setTitle(title) {
@@ -54,7 +63,7 @@ class Task {
   updateLastEdit() {
       this.updateDate = this.getDayInfo();
   }
-  checkTaskScrollHeight() { // Fixme
+  checkTaskScrollHeight() {
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
     if(bufferCheck) this.expandElm.remove();
   }
@@ -80,17 +89,17 @@ class Task {
   genBottomIcons() {
     this.trashContainerElm = document.createElement('span');
     this.trashContainerElm.classList.add('icon-background');
-    this.trashElm = document.createElement('object');
-    this.trashElm.classList.add('icon');
-    this.trashElm.setAttribute('data', './core/task/assets/svg/trash.svg');
-    this.trashElm.setAttribute('type', 'image/svg+xml');
+    // this.trashElm = document.createElement('object');
+    // this.trashElm.classList.add('icon');
+    // this.trashElm.setAttribute('data', './core/task/assets/svg/trash.svg');
+    // this.trashElm.setAttribute('type', 'image/svg+xml');
     // this.trashElm.setAttribute('data', '../assets/svg/trash.svg');
 
     this.doneContainerElm = document.createElement('span');
     this.doneContainerElm.classList.add('icon-background');
     this.doneTaskButtonAction();
 
-    this.trashContainerElm.appendChild(this.trashElm);
+    this.trashContainerElm.appendChild(this.trashIconSvgContainer);
     this.doneContainerElm.appendChild(this.doneIconSvgContainer);
 
     this.iconsContainerElm = document.createElement('section');
@@ -179,6 +188,41 @@ class Task {
     this.doneIconSvgG.appendChild(this.doneIconSvgPath);
     this.doneIconSvgG.appendChild(this.doneIconSvgRect);
     this.doneIconSvgContainer.appendChild(this.doneIconSvgG);
+  }
+  createTrashSvg() {
+    this.trashIconSvgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    //width="30" height="30" viewBox="0 0 200 200"
+    this.trashIconSvgContainer.setAttribute('width', '30');
+    this.trashIconSvgContainer.setAttribute('height', '30');
+    this.trashIconSvgContainer.setAttribute('viewBox', '0 0 200 200');
+    // this.trashIconSvgContainer.classList.add('trash');
+
+    this.trashIconSvgG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    this.trashIconSvgG.classList.add('trash');
+
+    this.trashIconSvgPathVaso = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    this.trashIconSvgPathVaso.classList.add('vaso');
+    this.trashIconSvgPathVaso.setAttribute('d', 'M5,65.16,33.94,148l14.9,42.66A9.64,9.64,0,0,0,58,197h90.47a9.64,9.64,0,0,0,9.25-6.53L171.38,148l26.69-83.08C200,59,195.32,53,188.82,53H14.18C7.58,53,2.92,59.18,5,65.16Z');
+    
+    this.trashIconSvgPathVasoDetalhe = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    this.trashIconSvgPathVasoDetalhe.classList.add('vaso-detalhe');
+    this.trashIconSvgPathVasoDetalhe.setAttribute('d', 'M33.94,150S60.51,129,101.5,129.11c20.26.08,44,5.35,69.88,20.89');
+    
+    this.trashIconSvgRectBody = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    this.trashIconSvgRectBody.classList.add('body-click');
+    this.trashIconSvgRectBody.setAttribute('width', '200');
+    this.trashIconSvgRectBody.setAttribute('height', '200');
+
+    this.trashIconSvgPathTampa = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    this.trashIconSvgPathTampa.classList.add('tampa');
+    this.trashIconSvgPathTampa.setAttribute('d', 'M201.5,34.5A8.5,8.5,0,0,1,193,43H10a8.5,8.5,0,0,1,0-17H96.49a13,13,0,1,1,10,0H193A8.51,8.51,0,0,1,201.5,34.5Z');
+
+    this.trashIconSvgG.appendChild(this.trashIconSvgPathVaso);
+    this.trashIconSvgG.appendChild(this.trashIconSvgPathVasoDetalhe);
+    this.trashIconSvgG.appendChild(this.trashIconSvgRectBody);
+    this.trashIconSvgG.appendChild(this.trashIconSvgPathTampa);
+
+    this.trashIconSvgContainer.appendChild(this.trashIconSvgG);
   }
 
   // Basic operations
