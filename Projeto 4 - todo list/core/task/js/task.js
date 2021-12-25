@@ -213,8 +213,10 @@ class Task {
     this.containerElm.onclick = () => {
       this.isSelected = true;
       this.containerElm.classList.add('clicked');
+      this.containerElm.classList.add('selected');
       this.containerElm.onanimationend = () => {
         this.containerElm.classList.remove('clicked');
+
       }
     }
   }

@@ -58,11 +58,17 @@ li::before {
   position: absolute;
   width: 7px;
   height: 85%;
-  background: #000;
+  background: #888;
   border-radius: 20px;
   z-index: 2;
   left: 20px;
   top: 50px;
+}
+li.selected::before {
+  content: '';
+  display: block;
+  animation: task-bar-click-animation .3s linear;
+  background: #000;
 }
 
 .icons {
@@ -148,10 +154,19 @@ li::before {
 }
 
 @keyframes task-click-animation {
-  0% {
+  from {
     transform: scale(.95);
   }
-  100% {
+  to {
     transform: scale(1);
   }
+}
+@keyframes task-bar-click-animation {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(1);
+  }
+  
 }
