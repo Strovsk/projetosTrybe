@@ -46,7 +46,7 @@ class Task {
       }
   }
   formatDate() {
-    return `${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year}`;
+    return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year}`;
   }
   updateLastEdit() {
       this.updateDate = this.getDayInfo();
@@ -173,5 +173,7 @@ class Task {
   }
 }
 
-const t = new Task('Minha task', 'Vou fazer isso');
-document.getElementById('lista-tarefas').appendChild(t.getLi());
+const t1 = new Task('Minha task', 'Vou fazer isso');
+const t2 = new Task('Minha task', 'Exercitation ullamco sunt proident ipsum mollit minim. In mollit culpa irure esse irure anim reprehenderit reprehenderit reprehenderit ullamco sit do tempor adipisicing. Adipisicing in aute cupidatat consequat ut adipisicing occaecat in. Incididunt incididunt amet labore nisi esse in Lorem reprehenderit sit sunt. Minim nostrud veniam velit veniam labore dolor dolor adipisicing. Deserunt ipsum nostrud ea tempor consectetur.');
+document.getElementById('lista-tarefas').appendChild(t1.getLi());
+document.getElementById('lista-tarefas').appendChild(t2.getLi());

@@ -14,6 +14,7 @@
   color: rgba(102, 102, 102, .5);
   font-family: Quicksand, sans-serif;
   font-weight: 500;
+  text-align: center;
 }
 .desc-check {
   display: flex;
@@ -94,8 +95,8 @@ li::before {
   background-color: rgba(0, 0, 0, .1);
   font-weight: 700;
   font-size: 10pt;
-  width: 150px;
-  height: 25px;
+  width: 0px;
+  height: 0px;
   text-align: center;
   padding-top: 10px;
   color: green;
@@ -105,6 +106,8 @@ li::before {
   transition: .3s all ease;
 }
 .completed-task.on {
+  width: 150px;
+  height: 25px;
   transform: scale(1);
 }
 .icon {
