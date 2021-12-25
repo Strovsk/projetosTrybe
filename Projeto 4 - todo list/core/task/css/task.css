@@ -52,6 +52,9 @@ li {
 li.clicked {
   animation: task-click-animation 1s linear;
 }
+li.to-delete {
+  animation: remove-li .5s linear;
+}
 li::before {
   content: '';
   display: block;
@@ -167,6 +170,14 @@ li.selected::before {
   }
   to {
     transform: scale(1);
+  }
+}
+@keyframes remove-li {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
   }
 }
 

@@ -1,3 +1,8 @@
+/* ToDo 
+adiconar opção de edição da task
+adicionar visualização de informações da task como data de criação e não só ultima atualização como está agora
+ */
+
 class Task {
   constructor(title = 'No titled task', description = 'No description') {
     this.title = title;
@@ -90,11 +95,7 @@ class Task {
   genBottomIcons() {
     this.trashContainerElm = document.createElement('span');
     this.trashContainerElm.classList.add('icon-background');
-    // this.trashElm = document.createElement('object');
-    // this.trashElm.classList.add('icon');
-    // this.trashElm.setAttribute('data', './core/task/assets/svg/trash.svg');
-    // this.trashElm.setAttribute('type', 'image/svg+xml');
-    // this.trashElm.setAttribute('data', '../assets/svg/trash.svg');
+    this.deleteTaskButtonAction();
 
     this.doneContainerElm = document.createElement('span');
     this.doneContainerElm.classList.add('icon-background');
@@ -164,6 +165,14 @@ class Task {
     this.doneContainerElm.onclick = (e) => {
       // console.log('cliquei');
       this.doneSetIt();
+    }
+  }
+  deleteTaskButtonAction() {
+    this.trashContainerElm.onclick = () => {
+      this.containerElm.classList.add('to-delete');
+      this.containerElm.addEventListener('animationend', () => {
+        this.delLi();
+      });
     }
   }
   createDoneSvg() {
@@ -261,15 +270,11 @@ class Task {
       this.containerElm.classList.add('selected');
       this.containerElm.onanimationend = () => {
         this.containerElm.classList.remove('clicked');
-
       }
     }
   }
   selectRemove() {
     this.isSelected = false;
-  }
-  delete() {
-    this.containerElm.remove();
   }
 }
 
