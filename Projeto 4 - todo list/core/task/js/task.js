@@ -6,7 +6,9 @@ class Task {
     this.updateDate = this.creationDate;
 
     this.isCompleted = false;
-
+    this.isSelected = false;
+    this.isExpanded = false;
+    this.liSizeFromViewHeight = .15;
     // Elements section
     this.containerElm;
     this.titleDateElm;
@@ -14,6 +16,7 @@ class Task {
     this.dateElm;
     this.completeElm;
     this.descriptionElm;
+    this.expandElm;
     this.iconsContainerElm;
     this.trashContainerElm;
     this.trashElm;
@@ -50,6 +53,10 @@ class Task {
   }
   updateLastEdit() {
       this.updateDate = this.getDayInfo();
+  }
+  checkTaskScrollHeight() { // Fixme
+    const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
+    if(bufferCheck) this.expandElm.remove();
   }
   genTopTitleDate() {
     this.titleDateElm = document.createElement('section');
@@ -91,15 +98,24 @@ class Task {
     this.iconsContainerElm.appendChild(this.doneContainerElm);
     this.iconsContainerElm.classList.add('icons');
   }
+  genExpandButton () {
+    this.expandElm = document.createElement('button');
+    this.expandElm.innerText = 'ver texto';
+    this.expandElm.classList.add('view-more');
+  }
   genElement() {
     this.containerElm = document.createElement('li');
-    
+    this.selectSetIt();
+
     this.genTopTitleDate();
     this.containerElm.appendChild(this.titleDateElm);
 
     this.genMidCompleteDescription();
     this.containerElm.appendChild(this.completeElm);
     this.containerElm.appendChild(this.descriptionElm);
+    this.genExpandButton();
+    this.expandDescription();
+    this.containerElm.appendChild(this.expandElm);
 
     this.genBottomIcons();
     this.containerElm.appendChild(this.iconsContainerElm);
@@ -137,14 +153,7 @@ class Task {
   doneTaskButtonAction() {
     this.doneContainerElm.onclick = (e) => {
       // console.log('cliquei');
-      if(!this.isCompleted) {
-        this.completeElm.classList.add('on');
-        this.doneIconSvgPath.setAttribute('fill', 'green');
-      } else {
-        this.completeElm.classList.remove('on');
-        this.doneIconSvgPath.setAttribute('fill', 'black');
-      }
-      this.isCompleted = !this.isCompleted;
+      this.doneSetIt();
     }
   }
   createDoneSvg() {
@@ -171,9 +180,56 @@ class Task {
     this.doneIconSvgG.appendChild(this.doneIconSvgRect);
     this.doneIconSvgContainer.appendChild(this.doneIconSvgG);
   }
+
+  // Basic operations
+  delLi() {
+    this.containerElm.remove();
+  }
+  doneSetIt() {
+    if(!this.isCompleted) {
+      this.completeElm.classList.add('on');
+      this.doneIconSvgPath.setAttribute('fill', 'green');
+    } else {
+      this.completeElm.classList.remove('on');
+      this.doneIconSvgPath.setAttribute('fill', 'black');
+    }
+    this.isCompleted = !this.isCompleted;
+  }
+  expandDescription() {
+    this.expandElm.onclick = () => {
+      if(!this.isExpanded) {
+        console.log('expandindo texto');
+        this.descriptionElm.classList.add('expand');
+        this.expandElm.innerText = 'minimizar texto';
+      } else {
+        this.descriptionElm.classList.remove('expand');
+        this.expandElm.innerText = 'ver texto';
+        console.log('minimizando texto');
+      }
+      this.isExpanded = !this.isExpanded;
+    }
+  }
+  selectSetIt() {
+    this.containerElm.onclick = () => {
+      this.isSelected = true;
+      this.containerElm.classList.add('clicked');
+      this.containerElm.onanimationend = () => {
+        this.containerElm.classList.remove('clicked');
+      }
+    }
+  }
+  selectRemove() {
+    this.isSelected = false;
+  }
 }
 
-const t1 = new Task('Minha task', 'Vou fazer isso');
-const t2 = new Task('Minha task', 'Exercitation ullamco sunt proident ipsum mollit minim. In mollit culpa irure esse irure anim reprehenderit reprehenderit reprehenderit ullamco sit do tempor adipisicing. Adipisicing in aute cupidatat consequat ut adipisicing occaecat in. Incididunt incididunt amet labore nisi esse in Lorem reprehenderit sit sunt. Minim nostrud veniam velit veniam labore dolor dolor adipisicing. Deserunt ipsum nostrud ea tempor consectetur.');
+const t1 = new Task('Minha task 1', 'Vou fazer isso');
+const t2 = new Task('Minha task 2', 'Exercitation ullamco sunt proident ipsum mollit minim. In mollit culpa irure esse irure anim reprehenderit reprehenderit reprehenderit ullamco sit do tempor adipisicing. Adipisicing in aute cupidatat consequat ut adipisicing occaecat in. Incididunt incididunt amet labore nisi esse in Lorem reprehenderit sit sunt. Minim nostrud veniam velit veniam labore dolor dolor adipisicing. Deserunt ipsum nostrud ea tempor consectetur.');
+const t3 = new Task('Minha task 3', 'Exercitation ullamco sunt proident ipsum mollit minim. In mollit culpa irure esse irure anim reprehenderit reprehenderit reprehenderit ullamco sit do tempor adipisicing. Adipisicing in aute cupidatat consequat ut adipisicing occaecat in. Incididunt incididunt amet labore nisi esse in Lorem reprehenderit sit sunt. Minim nostrud veniam velit veniam labore dolor dolor adipisicing. Deserunt ipsum nostrud ea tempor consectetur. Exercitation ullamco sunt proident ipsum mollit minim. In mollit culpa irure esse irure anim reprehenderit reprehenderit reprehenderit ullamco sit do tempor adipisicing. Adipisicing in aute cupidatat consequat ut adipisicing occaecat in. Incididunt incididunt amet labore nisi esse in Lorem reprehenderit sit sunt. Minim nostrud veniam velit veniam labore dolor dolor adipisicing. Deserunt ipsum nostrud ea tempor consectetur.');
 document.getElementById('lista-tarefas').appendChild(t1.getLi());
 document.getElementById('lista-tarefas').appendChild(t2.getLi());
+document.getElementById('lista-tarefas').appendChild(t3.getLi());
+
+t1.checkTaskScrollHeight();
+t2.checkTaskScrollHeight();
+t3.checkTaskScrollHeight();

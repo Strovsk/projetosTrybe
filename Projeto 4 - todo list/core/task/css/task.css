@@ -25,7 +25,15 @@
 }
 .description {
   width: 90%;
+  height: 15vh;
+  overflow-y: hidden;
   text-align: justify;
+}
+.description.expand {
+  height: auto;
+}
+.description.expanded {
+  height: auto;
 }
 ul {
   margin-left: 50px;
@@ -34,11 +42,15 @@ li {
   font-family: Quicksand, sans-serif;
   font-weight: 400;
   width: 45%;
+  height: 20%;
   list-style: none;
   padding: 30px;
   padding-left: 45px;
   transition: .3s background ease-in;
   position: relative;
+}
+li.clicked {
+  animation: task-click-animation 1s linear;
 }
 li::before {
   content: '';
@@ -123,4 +135,23 @@ li::before {
 }
 .done {
   transition: .2s all ease;
+}
+.view-more {
+  background-color: transparent;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.view-more:hover {
+  text-decoration: underline;
+}
+
+@keyframes task-click-animation {
+  0% {
+    transform: scale(.95);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
