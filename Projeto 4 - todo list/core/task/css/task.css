@@ -101,6 +101,11 @@ li::before {
   color: green;
   margin-top: 8px;
   margin-left: 30px;
+  transform: scale(0);
+  transition: .3s all ease;
+}
+.completed-task.on {
+  transform: scale(1);
 }
 .icon {
   width: 30px;
@@ -108,4 +113,11 @@ li::before {
 }
 .icon:hover {
   transform: scale(1.04);
+}
+
+.body-click {
+  fill: transparent;
+}
+.done {
+  transition: .2s all ease;
 }

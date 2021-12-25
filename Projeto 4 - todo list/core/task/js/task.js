@@ -4,6 +4,9 @@ class Task {
     this.description = description;
     this.creationDate = this.getDayInfo();
     this.updateDate = this.creationDate;
+
+    this.isCompleted = false;
+
     // Elements section
     this.containerElm;
     this.titleDateElm;
@@ -17,6 +20,13 @@ class Task {
     this.doneContainerElm;
     this.doneElm;
 
+    // Done icon svg
+    this.doneIconSvgContainer;
+    this.doneIconSvgG;
+    this.doneIconSvgPath;
+    this.doneIconSvgRect;
+
+    this.createDoneSvg();
     this.genElement();
   }
   setTitle(title) {
@@ -71,14 +81,10 @@ class Task {
 
     this.doneContainerElm = document.createElement('span');
     this.doneContainerElm.classList.add('icon-background');
-    this.doneElm = document.createElement('object');
-    this.doneElm.setAttribute('data', './core/task/assets/svg/done.svg');
-    this.doneElm.setAttribute('type', 'image/svg+xml');
-    this.doneElm.classList.add('icon');
-    // this.doneElm.setAttribute('data', '../assets/svg/done.svg');
+    this.doneTaskButtonAction();
 
     this.trashContainerElm.appendChild(this.trashElm);
-    this.doneContainerElm.appendChild(this.doneElm);
+    this.doneContainerElm.appendChild(this.doneIconSvgContainer);
 
     this.iconsContainerElm = document.createElement('section');
     this.iconsContainerElm.appendChild(this.trashContainerElm);
@@ -97,6 +103,8 @@ class Task {
 
     this.genBottomIcons();
     this.containerElm.appendChild(this.iconsContainerElm);
+
+    this.addCardAnimation();
   }
   updateElement() {
     if (elm === null || elm === undefined) reuturn;
@@ -104,6 +112,64 @@ class Task {
   }
   getLi() {
     return this.containerElm;
+  }
+  addCardAnimation() {
+    this.containerElm.onmousemove = (e) => {
+      // this.containerElm.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(238, 238, 238, 1),rgba(0, 0, 0, .1))`;
+      let maxVariationX = 10;
+      let relationalXIndex = (e.clientX - this.containerElm.getBoundingClientRect().x);
+      let percentRelationalXIndex = (relationalXIndex / this.containerElm.getBoundingClientRect().width).toFixed(2);
+      let maxDegX = (2 * percentRelationalXIndex * maxVariationX) - maxVariationX;
+      
+      let maxVariationY = 10;
+      let relationalYIndex = (e.clientY - this.containerElm.getBoundingClientRect().y);
+      let percentRelationalYIndex = (relationalYIndex / this.containerElm.getBoundingClientRect().height).toFixed(2);
+      let maxDegY = (2 * percentRelationalYIndex * maxVariationY) - maxVariationY;
+      
+      this.containerElm.style.background = `radial-gradient(circle at ${relationalXIndex}px ${relationalYIndex}px, rgba(238, 238, 238, 1),rgba(0, 0, 0, .1))`;
+      this.containerElm.style.transform = `rotateX(${maxDegY}deg) rotateY(${maxDegX}deg)`;
+    };
+    this.containerElm.onmouseleave = (e) => {
+      this.containerElm.style.background = `transparent`;
+      this.containerElm.style.transform = 'rotateX(0) rotateY(0)';
+    };
+  }
+  doneTaskButtonAction() {
+    this.doneContainerElm.onclick = (e) => {
+      // console.log('cliquei');
+      if(!this.isCompleted) {
+        this.completeElm.classList.add('on');
+        this.doneIconSvgPath.setAttribute('fill', 'green');
+      } else {
+        this.completeElm.classList.remove('on');
+        this.doneIconSvgPath.setAttribute('fill', 'black');
+      }
+      this.isCompleted = !this.isCompleted;
+    }
+  }
+  createDoneSvg() {
+    this.doneIconSvgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    this.doneIconSvgContainer.setAttribute('width', '30');
+    this.doneIconSvgContainer.setAttribute('height', '30');
+    this.doneIconSvgContainer.setAttribute('viewBox', '0 0 200 200');
+    // width="30" height="30" viewBox="0 0 201.5 201.25"
+    this.doneIconSvgG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    this.doneIconSvgG.classList.add('done-icon');
+
+    // <rect id="body-click" y="0.75" width="200" height="200"/>
+    this.doneIconSvgRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    this.doneIconSvgRect.classList.add('body-click');
+    this.doneIconSvgRect.setAttribute('width', '200');
+    this.doneIconSvgRect.setAttribute('height', '200');
+
+    // <path id="done" data-name="done" d="M1.5,77.67s43.5,63.58,50,123.08c0,0,64.5-200.5,150-200,0,0-78.5-19.5-150,140C51.5,140.75,32,100.09,1.5,77.67Z"/>
+    this.doneIconSvgPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    this.doneIconSvgPath.classList.add('done');
+    this.doneIconSvgPath.setAttribute('d', 'M1.5,77.67s43.5,63.58,50,123.08c0,0,64.5-200.5,150-200,0,0-78.5-19.5-150,140C51.5,140.75,32,100.09,1.5,77.67Z');
+
+    this.doneIconSvgG.appendChild(this.doneIconSvgPath);
+    this.doneIconSvgG.appendChild(this.doneIconSvgRect);
+    this.doneIconSvgContainer.appendChild(this.doneIconSvgG);
   }
 }
 

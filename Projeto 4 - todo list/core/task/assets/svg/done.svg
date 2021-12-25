@@ -8,7 +8,7 @@
     }
   </style>
   <g id="done-icon" data-name="Camada 2">
-      <rect id="body-click" y="0.75" width="201" height="200.5"/>
+      <rect id="body-click" y="0.75" width="200" height="200"/>
       <path id="done" data-name="done" d="M1.5,77.67s43.5,63.58,50,123.08c0,0,64.5-200.5,150-200,0,0-78.5-19.5-150,140C51.5,140.75,32,100.09,1.5,77.67Z"/>
   </g>
   <script type="text/javascript">
