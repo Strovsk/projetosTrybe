@@ -57,7 +57,8 @@ class Task {
           min: d.getMinutes(),
       }
   }
-  formatDate() {
+  formatDate(type = 'update') {
+    if(type === 'create') return `Data criação\n${this.creationDate.day}/${this.creationDate.month}/${this.creationDate.year}`;
     return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year}`;
   }
   updateLastEdit() {
@@ -244,9 +245,11 @@ class Task {
       if(!this.isExpanded) {
         this.descriptionElm.classList.add('expand');
         this.expandElm.innerText = 'minimizar texto';
+        // this.dateElm.innerText = this.formatDate('create');
       } else {
         this.descriptionElm.classList.remove('expand');
         this.expandElm.innerText = 'ver texto';
+        // this.dateElm.innerText = this.formatDate();
       }
       this.isExpanded = !this.isExpanded;
     }
