@@ -198,13 +198,11 @@ class Task {
   expandDescription() {
     this.expandElm.onclick = () => {
       if(!this.isExpanded) {
-        console.log('expandindo texto');
         this.descriptionElm.classList.add('expand');
         this.expandElm.innerText = 'minimizar texto';
       } else {
         this.descriptionElm.classList.remove('expand');
         this.expandElm.innerText = 'ver texto';
-        console.log('minimizando texto');
       }
       this.isExpanded = !this.isExpanded;
     }
@@ -222,6 +220,9 @@ class Task {
   }
   selectRemove() {
     this.isSelected = false;
+  }
+  delete() {
+    this.containerElm.remove();
   }
 }
 
