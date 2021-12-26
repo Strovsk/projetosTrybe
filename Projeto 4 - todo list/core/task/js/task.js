@@ -219,9 +219,6 @@ class Task {
     this.trashIconSvgPathVaso.classList.add('vaso');
     this.trashIconSvgPathVaso.setAttribute('d', 'M180,52V161a35,35,0,0,1-35,35H57a35,35,0,0,1-35-35V52');
     
-    // this.trashIconSvgPathVasoDetalhe = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    // this.trashIconSvgPathVasoDetalhe.classList.add('vaso-detalhe');
-    // this.trashIconSvgPathVasoDetalhe.setAttribute('d', 'M33.94,150S60.51,129,101.5,129.11c20.26.08,44,5.35,69.88,20.89');
     this.trashIconSvgGXC = document.createElementNS(`http://www.w3.org/2000/svg`, `g`);
     this.trashIconSvgPathBarraA = document.createElementNS('http://www.w3.org/2000/svg', 'line');
     // x1="75" y1="100" x2="123.5" y2="150"
@@ -250,7 +247,6 @@ class Task {
     this.trashIconSvgPathTampa.setAttribute('d', 'M201.5,34.5A8.5,8.5,0,0,1,193,43H10a8.5,8.5,0,0,1,0-17H96.49a13,13,0,1,1,10,0H193A8.51,8.51,0,0,1,201.5,34.5Z');
 
     this.trashIconSvgG.appendChild(this.trashIconSvgPathVaso);
-    // this.trashIconSvgG.appendChild(this.trashIconSvgPathVasoDetalhe);
     this.trashIconSvgG.appendChild(this.trashIconSvgGXC);
     this.trashIconSvgG.appendChild(this.trashIconSvgRectBody);
     this.trashIconSvgG.appendChild(this.trashIconSvgPathTampa);

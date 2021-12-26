@@ -25,5 +25,5 @@
 }
 .body-click:hover + .tampa, .tampa:hover {
   transform: origin(0, 0);
-  transform: rotate(-3deg);
+  transform: rotate(-5deg);
 }
