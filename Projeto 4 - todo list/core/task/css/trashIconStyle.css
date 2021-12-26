@@ -4,6 +4,13 @@
   stroke-miterlimit: 10;
   stroke-width: 6px;
 }
+.x {
+  stroke-linecap: round;
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 6px;
+}
 .vaso-detalhe {
   fill: none;
   stroke: #000;
