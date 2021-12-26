@@ -38,7 +38,7 @@
 ul {
   margin-left: 50px;
 }
-li {
+.task-li {
   font-family: Quicksand, sans-serif;
   font-weight: 400;
   width: 45%;
@@ -49,13 +49,13 @@ li {
   transition: .3s background ease-in;
   position: relative;
 }
-li.clicked {
+.task-li.clicked {
   animation: task-click-animation .5s ease;
 }
-li.to-delete {
+.task-li.to-delete {
   animation: remove-li .5s linear;
 }
-li::before {
+.task-li::before {
   content: '';
   display: block;
   position: absolute;
@@ -67,7 +67,7 @@ li::before {
   left: 20px;
   top: 50px;
 }
-li.selected::before {
+.task-li.selected::before {
   content: '';
   display: block;
   animation: task-bar-click-animation .3s linear;

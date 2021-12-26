@@ -117,6 +117,7 @@ class Task {
   }
   genElement() {
     this.containerElm = document.createElement('li');
+    this.containerElm.classList.add('task-li');
     this.selectSetIt();
 
     this.genTopTitleDate();
