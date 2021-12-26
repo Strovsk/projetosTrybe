@@ -1,6 +1,7 @@
 /* ToDo 
 adiconar opção de edição da task
 adicionar visualização de informações da task como data de criação e não só ultima atualização como está agora
+chamar um popup como forma de alerta toda vez que o usuário tentar deletar e esse popup deve ter um checkbox dizendo 'Não me mostre essa mensagem de novo'
  */
 
 class Task {

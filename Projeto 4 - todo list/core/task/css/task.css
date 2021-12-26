@@ -50,7 +50,7 @@ li {
   position: relative;
 }
 li.clicked {
-  animation: task-click-animation 1s linear;
+  animation: task-click-animation .5s ease;
 }
 li.to-delete {
   animation: remove-li .5s linear;
