@@ -75,7 +75,10 @@ class Task {
   }
   checkTaskScrollHeight() {
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
-    if(bufferCheck) this.expandElm.remove();
+    if(bufferCheck) {
+      this.expandElm.remove();
+      this.descriptionElm.style.height = 'auto';
+    }
   }
   genTopTitleDate() {
     this.titleDateElm = document.createElement('section');
