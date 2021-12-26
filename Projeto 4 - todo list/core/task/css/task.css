@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+@import url('./trashIconStyle.css');
+@import url('./doneIconStyle.css');
 
 .task-date {
   display: flex;
@@ -139,12 +141,6 @@ ul {
   transform: scale(1.04);
 }
 
-.body-click {
-  fill: transparent;
-}
-.done {
-  transition: .2s all ease;
-}
 .view-more {
   background-color: transparent;
   border: none;
@@ -179,28 +175,4 @@ ul {
   to {
     transform: scale(0);
   }
-}
-
-.vaso {
-  fill: none;
-  stroke: #000;
-  stroke-miterlimit: 10;
-  stroke-width: 6px;
-}
-.vaso-detalhe {
-  fill: none;
-  stroke: #000;
-  stroke-miterlimit: 10;
-  stroke-width: 6px;
-}
-.body-click {
-  fill: transparent;
-  stroke-width: 3px;
-}
-.tampa {
-  transition: .05s linear all;
-}
-.body-click:hover + .tampa, .tampa:hover {
-  transform: origin(0, 0);
-  transform: rotate(-3deg);
 }
