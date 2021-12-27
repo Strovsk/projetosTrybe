@@ -34,6 +34,7 @@
   width: 90%;
   height: 15vh;
   overflow-y: hidden;
+  text-overflow: ellipsis;
   text-align: justify;
 }
 .description.expand {
