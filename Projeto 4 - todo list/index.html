@@ -5,10 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./core/task/css/task.css">
+  <link rel="stylesheet" href="style.css">
   <title>Minha Lista de Tarefas</title>
 </head>
-<body style="background-color: #e0e0e0; scroll-behavior: smooth;">
-  <header>Minha Lista de Tarefas</header>
+<body>
+  <main id="option-panel">
+    <section id="title-logo">
+      <object data="./assets/image/logo.svg" type="image/svg+xml" title="logo" id="logo"></object>
+      <h1 id="title-app">My Tasks</h1>
+    </section>
+    <section id="options">
+      <input name="title-input" type="text" id="task-title-input" placeholder="task title">
+      <label id="task-title-input-label" for="title-input">task title</label>
+      <button type="button" id="add-description-button">add description</button>
+      <button type="button" id="add-task-button">Add</button>
+    </section>
+  </main>
   <ol id="lista-tarefas"></ol>
   <script src="./core/task/js/task.js"></script>
   <!-- <script src="script.js"></script> -->

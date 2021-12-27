@@ -1,7 +1,128 @@
-.completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
 }
 
-li {
+body {
+  background-color: #e0e0e0;
+}
+
+#title-logo {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  height: 50%;
+}
+
+#option-panel {
+  background-color: rgb(255, 183, 42);
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+#logo {
+  flex-grow: .5;
+}
+
+#title-app {
+  color: white;
+  font-family: Quicksand, sans-serif;
+  font-weight: 200;
+  font-size: 49px;
+}
+
+#options {
+  display: flex;
+  flex-flow: column;
+  /* background: red; */
+  width: 80%;
+  position: relative;
+}
+
+#task-title-input {
+  height: 30px;
+  width: 100%;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #000;
+  padding-left: 8px;
+  caret-color: #eee;
+  margin-top: 20px;
+  transition: .1s all ease;
+}
+#task-title-input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #000;
+  animation: input-focus .1s ease;
+}
+#task-title-input:focus::selection {
+  background: #666;
+  color: #eee;
+}
+#task-title-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+#task-title-input:focus::placeholder {
+  color: transparent;
+}
+#task-title-input:focus + #task-title-input-label {
+  color: rgba(27, 27, 27, .4);
+  transform: translateY(0);
+  transform: scale(1);
+}
+
+#task-title-input-label {
+  font-size: 10px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  margin-left: 5px;
+  position: absolute;
+  margin: 5px 5px; 
+  color: transparent;
+  /* color: rgba(27, 27, 27, .5); */
+  transform: translateY(15px);
+  transform: scale(0);
+  transition: .3s all ease;
+}
+
+#add-description-button {
+  width: 50%;
+  align-self: flex-end;
+  background: transparent;
+  border: none;
+  margin-top: 4px;
+}
+#add-description-button:hover {
+  text-decoration: underline;
   cursor: pointer;
+}
+
+#add-task-button {
+  cursor: pointer;
+  width: 40%;
+  height: 35px;
+  align-self: center;
+  color: #eee;
+  background: #1b1b1b;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+@keyframes input-focus {
+  from {
+    width: 90%;
+  }
+  to {
+    width: 100%;
+  }
 }
