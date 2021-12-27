@@ -73,7 +73,7 @@ body {
 #task-title-input:focus::placeholder {
   color: transparent;
 }
-#task-title-input:focus + #task-title-input-label {
+#task-title-input:focus + #task-title-input-label, #task-title-input:not(#task-title-input:placeholder-shown) + #task-title-input-label {
   color: rgba(27, 27, 27, .4);
   transform: translateY(0);
   transform: scale(1);
@@ -94,7 +94,7 @@ body {
 }
 
 #add-description-button {
-  width: 50%;
+  width: auto;
   align-self: flex-end;
   background: transparent;
   border: none;
