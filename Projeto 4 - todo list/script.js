@@ -14,6 +14,11 @@ const addDescriptionButton = document.getElementById('add-description-button');
 const addDescriptionInput = document.getElementById('description-input');
 
 addDescriptionButton.onclick = () => {
-  if(!addDescriptionInput.classList.contains('on')) addDescriptionInput.classList.add('on');
-  else addDescriptionInput.classList.remove('on');
+  if(!addDescriptionInput.classList.contains('on')) {
+    addDescriptionInput.classList.add('on');
+    addDescriptionButton.innerText = 'remove description';
+  } else {
+    addDescriptionInput.classList.remove('on');
+    addDescriptionButton.innerText = 'add description';
+  }
 }

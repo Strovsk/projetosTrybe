@@ -130,7 +130,10 @@ body {
   background: transparent;
   border: none;
   margin-top: 4px;
+  position: relative;
+  margin-top: 20px;
 }
+
 #add-description-button:hover {
   text-decoration: underline;
   cursor: pointer;
@@ -150,9 +153,15 @@ body {
 }
 
 #description-input {
+  width: 0;
+  height: 0;
   transform: scale(0);
+  margin-top: 0;
+  transition: width, height .4s ease;
 }
 #description-input.on {
+  width: auto;
+  height: 30px;
   transform: scale(1);
 }
 
