@@ -15,14 +15,16 @@
       <h1 id="title-app">My Tasks</h1>
     </section>
     <section id="options">
-      <input name="title-input" type="text" id="task-title-input" placeholder="task title">
-      <label id="task-title-input-label" for="title-input">task title</label>
+      <input class="add-task-input" name="title-input" type="text" id="task-title-input" placeholder="task title">
+      <label class="add-task-label" id="task-title-input-label" for="title-input">task title</label>
       <button type="button" id="add-description-button">add description</button>
+      <input class="add-task-input" name="description-input" type="text" id="description-input" placeholder="description">
+      <label class="add-task-label" id="task-description-input-label" for="description-input">description</label>
       <button type="button" id="add-task-button">Add</button>
     </section>
   </main>
   <ol id="lista-tarefas"></ol>
   <script src="./core/task/js/task.js"></script>
-  <!-- <script src="script.js"></script> -->
+  <script src="script.js"></script>
 </body>
 </html>

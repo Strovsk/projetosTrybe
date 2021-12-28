@@ -42,7 +42,7 @@ body {
   position: relative;
 }
 
-#task-title-input {
+.add-task-input {
   height: 30px;
   width: 100%;
   border: none;
@@ -53,33 +53,64 @@ body {
   margin-top: 20px;
   transition: .1s all ease;
 }
-#task-title-input:focus {
+.add-task-input:focus {
   border: none;
   outline: none;
   border-bottom: 3px solid #000;
   animation: input-focus .1s ease;
 }
-#task-title-input:focus::selection {
+.add-task-input:focus::selection {
   background: #666;
   color: #eee;
 }
-#task-title-input::placeholder {
+.add-task-input::placeholder {
   font-size: 17px;
   font-family: Quicksand, sans-serif;
   font-weight: 700;
   color: rgba(27, 27, 27, .5);
   margin-left: 5px;
 }
-#task-title-input:focus::placeholder {
+.add-task-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+.add-task-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+.add-task-input:focus::placeholder {
   color: transparent;
 }
-#task-title-input:focus + #task-title-input-label, #task-title-input:not(#task-title-input:placeholder-shown) + #task-title-input-label {
+.add-task-input:focus + .add-task-label, .add-task-input:not(.add-task-input:placeholder-shown) + .add-task-label {
   color: rgba(27, 27, 27, .7);
   transform: translateY(0);
   transform: scale(1);
 }
 
-#task-title-input-label {
+.add-task-label {
+  font-size: 11px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  margin-left: 5px;
+  position: absolute;
+  margin: 5px 5px; 
+  color: transparent;
+  /* color: rgba(27, 27, 27, .5); */
+  transform: translateY(15px);
+  transform: scale(0);
+  transition: .3s all ease;
+}
+#task-description-input-label {
+  top: 40%;
+}
+
+.add-task-label {
   font-size: 11px;
   font-family: Quicksand, sans-serif;
   font-weight: 700;
@@ -116,6 +147,13 @@ body {
   font-family: Quicksand, sans-serif;
   font-size: 20px;
   margin-top: 10px;
+}
+
+#description-input {
+  transform: scale(0);
+}
+#description-input.on {
+  transform: scale(1);
 }
 
 @keyframes input-focus {
