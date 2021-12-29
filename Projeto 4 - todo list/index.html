@@ -23,8 +23,21 @@
       <button type="button" id="add-task-button">Add</button>
     </section>
   </main>
-  <ol id="lista-tarefas"></ol>
+
+  <section id="list-area">
+    
+    <div class="dropdown">
+      <div class="dropdown-title">List</div>
+      <ul class="dropdown-options">
+        <li class="dropdown-li">Select all</li>
+        <li class="dropdown-li">Remove all finished tasks</li>
+      </ul>
+    </div>
+
+    <ol id="lista-tarefas"></ol>
+  </section>
   <script src="./core/task/js/task.js"></script>
+  <script src="./core/tasklist/js/tasklist.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

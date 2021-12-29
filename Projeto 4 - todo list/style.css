@@ -6,6 +6,8 @@
 
 body {
   background-color: #e0e0e0;
+  display: flex;
+  align-items: flex-start;
 }
 
 #title-logo {
@@ -172,4 +174,8 @@ body {
   to {
     width: 100%;
   }
+}
+
+#list-area {
+  width: 50%;
 }

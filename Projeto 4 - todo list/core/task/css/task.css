@@ -49,7 +49,8 @@ ul {
 .task-li {
   font-family: Quicksand, sans-serif;
   font-weight: 400;
-  width: 45%;
+  width: 90%;
+  margin-left: 8px;
   height: 20%;
   list-style: none;
   padding: 30px;
