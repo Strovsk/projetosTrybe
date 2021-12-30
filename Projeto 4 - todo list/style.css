@@ -8,6 +8,7 @@ body {
   background-color: #e0e0e0;
   display: flex;
   align-items: flex-start;
+  overflow-y: hidden;
 }
 
 #title-logo {
@@ -185,5 +186,5 @@ body {
 }
 #lista-tarefas {
   overflow-y: hidden;
-  height: 100vh;
+  height: 88vh;
 }

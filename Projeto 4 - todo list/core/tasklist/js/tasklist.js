@@ -9,7 +9,8 @@ class taskList {
     this.container.appendChild(newTask.getLi());
     newTask.checkTaskScrollHeight();
 
-    window.cScroll.setScrollOnff();
+    window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
+    window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
   }
 }
 

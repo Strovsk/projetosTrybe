@@ -1,5 +1,6 @@
 :root {
   --scrollbar-width: 20px;
+  --scrollbar-height-on-hover: 0px;
 }
 
 .list-scroll-container {
@@ -33,13 +34,17 @@
   background: black;
   border-radius: 50%;
   position: absolute;
-  transition: border-radius border.1s ease;
+  transition: border-radius .1s ease, height .5s ease;
+}
+#ball.hover-behavior {
+  border-radius: 0px;
+  height: var(--scrollbar-height-on-hover);
 }
 #bar-container:hover > #ball {
-  border-radius: 0; 
+  border-radius: 0px;
+  height: var(--scrollbar-height-on-hover);
 }
 #bar-container:hover > #bar {
   width: var(--scrollbar-width);
   background-color: rgba(27, 27, 27, .3);
-  border-radius: 0; 
 }
