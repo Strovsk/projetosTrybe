@@ -181,6 +181,7 @@ class Task {
       this.containerElm.classList.add('to-delete');
       this.containerElm.addEventListener('animationend', () => {
         this.delLi();
+        window.cScroll.setScrollOnff(); // chamada para a animação do scroll
       });
     }
   }

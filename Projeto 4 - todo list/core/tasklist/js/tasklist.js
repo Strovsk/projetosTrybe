@@ -8,6 +8,8 @@ class taskList {
     this.tasks.push(newTask);
     this.container.appendChild(newTask.getLi());
     newTask.checkTaskScrollHeight();
+
+    window.cScroll.setScrollOnff();
   }
 }
 

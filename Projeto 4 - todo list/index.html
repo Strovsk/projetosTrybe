@@ -5,9 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./core/task/css/task.css">
+  <link rel="stylesheet" href="./assets/lb_scroll/css/lbscroll.css">
   <link rel="stylesheet" href="style.css">
   <title>Minha Lista de Tarefas</title>
+
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+  <script
+    src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"
+    integrity="sha256-hlKLmzaRlE8SCJC1Kw8zoUbU8BxA+8kR3gseuKfMjxA="
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
   <main id="option-panel">
     <section id="title-logo">
@@ -34,8 +45,16 @@
       </ul>
     </div>
 
-    <ol id="lista-tarefas"></ol>
+    <div class="list-scroll-container" id="scroll-master-container">
+      <ol id="lista-tarefas" class="scrollable-content"></ol>
+      <div id="bar-container">
+        <div id="bar"></div>
+        <div id="ball"></div>
+      </div>
+    </div>
   </section>
+
+  <script src="./assets/lb_scroll/js/lbscroll.js"></script>
   <script src="./core/task/js/task.js"></script>
   <script src="./core/tasklist/js/tasklist.js"></script>
   <script src="script.js"></script>

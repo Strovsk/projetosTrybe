@@ -15,6 +15,10 @@ body {
   align-items: center;
   flex-flow: column;
   height: 50%;
+  pointer-events: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 #option-panel {
@@ -178,4 +182,8 @@ body {
 
 #list-area {
   width: 50%;
+}
+#lista-tarefas {
+  overflow-y: hidden;
+  height: 100vh;
 }
