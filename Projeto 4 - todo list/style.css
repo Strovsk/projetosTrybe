@@ -185,6 +185,11 @@ body {
   width: 50%;
 }
 #lista-tarefas {
-  overflow-y: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   height: 88vh;
+}
+#lista-tarefas::-webkit-scrollbar {
+  display: none;
 }

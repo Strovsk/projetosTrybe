@@ -12,17 +12,26 @@ class customScroll { // Esta classe controla o comportamento do scroll
     this.barId = barId;
     this.bar = document.getElementById(this.barId);
 
+    // Para evitar conflito em que os eventos onmouseenter e onscroll executem suas funções juntos
+    this.activeLeftMouseButton = false; 
+
     this.ballBehavior();
     this.setScrollOnff();
     this.updateBallHeight();
-    this.updateMiniBallPosition();
+    this.ballActiveAction();
+
+    this.contentArea.onscroll = () => {
+      if(!this.activeLeftMouseButton) this.updateMiniBallPosition();
+    }
   }
-  ballBehavior() { // Esse método adiciona a propriedade de arrastar a bola
+  // Esse método adiciona a propriedade de arrastar a bola
+  ballBehavior() {
     $('#'+this.ballId).draggable({
       axis: 'y', 
       containment: 'parent',
       start: (e, u) => {
         this.ball.classList.add('hover-behavior');
+        this.activeLeftMouseButton = true;
       },
       stop: (e, u) => {
         this.ball.classList.remove('hover-behavior');
@@ -30,6 +39,7 @@ class customScroll { // Esta classe controla o comportamento do scroll
         const percent = this.contentArea.scrollTop / deltaHeight;
         const currentTopBall = this.barContainer.getBoundingClientRect().height;
         this.ball.style.top = `${percent * currentTopBall - (this.miniBallHeight / 2)}px`;
+        this.activeLeftMouseButton = false;
       },
       drag: (e, u) => {
         // console.log(u.position, this.ball.offsetTop);
@@ -58,6 +68,7 @@ class customScroll { // Esta classe controla o comportamento do scroll
     return updatedBallSize;
     // console.log((contentHeight / contentScrollHeight) * barHeight);
   }
+  // sincroniza a posição do scroll no container de acordo com a posição do ball
   syncScrollContent() {
     const contHeight = this.contentArea.getBoundingClientRect().height;
     const contMaxTopPosition = this.contentArea.scrollHeight - contHeight;
@@ -66,12 +77,24 @@ class customScroll { // Esta classe controla o comportamento do scroll
 
     this.contentArea.scrollTo(0, this.ball.offsetTop / ballMaxTopPosition * contMaxTopPosition);
   }
+  // atualiza a posição da bolinha de acordo com a posição do container
   updateMiniBallPosition() {
+    const deltaHeight = this.contentArea.scrollHeight - this.contentArea.getBoundingClientRect().height;
+    const percent = this.contentArea.scrollTop / deltaHeight;
+    const barContainerHeight = this.barContainer.getBoundingClientRect().height;
+    // console.log(percent, barContainerHeight);
+    this.ball.style.top = `${percent * barContainerHeight - (this.miniBallHeight / 2)}px`;
+  }
+  // atualiza a posição da bola expandida de acordo com a posição do container
+  updateExpandedBallPosition() {
+    const percent = this.contentArea.scrollTop / this.contentArea.scrollHeight;
+    const barContainerHeight = this.barContainer.getBoundingClientRect().height;
+    // console.log(percent, barContainerHeight);
+    this.ball.style.top = `${percent * barContainerHeight}px`;
+  }
+  ballActiveAction() {
     this.barContainer.onmouseenter = () => {
-      const percent = this.contentArea.scrollTop / this.contentArea.scrollHeight;
-      const currentTopBall = this.barContainer.getBoundingClientRect().height;
-      console.log(percent, currentTopBall);
-      this.ball.style.top = `${percent * currentTopBall}px`;
+      this.updateExpandedBallPosition();
     }
   }
 }
