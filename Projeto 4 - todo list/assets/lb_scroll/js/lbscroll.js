@@ -15,6 +15,7 @@ class customScroll { // Esta classe controla o comportamento do scroll
     this.ballBehavior();
     this.setScrollOnff();
     this.updateBallHeight();
+    this.updateMiniBallPosition();
   }
   ballBehavior() { // Esse método adiciona a propriedade de arrastar a bola
     $('#'+this.ballId).draggable({
@@ -25,8 +26,10 @@ class customScroll { // Esta classe controla o comportamento do scroll
       },
       stop: (e, u) => {
         this.ball.classList.remove('hover-behavior');
-        const newPos = this.ball.offsetTop + this.updateBallHeight();
-        this.ball.style.top = `${newPos - this.miniBallHeight}px`;
+        const deltaHeight = this.contentArea.scrollHeight - this.contentArea.getBoundingClientRect().height;
+        const percent = this.contentArea.scrollTop / deltaHeight;
+        const currentTopBall = this.barContainer.getBoundingClientRect().height;
+        this.ball.style.top = `${percent * currentTopBall - (this.miniBallHeight / 2)}px`;
       },
       drag: (e, u) => {
         // console.log(u.position, this.ball.offsetTop);
@@ -62,6 +65,14 @@ class customScroll { // Esta classe controla o comportamento do scroll
     const ballMaxTopPosition = this.bar.getBoundingClientRect().height - ballHeight;
 
     this.contentArea.scrollTo(0, this.ball.offsetTop / ballMaxTopPosition * contMaxTopPosition);
+  }
+  updateMiniBallPosition() {
+    this.barContainer.onmouseenter = () => {
+      const percent = this.contentArea.scrollTop / this.contentArea.scrollHeight;
+      const currentTopBall = this.barContainer.getBoundingClientRect().height;
+      console.log(percent, currentTopBall);
+      this.ball.style.top = `${percent * currentTopBall}px`;
+    }
   }
 }
 
