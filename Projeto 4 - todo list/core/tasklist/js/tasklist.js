@@ -11,6 +11,7 @@ class taskList {
 
     window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
     window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
+    window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
   }
 }
 
