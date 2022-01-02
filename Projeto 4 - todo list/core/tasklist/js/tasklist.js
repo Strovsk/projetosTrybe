@@ -4,6 +4,7 @@ class taskList {
     this.container = document.getElementById(containerId);
     this.currentSelected = -1;
   }
+  // adiciona uma tarefa
   addTask(title, description) {
     let newTask = new Task(title, description);
     newTask.selectSetIt();
@@ -23,18 +24,21 @@ class taskList {
   updateList() {
     return false;
   }
+  // retorna o índice do card atualmente selecionado na lista
   getCurrentSelectedIndex() {
     for (let index = 0; index < this.tasks.length; index += 1) {
       if (this.tasks[index].isSelected) return index;
     }
     return -1;
   }
+  // adiciona as ações que devem ser executadas dentro da lista quando uma terafa é clicada
   taskClickAction(task) {
     task.getLi().addEventListener('click', (e) => {
       if (this.currentSelected != -1) this.tasks[this.currentSelected].selectRemove();
       this.currentSelected = this.getCurrentSelectedIndex();
     });
   }
+  // adiciona as ações que devem ser executadas dentro da lista quando uma terafa é removida
   taskRemoveAction(task) {
     task.getTrashButton().addEventListener('click', () => {
       this.tasks.pop(task);
