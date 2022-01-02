@@ -20,9 +20,6 @@ class taskList {
     window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
     window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
   }
-  updateList() {
-    return false;
-  }
   // retorna o índice do card atualmente selecionado na lista
   getCurrentSelectedIndex() {
     for (let index = 0; index < this.tasks.length; index += 1) {
@@ -44,6 +41,42 @@ class taskList {
       this.currentSelected = -1;
     });
   }
+
+  updateList() {
+    this.container.innerHTML = '';
+    this.tasks.forEach((item) => {
+      this.container.appendChild(item.getLi());
+    });
+  }
+  filterListBy(type = 'title', order = 'auto') {
+    const filterListTypes = {
+      'title': () => {
+        this.tasks.sort(this.filterCompareTitleAlpha);
+      },
+      'description': () => {
+        this.tasks.sort(this.filterCompareDescripitionAlpha);
+      },
+    }
+    filterListTypes[type]();
+    if(order == 'reverse') this.tasks = this.tasks.reverse();
+    this.updateList();
+  }
+  filterCompareTitleAlpha(itemA, itemB) {
+    if (itemA.title < itemB.title ) return -1;
+    if (itemA.title > itemB.title ) return 1;
+    return 0;
+  }
+  filterCompareDescripitionAlpha(itemA, itemB) {
+    if (itemA.description < itemB.description ) return -1;
+    if (itemA.description > itemB.description ) return 1;
+    return 0;
+  }
 }
 
 const listOfTasks = new taskList('lista-tarefas');
+listOfTasks.addTask('b', 'g');
+listOfTasks.addTask('d', 'f');
+listOfTasks.addTask('a', 'h');
+listOfTasks.addTask('c', 'j');
+listOfTasks.addTask('e', 'i');
+listOfTasks.filterListBy('description');
