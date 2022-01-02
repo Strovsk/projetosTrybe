@@ -29,11 +29,8 @@ class taskList {
   }
   taskClickAction(task) {
     task.getLi().addEventListener('click', (e) => {
-      const currentSelect = this.getCurrentSelectedIndex();
-      let canRemoveSelection = this.currentSelected != -1;
-      canRemoveSelection &&= this.currentSelected != currentSelect;
-      if (canRemoveSelection) this.tasks[this.currentSelected].selectRemove();
-      this.currentSelected = currentSelect;
+      if (this.currentSelected != -1) this.tasks[this.currentSelected].selectRemove();
+      this.currentSelected = this.getCurrentSelectedIndex();
     });
   }
 }
