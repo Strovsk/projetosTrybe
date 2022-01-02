@@ -1,3 +1,5 @@
+@import url(./css/addButtonStyle.css);
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -144,19 +146,6 @@ body {
 #add-description-button:hover {
   text-decoration: underline;
   cursor: pointer;
-}
-
-#add-task-button {
-  cursor: pointer;
-  width: 40%;
-  height: 35px;
-  align-self: center;
-  color: #eee;
-  background: #1b1b1b;
-  border: none;
-  font-family: Quicksand, sans-serif;
-  font-size: 20px;
-  margin-top: 10px;
 }
 
 #description-input {
