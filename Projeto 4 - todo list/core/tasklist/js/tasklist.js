@@ -33,6 +33,9 @@ class taskList {
       this.currentSelected = this.getCurrentSelectedIndex();
     });
   }
+  taskRemoveAction(task) {
+    return false;
+  }
 }
 
 const listOfTasks = new taskList('lista-tarefas');
