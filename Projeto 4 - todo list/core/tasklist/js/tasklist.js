@@ -10,7 +10,6 @@ class taskList {
     newTask.selectSetIt();
     
     this.tasks.push(newTask);
-    console.log(this.tasks);
     this.container.appendChild(newTask.getLi());
     newTask.checkTaskScrollHeight();
 

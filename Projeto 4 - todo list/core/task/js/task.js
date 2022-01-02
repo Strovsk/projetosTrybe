@@ -15,6 +15,7 @@ class Task {
     this.isSelected = false;
     this.isExpanded = false;
     this.liSizeFromViewHeight = .15;
+    
     // Elements section
     this.containerElm;
     this.titleDateElm;
