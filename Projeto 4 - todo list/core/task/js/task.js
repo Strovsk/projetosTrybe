@@ -50,12 +50,15 @@ class Task {
 
     this.genElement();
   }
+  // atualiza o titulo de uma tarefa
   setTitle(title) {
       this.title = title;
   }
+  // atualiza a descrição de uma tarefa
   setDescription(description) {
       this.description = description;
   }
+  // retona as informações de dia e hora da criação/atualização de uma task
   getDayInfo() {
       const d = new Date();
       return {
@@ -66,13 +69,16 @@ class Task {
           min: d.getMinutes(),
       }
   }
+  // retorna uma string formatada com a informação de data de criação ou de atualização
   formatDate(type = 'update') {
     if(type === 'create') return `Data criação\n${this.creationDate.day}/${this.creationDate.month}/${this.creationDate.year}`;
     return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year}`;
   }
+  // atualiza a data da ultima atualização da task
   updateLastEdit() {
-      this.updateDate = this.getDayInfo();
+    this.updateDate = this.getDayInfo();
   }
+  // se o texto for grande, será mostrado o botao 'exibir completo'
   checkTaskScrollHeight() {
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
     if(bufferCheck) {
@@ -80,6 +86,7 @@ class Task {
       this.descriptionElm.style.height = 'auto';
     }
   }
+  // gera todas as informações no topo do card
   genTopTitleDate() {
     this.titleDateElm = document.createElement('section');
     this.titleDateElm.classList.add('task-date');
@@ -92,6 +99,7 @@ class Task {
     this.titleDateElm.appendChild(this.titleElm);
     this.titleDateElm.appendChild(this.dateElm);
   }
+  // gera todas as informações na parte central do card
   genMidCompleteDescription() {
     this.completeElm = document.createElement('p');
     this.completeElm.innerText = 'Tarefa Completa!';
@@ -100,6 +108,7 @@ class Task {
     this.descriptionElm.classList.add('description');
     this.descriptionElm.innerText = this.description;
   }
+  // gera todas as informações dispostas na parte inferior do card
   genBottomIcons() {
     this.trashContainerElm = document.createElement('span');
     this.trashContainerElm.classList.add('icon-background');
@@ -117,11 +126,13 @@ class Task {
     this.iconsContainerElm.appendChild(this.doneContainerElm);
     this.iconsContainerElm.classList.add('icons');
   }
+  // gera o botão que diz 'mostrar texto'
   genExpandButton () {
     this.expandElm = document.createElement('button');
     this.expandElm.innerText = 'ver texto';
     this.expandElm.classList.add('view-more');
   }
+  // gera o card e adiciona todas as informações de top, mid e bottom 
   genElement() {
     this.containerElm = document.createElement('li');
     this.containerElm.classList.add('task-li');
@@ -142,16 +153,15 @@ class Task {
 
     this.addCardAnimation();
   }
-  updateElement() {
-    if (elm === null || elm === undefined) reuturn;
-    return false;
-  }
+  // retorna o elemento HTML do card
   getLi() {
     return this.containerElm;
   }
+  // retorna o elemento HTML do botão de remover tarefa
   getTrashButton() {
     return this.trashContainerElm;
   }
+  // calcula e adiciona a animação de movimento do card ao passar o mouse
   addCardAnimation() {
     this.containerElm.onmousemove = (e) => {
       // this.containerElm.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(238, 238, 238, 1),rgba(0, 0, 0, .1))`;
@@ -173,12 +183,14 @@ class Task {
       this.containerElm.style.transform = 'rotateX(0) rotateY(0)';
     };
   }
+  // adiciona a ação de completar a tarefa quando clicamos no botão done
   doneTaskButtonAction() {
     this.doneContainerElm.onclick = (e) => {
       // console.log('cliquei');
       this.doneSetIt();
     }
   }
+  // adiciona a ação de remover a tarefa quando clicamos no botão done
   deleteTaskButtonAction() {
     this.trashContainerElm.onclick = () => {
       this.containerElm.classList.add('to-delete');
@@ -190,6 +202,7 @@ class Task {
       });
     }
   }
+  // cria através do javascript o svg do botão de completar tarefa
   createDoneSvg() {
     this.doneIconSvgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     this.doneIconSvgContainer.setAttribute('width', '30');
@@ -214,6 +227,7 @@ class Task {
     this.doneIconSvgG.appendChild(this.doneIconSvgRect);
     this.doneIconSvgContainer.appendChild(this.doneIconSvgG);
   }
+  // cria através do javascript o svg do botão de remover tarefa
   createTrashSvg() {
     this.trashIconSvgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     //width="30" height="30" viewBox="0 0 200 200"
@@ -265,9 +279,12 @@ class Task {
   }
 
   // Basic operations
+
+  // deleta o card
   delLi() {
     this.containerElm.remove();
   }
+  // altera a cor do botão de completar tarefa quando clicado para verde e marca a classe como completa
   doneSetIt() {
     if(!this.isCompleted) {
       this.completeElm.classList.add('on');
@@ -278,6 +295,7 @@ class Task {
     }
     this.isCompleted = !this.isCompleted;
   }
+  // Expande ou minimza o texto quando o botão mostrar texto é clicado
   expandDescription() {
     this.expandElm.onclick = () => {
       if(!this.isExpanded) {
@@ -292,6 +310,7 @@ class Task {
       this.isExpanded = !this.isExpanded;
     }
   }
+  // quando o card é clicado, adiciona animação e marca o card como selecionado
   selectSetIt() {
     this.containerElm.addEventListener('click', () => {
       this.selectAdd();
@@ -301,10 +320,12 @@ class Task {
       }
     });
   }
+  // marca a tarefa como não selecionada
   selectRemove() {
     this.isSelected = false;
     this.containerElm.classList.remove('selected');
   }
+  // marca tarefa como selecionada
   selectAdd() {
     this.isSelected = true;
     this.containerElm.classList.add('selected');
