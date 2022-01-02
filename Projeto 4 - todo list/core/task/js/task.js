@@ -149,6 +149,9 @@ class Task {
   getLi() {
     return this.containerElm;
   }
+  getTrashButton() {
+    return this.trashContainerElm;
+  }
   addCardAnimation() {
     this.containerElm.onmousemove = (e) => {
       // this.containerElm.style.background = `radial-gradient(circle at ${e.clientX}px ${e.clientY}px, rgba(238, 238, 238, 1),rgba(0, 0, 0, .1))`;

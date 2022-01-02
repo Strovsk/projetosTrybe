@@ -9,9 +9,11 @@ class taskList {
     newTask.selectSetIt();
     
     this.tasks.push(newTask);
+    console.log(this.tasks);
     this.container.appendChild(newTask.getLi());
     newTask.checkTaskScrollHeight();
 
+    this.taskRemoveAction(newTask);
     this.taskClickAction(newTask);
 
     window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
@@ -34,7 +36,10 @@ class taskList {
     });
   }
   taskRemoveAction(task) {
-    return false;
+    task.getTrashButton().addEventListener('click', () => {
+      this.tasks.pop(task);
+      this.currentSelected = -1;
+    });
   }
 }
 
