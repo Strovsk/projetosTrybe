@@ -125,7 +125,7 @@ class Task {
   genElement() {
     this.containerElm = document.createElement('li');
     this.containerElm.classList.add('task-li');
-    this.selectSetIt();
+    // this.selectSetIt();
 
     this.genTopTitleDate();
     this.containerElm.appendChild(this.titleDateElm);
@@ -288,17 +288,21 @@ class Task {
     }
   }
   selectSetIt() {
-    this.containerElm.onclick = () => {
-      this.isSelected = true;
+    this.containerElm.addEventListener('click', () => {
+      this.selectAdd();
       this.containerElm.classList.add('clicked');
-      this.containerElm.classList.add('selected');
       this.containerElm.onanimationend = () => {
         this.containerElm.classList.remove('clicked');
       }
-    }
+    });
   }
   selectRemove() {
     this.isSelected = false;
+    this.containerElm.classList.remove('selected');
+  }
+  selectAdd() {
+    this.isSelected = true;
+    this.containerElm.classList.add('selected');
   }
 }
 
