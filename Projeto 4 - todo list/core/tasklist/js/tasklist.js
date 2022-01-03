@@ -65,7 +65,10 @@ class taskList {
         this.tasks.sort(this.filterCompareDescripitionAlpha);
       },
       'creation': () => {
-        this.tasks.sort(this.filterCompareDate);
+        this.tasks.sort(this.filterCompareCreationDate);
+      },
+      'completed': () => {
+        this.tasks.sort(this.filterCompareCompleted);
       },
     }
     filterListTypes[type]();
@@ -82,7 +85,7 @@ class taskList {
     if (itemA.description > itemB.description ) return 1;
     return 0;
   }
-  filterCompareDate(itemA, itemB) {
+  filterCompareCreationDate(itemA, itemB) {
     if (itemA.creationDate.year < itemB.creationDate.year) return -1;
     if (itemA.creationDate.year > itemB.creationDate.year) return 1;
 
@@ -104,6 +107,11 @@ class taskList {
     if (itemA.creationDate.ms < itemB.creationDate.ms) return -1;
     if (itemA.creationDate.ms > itemB.creationDate.ms) return 1;
 
+    return 0;
+  }
+  filterCompareCompleted(itemA, itemB) {
+    if (itemA.isCompleted > itemB.isCompleted ) return -1;
+    if (itemA.isCompleted < itemB.isCompleted ) return 1;
     return 0;
   }
 }

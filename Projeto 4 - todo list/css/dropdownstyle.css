@@ -34,7 +34,7 @@
   z-index: 2;
   margin: 0;
   /* top: -200px; ativar quando as opções estiverem completas*/
-  top: -120px;
+  top: -160px;
 }
 .dropdown-options.expand {
   transform: scale(1);
