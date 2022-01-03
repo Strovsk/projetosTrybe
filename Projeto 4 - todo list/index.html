@@ -33,6 +33,7 @@
       <label class="add-task-label" id="task-description-input-label" for="description-input">description</label>
       <button type="button" id="add-task-button">Add</button>
     </section>
+
     <div class="dropdown" id="filter-options">
       <div class="dropdown-title">filter by:</div>
       <div class="dropdown-selected-option">
@@ -46,6 +47,18 @@
         </ul>
       </div>
     </div>
+
+    <div class="dropdown" id="filter-direction">
+      <div class="dropdown-title">filter direction:</div>
+      <div class="dropdown-selected-option">
+        <p>auto</p>
+        <ul class="dropdown-options">
+          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('auto');">auto</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('reverse');">reverse</li>
+        </ul>
+      </div>
+    </div>
+
   </main>
 
   <section id="list-area">

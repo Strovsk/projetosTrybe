@@ -53,6 +53,9 @@ class taskList {
       this.container.appendChild(item.getLi());
     });
   }
+  filterInvertListDirection(direction = 'auto') {
+    return this.filterListBy(this.filterMode, direction);
+  }
   filterListBy(type = 'title', order = 'auto') {
     // console.log('chamada do filtro');
     this.filterMode = type;

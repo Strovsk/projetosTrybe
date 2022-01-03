@@ -211,10 +211,9 @@ body {
   box-shadow: 5px 5px 15px 0 rgba(27, 27, 27, .5);
 }
 
-#filter-options {
+#filter-options, #filter-direction {
   align-self: flex-start;
-  margin-right: 15px;
-  height: 10vh;
+  /* margin-right: 15px;*/
   margin-left: 15px;
   flex-wrap: wrap;
 }

@@ -48,10 +48,11 @@ function checkTaskTitleInput() {
   addTaskButton.classList.remove('disable');
 }
 
-function dropdownSelectAction(dropdownContainerId) {
+function dropdownSelectAction(dropdownContainerId, optionsPosition) {
   const container = document.getElementById(dropdownContainerId);
   const selectArea = container.children[1].children[0];
   const optionsList = container.children[1].children[1];
+  optionsList.style.top = `${optionsPosition}px`;
   selectArea.onclick = () => {
     if (optionsList.classList.contains('expand')) optionsList.classList.remove('expand');
     else optionsList.classList.add('expand');
@@ -67,4 +68,5 @@ function dropdownOptionClickAction(ulElement, selectedElement) {
     });
   }
 }
-dropdownSelectAction('filter-options');
+dropdownSelectAction('filter-options', -200);
+dropdownSelectAction('filter-direction', -80);
