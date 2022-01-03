@@ -41,11 +41,11 @@ addTaskTitle.onkeyup = () => {
 function checkTaskTitleInput() {
   if (addTaskTitle.value == '') {
     addTaskButton.disabled = true;
-    addTaskButton.classList.add('disable');
+    // addTaskButton.classList.add('disable');
     return;
   } 
   addTaskButton.disabled = false;
-  addTaskButton.classList.remove('disable');
+  // addTaskButton.classList.remove('disable');
 }
 
 function dropdownChangeState(element, classeName) {

@@ -1,0 +1,11 @@
+#list-area-bottom {
+   position: relative;
+}
+
+#edit-task-area {
+  position: absolute;
+  width: 450px;
+  height: 100px;
+  background: blue;
+  bottom: 80px;
+}

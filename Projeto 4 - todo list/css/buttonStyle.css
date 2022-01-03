@@ -11,7 +11,7 @@
   margin-top: 10px;
 }
 
-#add-task-button.disable {
+#add-task-button:disabled {
   background-color: #444444;
 }
 #add-task-button.disable:hover::before {
@@ -24,4 +24,21 @@
   border-radius: 5px;
   top: 104%;
   cursor: auto;
+}
+
+#edit-task-button {
+  cursor: pointer;
+  width: auto;
+  padding: 0 20px;
+  height: 35px;
+  align-self: center;
+  color: #eee;
+  background: #1b1b1b;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-size: 15px;
+  margin-left: 10px;
+}
+#edit-task-button:disabled {
+  background-color: #444444;
 }
