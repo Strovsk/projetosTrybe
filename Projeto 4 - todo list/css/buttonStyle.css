@@ -14,7 +14,7 @@
 #add-task-button:disabled {
   background-color: #444444;
 }
-#add-task-button.disable:hover::before {
+#add-task-button:hover:disabled::before {
   content: 'Você não pode adicionar uma tarefa sem título';
   display: block;
   font-size: 10px;

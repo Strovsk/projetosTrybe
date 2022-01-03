@@ -74,3 +74,27 @@ function dropdownOptionClickAction(ulElement, selectedElement) {
 }
 dropdownSelectAction('filter-options', -202);
 dropdownSelectAction('filter-direction', -82);
+
+function editAreaPosition(elementFrameId, elementReferenceId) {
+  const refElm = document.getElementById(elementReferenceId);
+  const frameElm = document.getElementById(elementFrameId);
+  const refElmBoundings = refElm.getBoundingClientRect();
+  const frameElmBoundings = frameElm.getBoundingClientRect();
+  frameElm.style.left = `${- frameElmBoundings.width / 3 - refElmBoundings.width / 2}px`;
+  frameElm.style.bottom = `${refElmBoundings.height * 1.5}px`;
+}
+
+editAreaPosition('edit-task-area', 'edit-task-button');
+
+function changeFrameAreaState() {
+  const frameElm = document.getElementById('edit-task-area');
+  if(frameElm.classList.contains('disabled')) {
+    frameElm.classList.remove('disabled');
+  } else {
+    frameElm.classList.add('disabled');
+  }
+}
+
+document.getElementById('edit-task-button').onclick = () => {
+  changeFrameAreaState();
+}
