@@ -72,5 +72,5 @@ function dropdownOptionClickAction(ulElement, selectedElement) {
     });
   }
 }
-dropdownSelectAction('filter-options', -200);
-dropdownSelectAction('filter-direction', -80);
+dropdownSelectAction('filter-options', -202);
+dropdownSelectAction('filter-direction', -82);
