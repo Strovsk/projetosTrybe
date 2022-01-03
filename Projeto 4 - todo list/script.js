@@ -48,14 +48,18 @@ function checkTaskTitleInput() {
   addTaskButton.classList.remove('disable');
 }
 
+function dropdownChangeState(element, classeName) {
+  if (element.classList.contains(classeName)) element.classList.remove(classeName);
+  else element.classList.add(classeName);
+}
+
 function dropdownSelectAction(dropdownContainerId, optionsPosition) {
   const container = document.getElementById(dropdownContainerId);
   const selectArea = container.children[1].children[0];
   const optionsList = container.children[1].children[1];
   optionsList.style.top = `${optionsPosition}px`;
   selectArea.onclick = () => {
-    if (optionsList.classList.contains('expand')) optionsList.classList.remove('expand');
-    else optionsList.classList.add('expand');
+    dropdownChangeState(optionsList, 'expand');
   }
   dropdownOptionClickAction(optionsList, selectArea);
 }
