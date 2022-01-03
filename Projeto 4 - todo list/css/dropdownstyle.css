@@ -33,8 +33,7 @@
   transform-origin: center 100%;
   z-index: 2;
   margin: 0;
-  /* top: -200px; ativar quando as opções estiverem completas*/
-  top: -160px;
+  top: -200px;
 }
 .dropdown-options.expand {
   transform: scale(1);

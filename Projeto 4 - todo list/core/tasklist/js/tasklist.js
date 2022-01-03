@@ -54,7 +54,7 @@ class taskList {
     });
   }
   filterListBy(type = 'title', order = 'auto') {
-    console.log('chamada do filtro');
+    // console.log('chamada do filtro');
     this.filterMode = type;
     this.filterDirection = order;
     const filterListTypes = {
@@ -69,6 +69,9 @@ class taskList {
       },
       'completed': () => {
         this.tasks.sort(this.filterCompareCompleted);
+      },
+      'updateDate': () => {
+        this.tasks.sort(this.filterCompareUpdateDate);
       },
     }
     filterListTypes[type]();
@@ -106,6 +109,30 @@ class taskList {
     
     if (itemA.creationDate.ms < itemB.creationDate.ms) return -1;
     if (itemA.creationDate.ms > itemB.creationDate.ms) return 1;
+
+    return 0;
+  }
+  filterCompareUpdateDate(itemA, itemB) {
+    if (itemA.updateDate.year < itemB.updateDate.year) return -1;
+    if (itemA.updateDate.year > itemB.updateDate.year) return 1;
+
+    if (itemA.updateDate.month < itemB.updateDate.month) return -1;
+    if (itemA.updateDate.month > itemB.updateDate.month) return 1;
+
+    if (itemA.updateDate.day < itemB.updateDate.day) return -1;
+    if (itemA.updateDate.day > itemB.updateDate.day) return 1;
+    
+    if (itemA.updateDate.hour < itemB.updateDate.hour) return -1;
+    if (itemA.updateDate.hour > itemB.updateDate.hour) return 1;
+    
+    if (itemA.updateDate.min < itemB.updateDate.min) return -1;
+    if (itemA.updateDate.min > itemB.updateDate.min) return 1;
+    
+    if (itemA.updateDate.sec < itemB.updateDate.sec) return -1;
+    if (itemA.updateDate.sec > itemB.updateDate.sec) return 1;
+    
+    if (itemA.updateDate.ms < itemB.updateDate.ms) return -1;
+    if (itemA.updateDate.ms > itemB.updateDate.ms) return 1;
 
     return 0;
   }
