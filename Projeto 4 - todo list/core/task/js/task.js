@@ -68,6 +68,8 @@ class Task {
           year: d.getFullYear(),
           hour: d.getHours(),
           min: d.getMinutes(),
+          sec: d.getSeconds(),
+          ms: d.getMilliseconds(),
       }
   }
   // retorna uma string formatada com a informação de data de criação ou de atualização
