@@ -33,17 +33,26 @@
       <label class="add-task-label" id="task-description-input-label" for="description-input">description</label>
       <button type="button" id="add-task-button">Add</button>
     </section>
+    <div class="dropdown" id="filter-options">
+      <div class="dropdown-title">filter by:</div>
+      <div class="dropdown-selected-option">
+        <p>create date</p>
+        <ul class="dropdown-options">
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy();">title</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('description');">description</li>
+          <!-- <li class="dropdown-li">completed</li>
+          <li class="dropdown-li">last date</li>
+          <li class="dropdown-li">create date</li> -->
+        </ul>
+      </div>
+    </div>
   </main>
 
   <section id="list-area">
     
-    <div class="dropdown">
-      <div class="dropdown-title">List</div>
-      <ul class="dropdown-options">
-        <li class="dropdown-li">Select all</li>
-        <li class="dropdown-li">Remove all finished tasks</li>
-      </ul>
-    </div>
+    <section id="list-area-top">
+      <h1 class="list-area-title">Tasks</h1>
+    </section>
 
     <div class="list-scroll-container" id="scroll-master-container">
       <ol id="lista-tarefas" class="scrollable-content"></ol>
@@ -52,6 +61,9 @@
         <div id="ball"></div>
       </div>
     </div>
+
+    <section id="list-area-bottom">
+    </section>
   </section>
 
   <script src="./assets/lb_scroll/js/lbscroll.js"></script>

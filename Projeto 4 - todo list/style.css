@@ -1,4 +1,5 @@
 @import url(./css/addButtonStyle.css);
+@import url(./css/dropdownstyle.css);
 
 * {
   margin: 0;
@@ -10,6 +11,7 @@ body {
   background-color: #e0e0e0;
   display: flex;
   align-items: flex-start;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
@@ -31,6 +33,7 @@ body {
   display: flex;
   align-items: center;
   flex-flow: column;
+  z-index: 2;
 }
 #logo {
   flex-grow: .5;
@@ -177,8 +180,35 @@ body {
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  height: 88vh;
+  height: 85vh;
 }
 #lista-tarefas::-webkit-scrollbar {
   display: none;
+}
+
+.list-area-title {
+  font-family: Quicksand, sans-serif;
+  font-weight: 550;
+  font-size: 40px;
+  margin-left: 18px;
+}
+
+#list-area-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 5px -5px 15px 0 rgba(27, 27, 27, .5);
+}
+#list-area-bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 10vh;
+  box-shadow: 5px 5px 15px 0 rgba(27, 27, 27, .5);
+}
+
+#filter-options {
+  align-self: flex-end;
+  margin-right: 15px;
+  height: 10vh;
 }

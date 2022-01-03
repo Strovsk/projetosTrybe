@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      background-origin: border-box;
+    }
+    .dropdown {
+      display: flex;
+      /* border: 1px solid green; */
+    }
+    .dropdown-selected-option {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      padding: 5px 0;
+      /* border: 1px red solid; */
+      border-bottom: 1px #000 solid;
+      width: 150px;
+      text-align: center;
+      margin-left: 15px;
+      font-weight: 550;
+      transition: .2s ease all;
+    }
+    .dropdown-selected-option:hover {
+      background-color: rgba(255, 183, 42, .5);
+    }
+    .dropdown-options {
+      list-style: none;
+      align-self: flex-start;
+      cursor: pointer;
+      transition: .4s ease all;
+      position: absolute;
+      /* border: 1px green solid; */
+      transform: scale(0);
+      transform-origin: center 0;
+    }
+    .dropdown-options.expand {
+      transform: scale(1);
+    }
+    .dropdown-li {
+      width: 150px;
+      padding: 10px 0;
+      text-align: center;
+      transition: .4s ease all;
+      user-select: none;
+      font-weight: 500;
+    }
+    .dropdown-li:hover {
+      background-color: #eee;
+    }
+    .dropdown-title {
+      height: 20px;
+      align-self: center;
+      letter-spacing: 2px;
+      overflow-y: hidden;
+      font-weight: 700;
+    }
+    .dropdown-selected-option, .dropdown-title, .dropdown-li {
+      font-family: Quicksand, sans-serif;
+    }
+  </style>
+  <title>custom selector</title>
+</head>
+<body>
+  <div class="dropdown" id="filter-options">
+    <div class="dropdown-title">filter by:</div>
+    <div class="dropdown-selected-option">
+      <p>create date</p>
+      <ul class="dropdown-options">
+        <li class="dropdown-li">title</li>
+        <li class="dropdown-li">description</li>
+        <li class="dropdown-li">completed</li>
+        <li class="dropdown-li">last date</li>
+        <li class="dropdown-li">create date</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function dropdownSelectAction(dropdownContainerId) {
+      const container = document.getElementById(dropdownContainerId);
+      const selectArea = container.children[1].children[0];
+      const optionsList = container.children[1].children[1];
+      selectArea.onclick = () => {
+        if (optionsList.classList.contains('expand')) optionsList.classList.remove('expand');
+        else optionsList.classList.add('expand');
+      }
+      dropdownOptionClickAction(optionsList, selectArea);
+    }
+
+    function dropdownOptionClickAction(ulElement, selectedElement) {
+      for (let index = 0; index < ulElement.children.length; index += 1) {
+        ulElement.children[index].addEventListener('click', () => {
+           selectedElement.innerText = ulElement.children[index].innerText;
+           ulElement.classList.remove('expand');
+        });
+      }
+    }
+    dropdownSelectAction('filter-options');
+  </script>
+</body>
+</html>

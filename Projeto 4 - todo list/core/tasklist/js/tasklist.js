@@ -49,6 +49,7 @@ class taskList {
     });
   }
   filterListBy(type = 'title', order = 'auto') {
+    console.log('chamada do filtro');
     const filterListTypes = {
       'title': () => {
         this.tasks.sort(this.filterCompareTitleAlpha);
@@ -79,4 +80,4 @@ listOfTasks.addTask('d', 'f');
 listOfTasks.addTask('a', 'h');
 listOfTasks.addTask('c', 'j');
 listOfTasks.addTask('e', 'i');
-listOfTasks.filterListBy('description');
+// listOfTasks.filterListBy('description');

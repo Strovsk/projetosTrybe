@@ -47,3 +47,24 @@ function checkTaskTitleInput() {
   addTaskButton.disabled = false;
   addTaskButton.classList.remove('disable');
 }
+
+function dropdownSelectAction(dropdownContainerId) {
+  const container = document.getElementById(dropdownContainerId);
+  const selectArea = container.children[1].children[0];
+  const optionsList = container.children[1].children[1];
+  selectArea.onclick = () => {
+    if (optionsList.classList.contains('expand')) optionsList.classList.remove('expand');
+    else optionsList.classList.add('expand');
+  }
+  dropdownOptionClickAction(optionsList, selectArea);
+}
+
+function dropdownOptionClickAction(ulElement, selectedElement) {
+  for (let index = 0; index < ulElement.children.length; index += 1) {
+    ulElement.children[index].addEventListener('click', () => {
+       selectedElement.innerText = ulElement.children[index].innerText;
+       ulElement.classList.remove('expand');
+    });
+  }
+}
+dropdownSelectAction('filter-options');
