@@ -14,6 +14,10 @@
   transform-origin: 50% 100%;
   clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 53% 95%, 50% 100%, 47% 95%, 0 95%);
   transition: .4s ease all;
+
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 
 #edit-task-area.disabled {
@@ -26,5 +30,103 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+.edit-task-input {
+  height: 30px;
+  width: 80%;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid #000;
+  padding-left: 8px;
+  caret-color: #eee;
+  margin-top: 50px;
+  transition: .1s all ease;
+}
+.edit-task-input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 3px solid #000;
+  animation: input-focus-edit .1s ease;
+}
+.edit-task-input:focus::selection {
+  background: #666;
+  color: #eee;
+}
+.edit-task-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+.edit-task-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+.edit-task-input::placeholder {
+  font-size: 17px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  color: rgba(27, 27, 27, .5);
+  margin-left: 5px;
+}
+.edit-task-input:focus::placeholder {
+  color: transparent;
+}
+.edit-task-input:focus + .edit-task-label, .edit-task-input:not(.edit-task-input:placeholder-shown) + .edit-task-label {
+  color: rgba(27, 27, 27, .7);
+  transform: translateY(0);
+  transform: scale(1);
+}
+
+.edit-task-label {
+  font-size: 11px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  margin-left: 5px;
+  position: absolute;
+  margin: 5px 5px; 
+  color: transparent;
+  /* color: rgba(27, 27, 27, .5); */
+  transform: translateY(15px);
+  transform: scale(0);
+  transition: .3s all ease;
+}
+#task-description-input-label-edit, #task-title-input-label-edit {
+  align-self: flex-start;
+  left: 10%;
+}
+#task-description-input-label-edit {
+  top: 44%;
+}
+#task-title-input-label-edit {
+  top: 17%;
+}
+
+.edit-task-label {
+  font-size: 11px;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  margin-left: 5px;
+  position: absolute;
+  margin: 5px 5px; 
+  color: transparent;
+  /* color: rgba(27, 27, 27, .5); */
+  transform: translateY(15px);
+  transform: scale(0);
+  transition: .3s all ease;
+}
+
+@keyframes input-focus-edit {
+  from {
+    width: 70%;
+  }
+  to {
+    width: 80%;
   }
 }
