@@ -38,7 +38,22 @@
   font-family: Quicksand, sans-serif;
   font-size: 15px;
   margin-left: 10px;
+  position: relative;
 }
 #edit-task-button:disabled {
   background-color: #444444;
+}
+#edit-task-button:hover:disabled::before {
+  content: 'Selecione uma tarefa para poder editá-la';
+  display: block;
+  width: 150px;
+  font-size: 10px;
+  position: absolute;
+  background-color: #1b1b1b;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 104%;
+  right: -50%;
+  cursor: auto;
+  z-index: 2;
 }

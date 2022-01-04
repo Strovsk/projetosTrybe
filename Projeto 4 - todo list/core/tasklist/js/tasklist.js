@@ -153,3 +153,19 @@ listOfTasks.addTask('a', 'h');
 listOfTasks.addTask('c', 'j');
 listOfTasks.addTask('e', 'i');
 listOfTasks.filterListBy('creation');
+
+function changeEditButtonState(currentSelected) {
+  if(currentSelected == -1) {
+    document.getElementById('edit-task-button').disabled = true;
+    document.getElementById('edit-task-area').classList.add('disabled');
+  } else {
+    document.getElementById('edit-task-button').disabled = false;
+  }
+}
+
+changeEditButtonState(listOfTasks.currentSelected);
+for (let index = 0; index < listOfTasks.tasks.length; index++) {
+  listOfTasks.tasks[index].getLi().addEventListener('click', () => {
+    changeEditButtonState(listOfTasks.currentSelected);
+  });
+}
