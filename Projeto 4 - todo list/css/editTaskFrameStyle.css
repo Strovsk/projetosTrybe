@@ -130,3 +130,10 @@
     width: 80%;
   }
 }
+
+#task-edit-title {
+  font-family: Quicksand, sans-serif;
+  font-weight: 550;
+  font-size: 25px;
+  margin-top: 18px;
+}
