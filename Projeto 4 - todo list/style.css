@@ -1,6 +1,7 @@
 @import url(./css/buttonStyle.css);
 @import url(./css/dropdownstyle.css);
 @import url(./css/editTaskFrameStyle.css);
+@import url(./css/removeCompletedTasksIcon.css);
 
 * {
   margin: 0;
