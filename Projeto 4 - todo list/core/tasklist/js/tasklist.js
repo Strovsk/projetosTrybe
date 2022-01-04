@@ -177,5 +177,3 @@ const listOfTasks = new taskList('lista-tarefas');
 // listOfTasks.addTask('c', 'j');
 // listOfTasks.addTask('e', 'i');
 listOfTasks.filterListBy('creation');
-
-// Funções que não pertecem a classe e devem ser removidas para que a classe funcione sozinha
