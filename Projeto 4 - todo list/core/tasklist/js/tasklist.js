@@ -144,6 +144,14 @@ class taskList {
     if (itemA.isCompleted < itemB.isCompleted ) return 1;
     return 0;
   }
+  editTask(newTitle, newDescription) {
+    this.tasks[this.currentSelected].setTitle(newTitle);
+    this.tasks[this.currentSelected].setDescription(newDescription);
+    this.tasks[this.currentSelected].updateCard();
+  }
+  getCurrentSelectedTaskInfo() {
+    return [this.tasks[this.currentSelected].title, this.tasks[this.currentSelected].description];
+  }
 }
 
 const listOfTasks = new taskList('lista-tarefas');
@@ -153,6 +161,8 @@ listOfTasks.addTask('a', 'h');
 listOfTasks.addTask('c', 'j');
 listOfTasks.addTask('e', 'i');
 listOfTasks.filterListBy('creation');
+
+// Funções que não pertecem a classe e devem ser removidas para que a classe funcione sozinha
 
 function changeEditButtonState(currentSelected) {
   if(currentSelected == -1) {
@@ -169,3 +179,9 @@ for (let index = 0; index < listOfTasks.tasks.length; index++) {
     changeEditButtonState(listOfTasks.currentSelected);
   });
 }
+
+document.getElementById('edit-task-button').addEventListener('click', () => {
+  document.getElementById('task-title-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[0];
+  document.getElementById('task-decription-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[1];
+  document.getElementById('done-edit-task-button').disabled = false;
+});

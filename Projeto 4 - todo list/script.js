@@ -96,6 +96,22 @@ function changeFrameAreaState() {
   }
 }
 
+const doneEditButton = document.getElementById('done-edit-task-button');
+const editTitleInput = document.getElementById('task-title-input-edit');
+
+function changeEditFrameDoneButtonState() {
+  if(editTitleInput.value == '') {
+    doneEditButton.disabled = true;
+  } else {
+    doneEditButton.disabled = false;
+  }
+}
+changeEditFrameDoneButtonState();
+
+editTitleInput.addEventListener('keyup', () => {
+  changeEditFrameDoneButtonState();
+});
+
 document.getElementById('edit-task-button').onclick = () => {
   changeFrameAreaState();
 }

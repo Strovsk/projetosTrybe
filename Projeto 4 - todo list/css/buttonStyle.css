@@ -78,7 +78,7 @@
   background-color: #444444;
 }
 #done-edit-task-button:hover:disabled::before {
-  content: 'Selecione uma tarefa para poder editá-la';
+  content: 'adicione um título para poder editar tarefa';
   display: block;
   width: 150px;
   font-size: 10px;

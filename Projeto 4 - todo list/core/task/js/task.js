@@ -59,6 +59,12 @@ class Task {
   setDescription(description) {
       this.description = description;
   }
+  // atualiza o titulo e a descrição do card
+  updateCard() {
+    this.titleElm.innerText = this.title;
+    this.descriptionElm.innerText = this.description;
+    this.updateLastEdit();
+  }
   // retona as informações de dia e hora da criação/atualização de uma task
   getDayInfo() {
       const d = new Date();
@@ -74,8 +80,8 @@ class Task {
   }
   // retorna uma string formatada com a informação de data de criação ou de atualização
   formatDate(type = 'update') {
-    if(type === 'create') return `Data criação\n${this.creationDate.day}/${this.creationDate.month}/${this.creationDate.year}`;
-    return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year}`;
+    if(type === 'create') return `Data criação\n${this.creationDate.day}/${this.creationDate.month}/${this.creationDate.year} ${this.creationDate.hour}:${this.creationDate.min}`;
+    return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year} ${this.updateDate.hour}:${this.updateDate.min}`;
   }
   // atualiza a data da ultima atualização da task
   updateLastEdit() {
