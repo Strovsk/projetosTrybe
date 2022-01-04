@@ -90,6 +90,7 @@ function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
   if(frameElm.classList.contains('disabled')) {
     frameElm.classList.remove('disabled');
+    frameElm.style.filter = 'opacity(1)';
   } else {
     frameElm.classList.add('disabled');
   }
