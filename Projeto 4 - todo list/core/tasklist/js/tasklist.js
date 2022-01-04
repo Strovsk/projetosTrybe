@@ -44,6 +44,7 @@ class taskList {
     task.getTrashButton().addEventListener('click', () => {
       this.tasks.pop(task);
       this.currentSelected = -1;
+      this.updateList();
     });
   }
 
