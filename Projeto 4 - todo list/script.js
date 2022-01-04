@@ -103,6 +103,7 @@ function dropdownSelectAction(dropdownContainerId, optionsPosition) {
   dropdownOptionClickAction(optionsList, selectArea);
 }
 
+cScroll.setScrollOnff(true);
 changeFrameAreaState();
 changeEditButtonState(listOfTasks.currentSelected);
 checkTaskTitleInput();
