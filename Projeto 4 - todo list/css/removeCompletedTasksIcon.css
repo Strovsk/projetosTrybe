@@ -22,6 +22,7 @@
   justify-content: center;
   /* background: red; */
   margin-top: 7px;
+  cursor: pointer;
 }
 #remove-completed-container:hover::after {
   content: 'Remover tarefas concluídas';

@@ -153,6 +153,18 @@ class taskList {
   getCurrentSelectedTaskInfo() {
     return [this.tasks[this.currentSelected].title, this.tasks[this.currentSelected].description];
   }
+  removeCompletedTasks() {
+    let toKeep = []
+    for (let index = 0; index < this.tasks.length; index += 1) {
+      if(this.tasks[index].isCompleted) {
+        this.tasks[index].delLi();
+      } else {
+        toKeep.push(this.tasks[index]);
+      }
+    }
+    this.tasks = toKeep;
+    this.updateList();
+  }
 }
 
 const listOfTasks = new taskList('lista-tarefas');
@@ -195,3 +207,7 @@ document.getElementById('done-edit-task-button').addEventListener('click', () =>
   document.getElementById('task-decription-input-edit').value = '';
   document.getElementById('edit-task-area').classList.add('disabled');
 });
+
+document.getElementById('remove-completed-container').onclick = () => {
+  listOfTasks.removeCompletedTasks();
+}
