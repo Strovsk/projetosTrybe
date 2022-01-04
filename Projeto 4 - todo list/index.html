@@ -39,11 +39,11 @@
       <div class="dropdown-selected-option">
         <p>create date</p>
         <ul class="dropdown-options">
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy();">title</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('description');">description</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('completed');">completed</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('updateDate');">last update</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('creation');">create date</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('title', listOfTasks.filterDirection);">title</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('description', listOfTasks.filterDirection);">description</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('completed', listOfTasks.filterDirection);">completed</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('updateDate', listOfTasks.filterDirection);">last update</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('creation', listOfTasks.filterDirection);">create date</li>
         </ul>
       </div>
     </div>
