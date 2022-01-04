@@ -20,10 +20,10 @@ checkTaskTitleInput();
 addDescriptionButton.onclick = () => {
   if(!addDescriptionInput.classList.contains('on')) {
     addDescriptionInput.classList.add('on');
-    addDescriptionButton.innerText = 'remove description';
+    addDescriptionButton.innerText = 'remover descrição';
   } else {
     addDescriptionInput.classList.remove('on');
-    addDescriptionButton.innerText = 'add description';
+    addDescriptionButton.innerText = 'adicionar descrição';
   }
 };
 
@@ -67,8 +67,10 @@ function dropdownSelectAction(dropdownContainerId, optionsPosition) {
 function dropdownOptionClickAction(ulElement, selectedElement) {
   for (let index = 0; index < ulElement.children.length; index += 1) {
     ulElement.children[index].addEventListener('click', () => {
-       selectedElement.innerText = ulElement.children[index].innerText;
-       ulElement.classList.remove('expand');
+      selectedElement.innerText = ulElement.children[index].innerText;
+      if (selectedElement.innerText == 'Data de atualização') selectedElement.innerText = 'D. Atualização';
+      if (selectedElement.innerText == 'Data de criação') selectedElement.innerText = 'D. Criação';
+      ulElement.classList.remove('expand');
     });
   }
 }

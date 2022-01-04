@@ -26,35 +26,35 @@
       <h1 id="title-app">My Tasks</h1>
     </section>
     <section id="options">
-      <input class="add-task-input" name="title-input" type="text" id="task-title-input" placeholder="task title">
-      <label class="add-task-label" id="task-title-input-label" for="title-input">task title</label>
-      <button type="button" id="add-description-button">add description</button>
-      <input class="add-task-input" name="description-input" type="text" id="description-input" placeholder="description">
-      <label class="add-task-label" id="task-description-input-label" for="description-input">description</label>
+      <input class="add-task-input" name="title-input" type="text" id="task-title-input" placeholder="título">
+      <label class="add-task-label" id="task-title-input-label" for="title-input">título</label>
+      <button type="button" id="add-description-button">adicionar descrição</button>
+      <input class="add-task-input" name="description-input" type="text" id="description-input" placeholder="descrição">
+      <label class="add-task-label" id="task-description-input-label" for="description-input">descrição</label>
       <button type="button" id="add-task-button">Add</button>
     </section>
 
     <div class="dropdown" id="filter-options">
-      <div class="dropdown-title">filter by:</div>
+      <div class="dropdown-title">Filtro:</div>
       <div class="dropdown-selected-option">
-        <p>create date</p>
+        <p>D. Criação</p>
         <ul class="dropdown-options">
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('title', listOfTasks.filterDirection);">title</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('description', listOfTasks.filterDirection);">description</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('completed', listOfTasks.filterDirection);">completed</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('updateDate', listOfTasks.filterDirection);">last update</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterListBy('creation', listOfTasks.filterDirection);">create date</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('title', listOfTasks.filterDirection);">título</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('description', listOfTasks.filterDirection);">descrição</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('completed', listOfTasks.filterDirection);">completas</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('updateDate', listOfTasks.filterDirection);">Data de atualização</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterListBy('creation', listOfTasks.filterDirection);">Data de criação</li>
         </ul>
       </div>
     </div>
 
     <div class="dropdown" id="filter-direction">
-      <div class="dropdown-title">filter direction:</div>
+      <div class="dropdown-title">Direção:</div>
       <div class="dropdown-selected-option">
-        <p>auto</p>
+        <p>automático</p>
         <ul class="dropdown-options">
-          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('auto');">auto</li>
-          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('reverse');">reverse</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('auto');">automático</li>
+          <li class="dropdown-li" onclick="listOfTasks.filterInvertListDirection('reverse');">reverso</li>
         </ul>
       </div>
     </div>
@@ -77,14 +77,14 @@
 
     <section id="list-area-bottom">
       <div id="edit-task-area">
-        <h1 id="task-edit-title">Task Edit</h1>
-        <input class="edit-task-input" name="title-input-edit" type="text" id="task-title-input-edit" placeholder="new task title">
-        <label class="edit-task-label" id="task-title-input-label-edit" for="title-input-edit">new task title</label>
-        <input class="edit-task-input" name="description-input-edit" type="text" id="task-decription-input-edit" placeholder="new task description">
-        <label class="edit-task-label" id="task-description-input-label-edit" for="description-input-edit"> new task description</label>
-        <button type="button" id="done-edit-task-button">Done</button>
+        <h1 id="task-edit-title">Editar Tarefa</h1>
+        <input class="edit-task-input" name="title-input-edit" type="text" id="task-title-input-edit" placeholder="novo título">
+        <label class="edit-task-label" id="task-title-input-label-edit" for="title-input-edit">novo título</label>
+        <input class="edit-task-input" name="description-input-edit" type="text" id="task-decription-input-edit" placeholder="nova descrição">
+        <label class="edit-task-label" id="task-description-input-label-edit" for="description-input-edit">nova descrição</label>
+        <button type="button" id="done-edit-task-button">Feito</button>
       </div>
-      <button type="button" id="edit-task-button">Edit</button>
+      <button type="button" id="edit-task-button">Editar</button>
     </section>
   </section>
 

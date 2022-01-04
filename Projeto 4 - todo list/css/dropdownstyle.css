@@ -60,3 +60,7 @@
 .dropdown-selected-option, .dropdown-title, .dropdown-li {
   font-family: Quicksand, sans-serif;
 }
+
+#filter-options .dropdown-li:nth-child(4), #filter-options .dropdown-li:nth-child(5) {
+  font-size: 13px;
+}
