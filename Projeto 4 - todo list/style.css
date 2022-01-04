@@ -205,3 +205,12 @@ body {
   margin-left: 15px;
   flex-wrap: wrap;
 }
+
+#empty-list-message {
+  position: absolute;
+  top: 50vh;
+  left: 53%;
+  font-family: Quicksand, sans-serif;
+  color: #919191;
+  font-size: 1.2em;
+}

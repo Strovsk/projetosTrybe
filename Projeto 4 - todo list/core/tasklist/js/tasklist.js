@@ -5,6 +5,7 @@ class taskList {
     this.currentSelected = -1;
     this.filterMode = 'creation';
     this.filterDirection = 'auto';
+    this.mostRecent = null;
   }
   // adiciona uma tarefa
   addTask(title, description) {
@@ -17,6 +18,7 @@ class taskList {
 
     this.taskRemoveAction(newTask);
     this.taskClickAction(newTask);
+    this.mostRecent = newTask;
 
     // adicionar a atualização de inserção por filtro
     this.filterListBy(this.filterMode, this.filterDirection);
@@ -168,30 +170,14 @@ class taskList {
 }
 
 const listOfTasks = new taskList('lista-tarefas');
-listOfTasks.addTask('b', 'g');
-listOfTasks.addTask('d', 'f');
-listOfTasks.addTask('a', 'h');
-listOfTasks.addTask('c', 'j');
-listOfTasks.addTask('e', 'i');
+// listOfTasks.addTask('b', 'g');
+// listOfTasks.addTask('d', 'f');
+// listOfTasks.addTask('a', 'h');
+// listOfTasks.addTask('c', 'j');
+// listOfTasks.addTask('e', 'i');
 listOfTasks.filterListBy('creation');
 
 // Funções que não pertecem a classe e devem ser removidas para que a classe funcione sozinha
-
-function changeEditButtonState(currentSelected) {
-  if(currentSelected == -1) {
-    document.getElementById('edit-task-button').disabled = true;
-    document.getElementById('edit-task-area').classList.add('disabled');
-  } else {
-    document.getElementById('edit-task-button').disabled = false;
-  }
-}
-
-changeEditButtonState(listOfTasks.currentSelected);
-for (let index = 0; index < listOfTasks.tasks.length; index++) {
-  listOfTasks.tasks[index].getLi().addEventListener('click', () => {
-    changeEditButtonState(listOfTasks.currentSelected);
-  });
-}
 
 document.getElementById('edit-task-button').addEventListener('click', () => {
   document.getElementById('task-title-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[0];
