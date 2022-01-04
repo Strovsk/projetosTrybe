@@ -66,7 +66,7 @@ class Task {
     this.updateLastEdit();
     this.dateElm.innerText = this.formatDate();
     this.descriptionElm.classList.remove('expanded');
-    if(this.expandElm != null) return;
+    this.expandElm.remove();
     this.genExpandButton();
     this.expandDescription();
     this.containerElm.insertBefore(this.expandElm, this.iconsContainerElm);
@@ -100,7 +100,6 @@ class Task {
     if(bufferCheck) {
       this.expandElm.remove();
       this.descriptionElm.classList.add('expanded');
-      this.expandElm = null;
     }
   }
   // gera todas as informações no topo do card
