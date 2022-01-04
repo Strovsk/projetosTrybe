@@ -64,6 +64,13 @@ class Task {
     this.titleElm.innerText = this.title;
     this.descriptionElm.innerText = this.description;
     this.updateLastEdit();
+    this.dateElm.innerText = this.formatDate();
+    this.descriptionElm.classList.remove('expanded');
+    if(this.expandElm != null) return;
+    this.genExpandButton();
+    this.expandDescription();
+    this.containerElm.insertBefore(this.expandElm, this.iconsContainerElm);
+    this.checkTaskScrollHeight();
   }
   // retona as informações de dia e hora da criação/atualização de uma task
   getDayInfo() {
@@ -92,7 +99,8 @@ class Task {
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
     if(bufferCheck) {
       this.expandElm.remove();
-      this.descriptionElm.style.height = 'auto';
+      this.descriptionElm.classList.add('expanded');
+      this.expandElm = null;
     }
   }
   // gera todas as informações no topo do card

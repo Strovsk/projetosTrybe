@@ -185,3 +185,12 @@ document.getElementById('edit-task-button').addEventListener('click', () => {
   document.getElementById('task-decription-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[1];
   document.getElementById('done-edit-task-button').disabled = false;
 });
+
+document.getElementById('done-edit-task-button').addEventListener('click', () => {
+  const newT = document.getElementById('task-title-input-edit').value;
+  const newD = document.getElementById('task-decription-input-edit').value;
+  listOfTasks.editTask(newT, newD);
+  document.getElementById('task-title-input-edit').value = '';
+  document.getElementById('task-decription-input-edit').value = '';
+  document.getElementById('edit-task-area').classList.add('disabled');
+});
