@@ -17,6 +17,10 @@ const addTaskButton = document.getElementById('add-task-button');
 const taskListElm = document.getElementById('lista-tarefas');
 const doneEditButton = document.getElementById('done-edit-task-button');
 const editTitleInput = document.getElementById('task-title-input-edit');
+const editTaskButton = document.getElementById('edit-task-button');
+const taskDescriptionInputEdit = document.getElementById('task-decription-input-edit');
+const editTaskArea = document.getElementById('edit-task-area');
+const removeCompletedContainer = document.getElementById('remove-completed-container');
 
 function checkEmptyTasksArea() {
   if(taskListElm.children.length == 0) {
@@ -135,6 +139,23 @@ editTitleInput.addEventListener('keyup', () => {
   changeEditFrameDoneButtonState();
 });
 
-document.getElementById('edit-task-button').onclick = () => {
+editTaskButton.onclick = () => {
   changeFrameAreaState();
+  editTitleInput.value = listOfTasks.getCurrentSelectedTaskInfo()[0];
+  taskDescriptionInputEdit.value = listOfTasks.getCurrentSelectedTaskInfo()[1];
+  doneEditButton.disabled = false;
+}
+
+doneEditButton.addEventListener('click', () => {
+  const newT = editTitleInput.value;
+  const newD = taskDescriptionInputEdit.value;
+  listOfTasks.editTask(newT, newD);
+  editTitleInput.value = '';
+  taskDescriptionInputEdit.value = '';
+  editTaskArea.classList.add('disabled');
+});
+
+removeCompletedContainer.onclick = () => {
+  listOfTasks.removeCompletedTasks();
+  changeEditButtonState(listOfTasks.currentSelected);
 }

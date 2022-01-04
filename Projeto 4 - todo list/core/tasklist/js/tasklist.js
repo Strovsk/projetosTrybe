@@ -165,6 +165,7 @@ class taskList {
       }
     }
     this.tasks = toKeep;
+    this.currentSelected = this.getCurrentSelectedIndex();
     this.updateList();
   }
 }
@@ -178,22 +179,3 @@ const listOfTasks = new taskList('lista-tarefas');
 listOfTasks.filterListBy('creation');
 
 // Funções que não pertecem a classe e devem ser removidas para que a classe funcione sozinha
-
-document.getElementById('edit-task-button').addEventListener('click', () => {
-  document.getElementById('task-title-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[0];
-  document.getElementById('task-decription-input-edit').value = listOfTasks.getCurrentSelectedTaskInfo()[1];
-  document.getElementById('done-edit-task-button').disabled = false;
-});
-
-document.getElementById('done-edit-task-button').addEventListener('click', () => {
-  const newT = document.getElementById('task-title-input-edit').value;
-  const newD = document.getElementById('task-decription-input-edit').value;
-  listOfTasks.editTask(newT, newD);
-  document.getElementById('task-title-input-edit').value = '';
-  document.getElementById('task-decription-input-edit').value = '';
-  document.getElementById('edit-task-area').classList.add('disabled');
-});
-
-document.getElementById('remove-completed-container').onclick = () => {
-  listOfTasks.removeCompletedTasks();
-}
