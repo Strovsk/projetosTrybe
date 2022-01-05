@@ -25,7 +25,7 @@ const removeCompletedContainer = document.getElementById('remove-completed-conta
 const emptyListMessageElm = document.getElementById('empty-list-message');
 
 function checkEmptyTasksArea() {
-  console.log('chamada da checagem de lista');
+  // console.log('chamada da checagem de lista');
   if(taskListElm.children.length == 0) {
     taskListMasterContainerElm.classList.add('off');
     emptyListMessageElm.style.display = 'inline';

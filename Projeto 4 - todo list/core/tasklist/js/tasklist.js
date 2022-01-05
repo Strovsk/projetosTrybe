@@ -44,7 +44,7 @@ class taskList {
   // adiciona as ações que devem ser executadas dentro da lista quando uma terafa é removida
   taskRemoveAction(task) {
     task.getTrashButton().addEventListener('click', () => {
-      this.tasks.pop(task);
+      this.tasks.splice(this.tasks.indexOf(task), 1);
       this.currentSelected = -1;
       this.updateList();
     });
@@ -52,9 +52,9 @@ class taskList {
 
   updateList() {
     this.container.innerHTML = '';
-    this.tasks.forEach((item) => {
-      this.container.appendChild(item.getLi());
-    });
+    for (let index = 0; index < this.tasks.length; index++) {
+      this.container.appendChild(this.tasks[index].getLi());
+    }
   }
   filterInvertListDirection(direction = 'auto') {
     return this.filterListBy(this.filterMode, direction);
