@@ -47,5 +47,6 @@
   fill: green;
 }
 #remove-completed-container:hover #remove-done > #tampa {
-  transform: rotate(-45deg);
+  transform: rotate(-5deg);
+  filter: opacity(0);
 }
