@@ -83,6 +83,17 @@ function dropdownChangeState(element, classeName) {
 function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
   if(frameElm.classList.contains('disabled')) {
+    // const halfFrameW = frameElm.getBoundingClientRect().width /2;
+    let centerPointCoord = window.getComputedStyle(frameElm).getPropertyValue('clip-path');
+    centerPointCoord = centerPointCoord.slice(8, -1).split(', ')[4].split(' ')[0].slice(0, -1);
+    centerPointCoord = parseInt(centerPointCoord) / 100;
+    let halfFrameW = window.getComputedStyle(frameElm).getPropertyValue('width');
+    halfFrameW = parseInt(halfFrameW.slice(0, -2)) * centerPointCoord;
+    let refButtonL = editTaskButton.getBoundingClientRect().left;
+    refButtonL -=( editTaskButton.getBoundingClientRect().width / 2);
+    refButtonL = Math.round(refButtonL);
+    console.log(centerPointCoord, halfFrameW, refButtonL, refButtonL - halfFrameW);
+    frameElm.style.left = `${refButtonL - halfFrameW}px`;
     frameElm.classList.remove('disabled');
     frameElm.style.filter = 'opacity(1)';
   } else {
