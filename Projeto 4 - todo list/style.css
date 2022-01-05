@@ -165,12 +165,19 @@ body {
 
 #list-area {
   width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background: chartreuse; */
 }
 #lista-tarefas {
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  height: 85vh;
+  height: 80vh;
+  width: 100%;
+  /* background: blue; */
 }
 #lista-tarefas::-webkit-scrollbar {
   display: none;
@@ -207,10 +214,8 @@ body {
 }
 
 #empty-list-message {
-  position: absolute;
-  top: 50vh;
-  left: 53%;
   font-family: Quicksand, sans-serif;
   color: #919191;
   font-size: 1.2em;
+  align-self: center;
 }

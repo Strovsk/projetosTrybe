@@ -5,22 +5,28 @@
 
 .list-scroll-container {
   height: 100%;
-  /* background: red; */
+  width: 50vw;
   display: -ms-grid;
   display: grid;
-  grid-template-areas: "content scroll";
-  grid-template-columns: 1fr var(--scrollbar-width);
+  grid-template-columns: 1fr 30px;
+  grid-template-rows: 1fr;
+  column-gap: 10px;
+  /* background: red; */
+  justify-content: space-between;
+}
+.list-scroll-container.off {
+  display: none;
 }
 
 #bar-container {
   height: 90%;
-  right: 5px;
   width: var(--scrollbar-width);
   /* background: green; */
   display: flex;
   justify-content: center; 
   align-self: center;
   position: relative;
+  break-inside: avoid;
 }
 
 #bar {

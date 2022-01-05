@@ -15,18 +15,23 @@ const addDescriptionButton = document.getElementById('add-description-button');
 const addDescriptionInput = document.getElementById('description-input');
 const addTaskButton = document.getElementById('add-task-button');
 const taskListElm = document.getElementById('lista-tarefas');
+const taskListMasterContainerElm = document.getElementById('scroll-master-container');
 const doneEditButton = document.getElementById('done-edit-task-button');
 const editTitleInput = document.getElementById('task-title-input-edit');
 const editTaskButton = document.getElementById('edit-task-button');
 const taskDescriptionInputEdit = document.getElementById('task-decription-input-edit');
 const editTaskArea = document.getElementById('edit-task-area');
 const removeCompletedContainer = document.getElementById('remove-completed-container');
+const emptyListMessageElm = document.getElementById('empty-list-message');
 
 function checkEmptyTasksArea() {
+  console.log('chamando task empity check');
   if(taskListElm.children.length == 0) {
-    document.getElementById('empty-list-message').style.display = 'block';
+    taskListMasterContainerElm.classList.add('off');
+    emptyListMessageElm.style.display = 'inline';
   } else {
-    document.getElementById('empty-list-message').style.display = 'none';
+    taskListMasterContainerElm.classList.remove('off');
+    emptyListMessageElm.style.display = 'none';
   }
 }
 
@@ -110,6 +115,7 @@ checkTaskTitleInput();
 dropdownSelectAction('filter-options', -202);
 dropdownSelectAction('filter-direction', -82);
 editAreaPosition('edit-task-area', 'edit-task-button');
+checkEmptyTasksArea();
 
 addDescriptionButton.onclick = () => {
   if(!addDescriptionInput.classList.contains('on')) {
