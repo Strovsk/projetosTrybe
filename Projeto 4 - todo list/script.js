@@ -23,6 +23,7 @@ const taskDescriptionInputEdit = document.getElementById('task-decription-input-
 const editTaskArea = document.getElementById('edit-task-area');
 const removeCompletedContainer = document.getElementById('remove-completed-container');
 const emptyListMessageElm = document.getElementById('empty-list-message');
+const removeAllTasksButton = document.getElementById('remove-all-container');
 
 function checkEmptyTasksArea() {
   // console.log('chamada da checagem de lista');
@@ -169,3 +170,9 @@ removeCompletedContainer.onclick = () => {
   listOfTasks.removeCompletedTasks();
   changeEditButtonState(listOfTasks.currentSelected);
 }
+
+removeAllTasksButton.addEventListener('click', () => {
+  listOfTasks.removeAllTasks();
+  checkEmptyTasksArea();
+  changeEditButtonState(listOfTasks.currentSelected);
+});

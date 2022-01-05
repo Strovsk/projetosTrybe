@@ -23,9 +23,7 @@ class taskList {
     // adicionar a atualização de inserção por filtro
     this.filterListBy(this.filterMode, this.filterDirection);
 
-    window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
-    window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
-    window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
+    this.updateScroll();
   }
   // retorna o índice do card atualmente selecionado na lista
   getCurrentSelectedIndex() {
@@ -167,6 +165,18 @@ class taskList {
     this.tasks = toKeep;
     this.currentSelected = this.getCurrentSelectedIndex();
     this.updateList();
+  }
+  removeAllTasks() {
+    this.currentSelected = -1;
+    this.mostRecent = null;
+    for (let index = 0; index < this.tasks.length; index++) this.tasks[index].delLi();
+    this.tasks = [];
+    this.updateScroll();
+  }
+  updateScroll() { // external
+    window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
+    window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
+    window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
   }
 }
 

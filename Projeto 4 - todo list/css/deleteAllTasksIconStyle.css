@@ -56,3 +56,33 @@
   font-family: Quicksand, sans-serif;
   font-size: 12px;
 }
+
+#barraA, #barraB {
+  transition: .3s linear all;
+  transform-origin: 50% 60%;
+}
+
+#remove-all-container:hover #barraA {
+  transform: rotate(360deg);
+}
+
+#remove-all-container:hover #barraB {
+  transform: rotate(-360deg);
+}
+
+/* #linha1, #linha2, #linha3 {
+  transform-origin: 100% center;
+} */
+
+#remove-all-container:hover #linha1, #remove-all-container:hover #linha2, #remove-all-container:hover #linha3 {
+  animation: line-scale .4s ease;
+}
+
+@keyframes line-scale {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
