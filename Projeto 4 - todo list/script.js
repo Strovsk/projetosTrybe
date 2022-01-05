@@ -25,7 +25,7 @@ const removeCompletedContainer = document.getElementById('remove-completed-conta
 const emptyListMessageElm = document.getElementById('empty-list-message');
 
 function checkEmptyTasksArea() {
-  console.log('chamando task empity check');
+  console.log('chamada da checagem de lista');
   if(taskListElm.children.length == 0) {
     taskListMasterContainerElm.classList.add('off');
     emptyListMessageElm.style.display = 'inline';
@@ -135,6 +135,9 @@ addTaskButton.onclick = () => {
   checkEmptyTasksArea();
   listOfTasks.mostRecent.getLi().addEventListener('click', () => {
     changeEditButtonState(listOfTasks.currentSelected);
+  });
+  listOfTasks.mostRecent.getTrashButton().addEventListener('click', () => {
+    checkEmptyTasksArea();
   });
 };
 
