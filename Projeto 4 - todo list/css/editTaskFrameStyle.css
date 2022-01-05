@@ -8,12 +8,14 @@
   height: 300px;
   /* background: blue; */
   background: rgb(27, 27, 27);
+  margin-left: 50px;
   bottom: 80px;
   border-radius: 7px;
   z-index: 2;
   filter: opacity(0);
   transform-origin: 50% 100%;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 53% 95%, 50% 100%, 47% 95%, 0 95%);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 64% 95%, 67% 100%, 70% 95%, 0 95%);
+  /* clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 53% 95%, 50% 100%, 47% 95%, 0 95%); */
   transition: .4s ease all;
 
   display: flex;
