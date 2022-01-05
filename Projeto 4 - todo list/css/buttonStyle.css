@@ -37,7 +37,7 @@
   border: none;
   font-family: Quicksand, sans-serif;
   font-size: 15px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   position: relative;
 }
 #edit-task-button:disabled {

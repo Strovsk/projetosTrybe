@@ -2,6 +2,7 @@
 @import url(./css/dropdownstyle.css);
 @import url(./css/editTaskFrameStyle.css);
 @import url(./css/removeCompletedTasksIcon.css);
+@import url(./css/deleteAllTasksIconStyle.css);
 
 * {
   margin: 0;

@@ -1,18 +1,26 @@
-.cls-1 {
+.lineC1 {
+  fill: #1b1b1b;
+}
+
+.lineC2, .lineC3 {
   fill: none;
+  stroke-linecap: round;
+}
+
+.lineC2 {
+  stroke: #1b1b1b;
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
+.lineC3 {
   stroke: #000;
   stroke-miterlimit: 10;
   stroke-width: 6px;
 }
-.done-remove-selected-icons {
-  fill: transparent;
-  transition: .2s ease all;
-}
-#tampa {
-  transition: .2s ease all;
-}
 
-#remove-completed-container {
+#remove-all-container {
+  margin-right: 15px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
@@ -20,16 +28,18 @@
   align-items: center;
   justify-content: center;
   /* background: red; */
+  /* margin-top: 7px; */
   align-self: center;
   cursor: pointer;
-  margin-left: 8px;
   transition: .4s ease all;
 }
-#remove-completed-container:hover {
+
+#remove-all-container:hover {
   background-color: rgba(27, 27, 27, .2);
 }
-#remove-completed-container:hover::after {
-  content: 'Remover tarefas concluídas';
+
+#remove-all-container:hover::after {
+  content: 'Remover todas as tarefas';
   display: block;
   color: #eee;
   text-align: center;
@@ -40,17 +50,9 @@
   padding: 5px;
   border-radius: 5px;
   bottom: 104%;
-  left: 0%;
+  right: 0%;
   cursor: auto;
   z-index: 2;
   font-family: Quicksand, sans-serif;
   font-size: 12px;
-}
-
-#remove-completed-container:hover #remove-done > .done-remove-selected-icons {
-  fill: green;
-}
-#remove-completed-container:hover #remove-done > #tampa {
-  transform: rotate(-5deg);
-  filter: opacity(0);
 }
