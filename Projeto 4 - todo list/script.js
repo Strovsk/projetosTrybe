@@ -25,6 +25,7 @@ const removeCompletedContainer = document.getElementById('remove-completed-conta
 const emptyListMessageElm = document.getElementById('empty-list-message');
 const removeAllTasksButton = document.getElementById('remove-all-container');
 
+// checa se a lista de tarefas está vazia e mostra mensagem caso esteja
 function checkEmptyTasksArea() {
   // console.log('chamada da checagem de lista');
   if(taskListElm.children.length == 0) {
@@ -36,6 +37,7 @@ function checkEmptyTasksArea() {
   }
 }
 
+// muda o status do botão editar de acordo com o valor de índice recebido do objeto tasklist
 function changeEditButtonState(currentSelected) {
   if(currentSelected == -1) {
     document.getElementById('edit-task-button').disabled = true;
@@ -45,6 +47,7 @@ function changeEditButtonState(currentSelected) {
   }
 }
 
+// checa se o texto do input está vazio e desativa o botão de adicionar tarefa caso esteja
 function checkTaskTitleInput() {
   if (addTaskTitle.value == '') {
     addTaskButton.disabled = true;
@@ -55,6 +58,7 @@ function checkTaskTitleInput() {
   // addTaskButton.classList.remove('disable');
 }
 
+// edita a posição do frame de acordo com um elemento de referência (duplicado)
 function editAreaPosition(elementFrameId, elementReferenceId) {
   const refElm = document.getElementById(elementReferenceId);
   const frameElm = document.getElementById(elementFrameId);
@@ -64,6 +68,7 @@ function editAreaPosition(elementFrameId, elementReferenceId) {
   frameElm.style.bottom = `${refElmBoundings.height * 1.5}px`;
 }
 
+// ativa as funções de interação com o dropdown
 function dropdownOptionClickAction(ulElement, selectedElement) {
   for (let index = 0; index < ulElement.children.length; index += 1) {
     ulElement.children[index].addEventListener('click', () => {
@@ -75,15 +80,18 @@ function dropdownOptionClickAction(ulElement, selectedElement) {
   }
 }
 
+// muda o estado do dropdown de acordo com a situação atual
 function dropdownChangeState(element, classeName) {
   if (element.classList.contains(classeName)) element.classList.remove(classeName);
   else element.classList.add(classeName);
 }
 
+// muda o estado do frame de aberto ou fechado
 function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
   if(frameElm.classList.contains('disabled')) {
     // const halfFrameW = frameElm.getBoundingClientRect().width /2;
+    // preciso migraar os elementos de posicionamento dessa função para a editAreaPosition
     let centerPointCoord = window.getComputedStyle(frameElm).getPropertyValue('clip-path');
     centerPointCoord = centerPointCoord.slice(8, -1).split(', ')[4].split(' ')[0].slice(0, -1);
     centerPointCoord = parseInt(centerPointCoord) / 100;
