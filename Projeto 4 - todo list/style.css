@@ -3,6 +3,7 @@
 @import url(./css/editTaskFrameStyle.css);
 @import url(./css/removeCompletedTasksIcon.css);
 @import url(./css/deleteAllTasksIconStyle.css);
+@import url(./css/plusIconStyle.css);
 
 * {
   margin: 0;
