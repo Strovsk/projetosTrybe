@@ -212,9 +212,7 @@ class Task {
       this.containerElm.classList.add('to-delete');
       this.containerElm.addEventListener('animationend', () => {
         this.delLi();
-        window.cScroll.setScrollOnff(); // chamada para a animação do scroll
-        window.cScroll.updateMiniBallPosition(); // atualiza a posição da bolinha no scroll
-        window.cScroll.updateBallHeight(); // atualiza o tamanho da bola no scroll
+        this.updateCustomScroll;
       });
     }
   }
@@ -345,6 +343,11 @@ class Task {
   selectAdd() {
     this.isSelected = true;
     this.containerElm.classList.add('selected');
+  }
+  updateCustomScroll() {
+    window.cScroll.setScrollOnff(); // chamada para a animação do scroll
+    window.cScroll.updateMiniBallPosition(); // atualiza a posição da bolinha no scroll
+    window.cScroll.updateBallHeight(); // atualiza o tamanho da bola no scroll
   }
 }
 
