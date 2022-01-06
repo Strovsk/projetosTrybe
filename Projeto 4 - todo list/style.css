@@ -220,3 +220,27 @@ body {
   font-size: 1.2em;
   align-self: center;
 }
+
+@media only screen and (max-width: 625px) {
+  body {
+    flex-direction: column;
+    overflow-y: scroll;
+  }
+  #option-panel {
+    order: 2;
+    width: 100vw;
+  }
+  #list-area {
+    width: 100vw;
+  }
+  #list-area-bottom {
+    background: #eee;
+    position: fixed;
+    width: 100vw;
+    top: 90vh;
+    z-index: 3;
+  }
+  .list-scroll-container {
+    width: 100vw;
+  }
+}
