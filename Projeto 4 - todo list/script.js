@@ -24,6 +24,7 @@ const editTaskArea = document.getElementById('edit-task-area');
 const removeCompletedContainer = document.getElementById('remove-completed-container');
 const emptyListMessageElm = document.getElementById('empty-list-message');
 const removeAllTasksButton = document.getElementById('remove-all-container');
+const frameElm = document.getElementById('edit-task-area');
 
 // checa se a lista de tarefas está vazia e mostra mensagem caso esteja
 function checkEmptyTasksArea() {
@@ -59,13 +60,9 @@ function checkTaskTitleInput() {
 }
 
 // edita a posição do frame de acordo com um elemento de referência (duplicado)
-function editAreaPosition(elementFrameId, elementReferenceId) {
-  const refElm = document.getElementById(elementReferenceId);
-  const frameElm = document.getElementById(elementFrameId);
-  const refElmBoundings = refElm.getBoundingClientRect();
-  const frameElmBoundings = frameElm.getBoundingClientRect();
-  frameElm.style.left = `${- frameElmBoundings.width / 3 - refElmBoundings.width / 2}px`;
-  frameElm.style.bottom = `${refElmBoundings.height * 1.5}px`;
+function editAreaPosition() {
+  frameElm.style.bottom = `0px`;
+  frameElm.style.bottom = `0px`;
 }
 
 // ativa as funções de interação com o dropdown
@@ -90,18 +87,6 @@ function dropdownChangeState(element, classeName) {
 function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
   if(frameElm.classList.contains('disabled')) {
-    // const halfFrameW = frameElm.getBoundingClientRect().width /2;
-    // preciso migraar os elementos de posicionamento dessa função para a editAreaPosition
-    let centerPointCoord = window.getComputedStyle(frameElm).getPropertyValue('clip-path');
-    centerPointCoord = centerPointCoord.slice(8, -1).split(', ')[4].split(' ')[0].slice(0, -1);
-    centerPointCoord = parseInt(centerPointCoord) / 100;
-    let halfFrameW = window.getComputedStyle(frameElm).getPropertyValue('width');
-    halfFrameW = parseInt(halfFrameW.slice(0, -2)) * centerPointCoord;
-    let refButtonL = editTaskButton.getBoundingClientRect().left;
-    refButtonL -=( editTaskButton.getBoundingClientRect().width / 2);
-    refButtonL = Math.round(refButtonL);
-    console.log(centerPointCoord, halfFrameW, refButtonL, refButtonL - halfFrameW);
-    frameElm.style.left = `${refButtonL - halfFrameW}px`;
     frameElm.classList.remove('disabled');
     frameElm.style.filter = 'opacity(1)';
   } else {
@@ -134,7 +119,7 @@ changeEditButtonState(listOfTasks.currentSelected);
 checkTaskTitleInput();
 dropdownSelectAction('filter-options', -202);
 dropdownSelectAction('filter-direction', -82);
-editAreaPosition('edit-task-area', 'edit-task-button');
+editAreaPosition();
 checkEmptyTasksArea();
 
 addDescriptionButton.onclick = () => {

@@ -1,9 +1,11 @@
-/* #list-area-bottom {
+#list-area-bottom {
    position: relative;
-} */
+}
 
 #edit-task-area {
   position: absolute;
+  right: 0;
+  bottom: 0;
   width: 450px;
   height: 300px;
   /* background: blue; */
@@ -14,8 +16,6 @@
   z-index: 2;
   filter: opacity(0);
   transform-origin: 50% 100%;
-  clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 64% 95%, 67% 100%, 70% 95%, 0 95%);
-  /* clip-path: polygon(0% 0%, 100% 0%, 100% 95%, 53% 95%, 50% 100%, 47% 95%, 0 95%); */
   transition: .4s ease all;
 
   display: flex;
