@@ -46,10 +46,10 @@ function checkEmptyTasksArea() {
 // muda o status do botão editar de acordo com o valor de índice recebido do objeto tasklist
 function changeEditButtonState(currentSelected) {
   if(currentSelected == -1) {
-    document.getElementById('edit-task-button').disabled = true;
-    document.getElementById('edit-task-area').classList.add('disabled');
+    editTaskButton.disabled = true;
+    editTaskArea.classList.add('disabled');
   } else {
-    document.getElementById('edit-task-button').disabled = false;
+    editTaskButton.disabled = false;
   }
 }
 
@@ -129,6 +129,13 @@ function changeWindowLayoutState() {
   }
 }
 
+function changePlusButtonState() {
+  if(!plusButtonElm.classList.contains('disabled')) {
+    plusButtonElm.classList.add('disabled');
+  } else {
+    plusButtonElm.classList.remove('disabled');
+  }
+}
 
 cScroll.setScrollOnff(true);
 changeFrameAreaState();
@@ -173,6 +180,7 @@ editTitleInput.addEventListener('keyup', () => {
 
 editTaskButton.onclick = () => {
   changeFrameAreaState();
+  changePlusButtonState();
   editTitleInput.value = listOfTasks.getCurrentSelectedTaskInfo()[0];
   taskDescriptionInputEdit.value = listOfTasks.getCurrentSelectedTaskInfo()[1];
   doneEditButton.disabled = false;
@@ -185,6 +193,7 @@ doneEditButton.addEventListener('click', () => {
   editTitleInput.value = '';
   taskDescriptionInputEdit.value = '';
   editTaskArea.classList.add('disabled');
+  changePlusButtonState();
 });
 
 removeCompletedContainer.onclick = () => {

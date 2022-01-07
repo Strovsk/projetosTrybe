@@ -15,14 +15,17 @@
   bottom: 14%;
   right: 6%;
   align-self: flex-end;
-  transform: scale(0);
   transition: .4s ease all;
   z-index: 4;
   background-color: rgb(255, 183, 42);
+  transform: scale(0);
 }
 #add-task-plus-icon-container.to-close {
   bottom: 74%;
   right: 3%;
+}
+#add-task-plus-icon-container.disabled {
+  right: -60px;
 }
 #add-task-plus-icon-container.to-close #plus {
   transform-origin: center;
