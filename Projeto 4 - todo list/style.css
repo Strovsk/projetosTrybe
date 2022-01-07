@@ -221,6 +221,11 @@ body {
 }
 
 @media only screen and (max-width: 625px) {
+  #empty-list-message {
+    position: absolute;
+    top: 50%;
+    font-size: 1em;
+  }
   body {
     flex-direction: column;
     overflow-y: scroll;
