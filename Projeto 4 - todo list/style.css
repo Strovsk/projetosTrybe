@@ -4,6 +4,7 @@
 @import url(./css/removeCompletedTasksIcon.css);
 @import url(./css/deleteAllTasksIconStyle.css);
 @import url(./css/plusIconStyle.css);
+@import url(./css/modalRemoveAllStyle.css);
 
 * {
   margin: 0;

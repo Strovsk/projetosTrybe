@@ -93,3 +93,35 @@
   cursor: auto;
   z-index: 2;
 }
+
+#yes-modal-btn {
+  cursor: pointer;
+  width: auto;
+  padding: 0 20px;
+  height: 35px;
+  align-self: center;
+  color: #eee;
+  background: #1b1b1b;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-size: 15px;
+  /* margin-left: 10px; */
+  position: relative;
+}
+#yes-modal-btn.inactive {
+  display: none;
+}
+#no-modal-btn {
+  cursor: pointer;
+  width: auto;
+  padding: 0 20px;
+  height: 35px;
+  align-self: center;
+  font-weight: 600;
+  color: #1b1b1b;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-size: 15px;
+  /* margin-left: 10px; */
+  position: relative;
+}

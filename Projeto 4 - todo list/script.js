@@ -30,11 +30,15 @@ const plusButtonLineHor = document.getElementById('linha-vert-plus-button');
 const plusButtonLineVert = document.getElementById('linha-hor-plus-button');
 const plusButtonGPath = document.getElementById('plus');
 const optionPanelElm = document.getElementById('option-panel');
+const warningModalElm = document.getElementById('warning-modal');
+const warningModalYesBtn = document.getElementById('yes-modal-btn');
+const warningModalNoBtn = document.getElementById('no-modal-btn');
+const messageModal = document.getElementById('message-modal');
 
 // checa se a lista de tarefas está vazia e mostra mensagem caso esteja
 function checkEmptyTasksArea() {
   // console.log('chamada da checagem de lista');
-  if(taskListElm.children.length == 0) {
+  if (taskListElm.children.length == 0) {
     taskListMasterContainerElm.classList.add('off');
     emptyListMessageElm.style.display = 'inline';
   } else {
@@ -45,7 +49,7 @@ function checkEmptyTasksArea() {
 
 // muda o status do botão editar de acordo com o valor de índice recebido do objeto tasklist
 function changeEditButtonState(currentSelected) {
-  if(currentSelected == -1) {
+  if (currentSelected == -1) {
     editTaskButton.disabled = true;
     editTaskArea.classList.add('disabled');
   } else {
@@ -91,7 +95,7 @@ function dropdownChangeState(element, classeName) {
 // muda o estado do frame de aberto ou fechado
 function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
-  if(frameElm.classList.contains('disabled')) {
+  if (frameElm.classList.contains('disabled')) {
     frameElm.classList.remove('disabled');
     frameElm.style.filter = 'opacity(1)';
   } else {
@@ -100,7 +104,7 @@ function changeFrameAreaState() {
 }
 
 function changeEditFrameDoneButtonState() {
-  if(editTitleInput.value == '') {
+  if (editTitleInput.value == '') {
     doneEditButton.disabled = true;
   } else {
     doneEditButton.disabled = false;
@@ -119,7 +123,7 @@ function dropdownSelectAction(dropdownContainerId, optionsPosition) {
 }
 
 function changeWindowLayoutState() {
-  if(!optionPanelElm.classList.contains('minimized')) {
+  if (!optionPanelElm.classList.contains('minimized')) {
     optionPanelElm.classList.add('minimized');
     plusButtonElm.classList.remove('to-close');
   }
@@ -130,10 +134,27 @@ function changeWindowLayoutState() {
 }
 
 function changePlusButtonState() {
-  if(!plusButtonElm.classList.contains('disabled')) {
+  if (!plusButtonElm.classList.contains('disabled')) {
     plusButtonElm.classList.add('disabled');
   } else {
     plusButtonElm.classList.remove('disabled');
+  }
+}
+
+function changeModalWarningState() {
+  if (!warningModalElm.classList.contains('disabled')) warningModalElm.classList.add('disabled');
+  else warningModalElm.classList.remove('disabled');
+}
+
+function modalDetails(text = 'Você tem certeza disso?', inactiveYes = false, noBtnMsg = 'não', callback) {
+  changeModalWarningState();
+  messageModal.innerText = text;
+  warningModalNoBtn.innerText = noBtnMsg;
+  if (inactiveYes) warningModalYesBtn.classList.add('inactive');
+  else warningModalYesBtn.classList.remove('inactive');
+  warningModalYesBtn.onclick = () => {
+    callback();
+    changeModalWarningState();
   }
 }
 
@@ -145,9 +166,10 @@ dropdownSelectAction('filter-options', -202);
 dropdownSelectAction('filter-direction', -82);
 editAreaPosition();
 checkEmptyTasksArea();
+changeModalWarningState();
 
 addDescriptionButton.onclick = () => {
-  if(!addDescriptionInput.classList.contains('on')) {
+  if (!addDescriptionInput.classList.contains('on')) {
     addDescriptionInput.classList.add('on');
     addDescriptionButton.innerText = 'remover descrição';
   } else {
@@ -202,9 +224,23 @@ removeCompletedContainer.onclick = () => {
 }
 
 removeAllTasksButton.addEventListener('click', () => {
-  listOfTasks.removeAllTasks();
-  checkEmptyTasksArea();
-  changeEditButtonState(listOfTasks.currentSelected);
+  if (listOfTasks.tasks.length > 0) modalDetails(
+    'Você tem certeza que deseja remover todas as tarefas?', false, 'não',
+    () => {
+      listOfTasks.removeAllTasks();
+      checkEmptyTasksArea();
+      changeEditButtonState(listOfTasks.currentSelected);
+    });
+    else modalDetails(
+      'Não há tarefas para serem removidas', true, 'ok',
+      () => {
+        listOfTasks.removeAllTasks();
+        checkEmptyTasksArea();
+        changeEditButtonState(listOfTasks.currentSelected);
+      });
+});
+warningModalNoBtn.addEventListener('click', () => {
+  changeModalWarningState();
 });
 
 plusButtonElm.addEventListener('click', () => {
