@@ -33,12 +33,18 @@ body {
 
 #option-panel {
   background-color: rgb(255, 183, 42);
+  /* position: static; */
   width: 50%;
   height: 100vh;
   display: flex;
   align-items: center;
   flex-flow: column;
   z-index: 2;
+  clip-path: circle(100%);
+  transition: 1s ease all;
+}
+#option-panel.minimized {
+  clip-path: circle(0 at 87.5% 81%);
 }
 #logo {
   flex-grow: .5;
@@ -225,6 +231,8 @@ body {
     position: absolute;
     left: 0;
     bottom: 0;
+    height: 85vh;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .3);
   }
   #title-logo {
     flex-direction: row;
@@ -253,6 +261,9 @@ body {
   #task-description-input-label {
     margin-top: -10%;
     margin-bottom: 10%;
+  }
+  #add-task-plus-icon-container {
+    transform: scale(1);
   }
 }
 

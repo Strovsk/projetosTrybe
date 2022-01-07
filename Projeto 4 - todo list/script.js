@@ -25,6 +25,11 @@ const removeCompletedContainer = document.getElementById('remove-completed-conta
 const emptyListMessageElm = document.getElementById('empty-list-message');
 const removeAllTasksButton = document.getElementById('remove-all-container');
 const frameElm = document.getElementById('edit-task-area');
+const plusButtonElm = document.getElementById('add-task-plus-icon-container');
+const plusButtonLineHor = document.getElementById('linha-vert-plus-button');
+const plusButtonLineVert = document.getElementById('linha-hor-plus-button');
+const plusButtonGPath = document.getElementById('plus');
+const optionPanelElm = document.getElementById('option-panel');
 
 // checa se a lista de tarefas está vazia e mostra mensagem caso esteja
 function checkEmptyTasksArea() {
@@ -113,6 +118,18 @@ function dropdownSelectAction(dropdownContainerId, optionsPosition) {
   dropdownOptionClickAction(optionsList, selectArea);
 }
 
+function changeWindowLayoutState() {
+  if(!optionPanelElm.classList.contains('minimized')) {
+    optionPanelElm.classList.add('minimized');
+    plusButtonElm.classList.remove('to-close');
+  }
+  else {
+    optionPanelElm.classList.remove('minimized');
+    plusButtonElm.classList.add('to-close');
+  }
+}
+
+
 cScroll.setScrollOnff(true);
 changeFrameAreaState();
 changeEditButtonState(listOfTasks.currentSelected);
@@ -180,3 +197,17 @@ removeAllTasksButton.addEventListener('click', () => {
   checkEmptyTasksArea();
   changeEditButtonState(listOfTasks.currentSelected);
 });
+
+plusButtonElm.addEventListener('click', () => {
+  plusButtonGPath.classList.add('clicked-plus');
+  changeWindowLayoutState();
+  plusButtonGPath.addEventListener('animationend', () => {
+    plusButtonGPath.classList.remove('clicked-plus');
+  });
+});
+
+window.onload = () => {
+  if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
+    changeWindowLayoutState();
+  }
+}

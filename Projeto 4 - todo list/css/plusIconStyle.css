@@ -8,11 +8,38 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  background: red;
-  margin-top: 20px;
-  margin-right: 15px;
-  margin-bottom: 10px;
+  width: 45px;
+  height: 45px;
+  /* background: red; */
+  position: absolute;
+  bottom: 14%;
+  right: 6%;
   align-self: flex-end;
+  transform: scale(0);
+  transition: .4s ease all;
+  z-index: 4;
+  background-color: rgb(255, 183, 42);
+}
+#add-task-plus-icon-container.to-close {
+  bottom: 74%;
+  right: 3%;
+}
+#add-task-plus-icon-container.to-close #plus {
+  transform-origin: center;
+  transform: rotate(45deg) scale(.8);
+}
+/* #linha-vert-plus-button.clicked-plus, #linha-hor-plus-button.clicked-plus {
+  background: green;
+  animation: rot-button-plus .3s ease;
+} */
+#plus.clicked-plus {
+  background: green;
+  transform-origin: center;
+  animation: rot-button-plus .4s linear;
+}
+
+@keyframes rot-button-plus {
+  to {
+    transform: rotate(180deg);
+  }
 }
