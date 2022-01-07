@@ -42,8 +42,10 @@ class taskList {
   // adiciona as ações que devem ser executadas dentro da lista quando uma terafa é removida
   taskRemoveAction(task) {
     task.getTrashButton().addEventListener('click', () => {
-      this.tasks.splice(this.tasks.indexOf(task), 1);
-      this.currentSelected = -1;
+      task.getLi().addEventListener('animationend', () => {
+        this.tasks.splice(this.tasks.indexOf(task), 1);
+        this.currentSelected = -1;
+      });
       this.updateList();
     });
   }
