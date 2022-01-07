@@ -112,6 +112,7 @@
   display: none;
 }
 #no-modal-btn {
+  background: transparent;
   cursor: pointer;
   width: auto;
   padding: 0 20px;
