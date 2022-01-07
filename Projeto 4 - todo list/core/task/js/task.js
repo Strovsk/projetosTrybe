@@ -173,6 +173,7 @@ class Task {
   getLi() {
     return this.containerElm;
   }
+  // retorna o elemento HTML do botão de concluir tarefa
   getCompleted() {
     return this.doneContainerElm;
   }

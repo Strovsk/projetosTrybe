@@ -51,6 +51,7 @@ class taskList {
       this.updateList();
     });
   }
+  // adiciona ações a serem executadas na lista quando o clique no botão de completar tarefa acontece
   taskCompletedAction(task) {
     task.getCompleted().addEventListener('click', () => {
       if (task.isCompleted) {
@@ -58,19 +59,21 @@ class taskList {
       } else {
         this.completedTasks -= 1;
       }
-      console.log('evento no tasklist', this.completedTasks);
     });
   }
 
+  // atualiza toda a ul com os elementos presentes na lista
   updateList() {
     this.container.innerHTML = '';
     for (let index = 0; index < this.tasks.length; index++) {
       this.container.appendChild(this.tasks[index].getLi());
     }
   }
+  // inverte a direção da lista
   filterInvertListDirection(direction = 'auto') {
     return this.filterListBy(this.filterMode, direction);
   }
+  // filtra a lista por tipo e direção de ordenação
   filterListBy(type = 'title', order = 'auto') {
     // console.log('chamada do filtro');
     this.filterMode = type;
@@ -96,16 +99,19 @@ class taskList {
     if(order == 'reverse') this.tasks = this.tasks.reverse();
     this.updateList();
   }
+  // função de comparação para callback do método .sort() baseada no título da task
   filterCompareTitleAlpha(itemA, itemB) {
     if (itemA.title < itemB.title ) return -1;
     if (itemA.title > itemB.title ) return 1;
     return 0;
   }
+  // função de comparação para callback do método .sort() baseada na descrição da task
   filterCompareDescripitionAlpha(itemA, itemB) {
     if (itemA.description < itemB.description ) return -1;
     if (itemA.description > itemB.description ) return 1;
     return 0;
   }
+  // função de comparação para callback do método .sort() baseada na data de criação da task
   filterCompareCreationDate(itemA, itemB) {
     if (itemA.creationDate.year > itemB.creationDate.year) return -1;
     if (itemA.creationDate.year < itemB.creationDate.year) return 1;
@@ -130,6 +136,7 @@ class taskList {
 
     return 0;
   }
+  // função de comparação para callback do método .sort() baseada no data de atualização da task
   filterCompareUpdateDate(itemA, itemB) {
     if (itemA.updateDate.year > itemB.updateDate.year) return -1;
     if (itemA.updateDate.year < itemB.updateDate.year) return 1;
@@ -154,19 +161,23 @@ class taskList {
 
     return 0;
   }
+  // função de comparação para callback do método .sort() baseada no estado de conclusão da task
   filterCompareCompleted(itemA, itemB) {
     if (itemA.isCompleted > itemB.isCompleted ) return -1;
     if (itemA.isCompleted < itemB.isCompleted ) return 1;
     return 0;
   }
+  // edita o título e descrição da task
   editTask(newTitle, newDescription) {
     this.tasks[this.currentSelected].setTitle(newTitle);
     this.tasks[this.currentSelected].setDescription(newDescription);
     this.tasks[this.currentSelected].updateCard();
   }
+  // retorna o título e descrição da tarefa atualmente selecionada
   getCurrentSelectedTaskInfo() {
     return [this.tasks[this.currentSelected].title, this.tasks[this.currentSelected].description];
   }
+  // remove todas as tarefas marcadas como completas
   removeCompletedTasks() {
     let toKeep = []
     for (let index = 0; index < this.tasks.length; index += 1) {
@@ -181,6 +192,7 @@ class taskList {
     this.updateList();
     this.completedTasks = 0;
   }
+  // remove todas as tarefas e reseta a lista
   removeAllTasks() {
     this.currentSelected = -1;
     this.mostRecent = null;
@@ -189,6 +201,7 @@ class taskList {
     this.updateScroll();
     this.completedTasks = 0;
   }
+  // retorna true se a lista conter tarefas marcadas como concluídas
   hasCompletedTasks() {
     return this.completedTasks > 0 ? true : false;
   }

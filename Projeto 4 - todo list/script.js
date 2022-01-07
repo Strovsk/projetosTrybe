@@ -92,7 +92,7 @@ function dropdownChangeState(element, classeName) {
   else element.classList.add(classeName);
 }
 
-// muda o estado do frame de aberto ou fechado
+// muda o estado do frame de edição de task aberto ou fechado
 function changeFrameAreaState() {
   const frameElm = document.getElementById('edit-task-area');
   if (frameElm.classList.contains('disabled')) {
@@ -122,6 +122,7 @@ function dropdownSelectAction(dropdownContainerId, optionsPosition) {
   dropdownOptionClickAction(optionsList, selectArea);
 }
 
+// minimiza ou expande o painel de opções option-panel quando chamada
 function changeWindowLayoutState() {
   if (!optionPanelElm.classList.contains('minimized')) {
     optionPanelElm.classList.add('minimized');
@@ -133,6 +134,7 @@ function changeWindowLayoutState() {
   }
 }
 
+// alterna o estado do botão de id #plus entre plus e close
 function changePlusButtonState() {
   if (!plusButtonElm.classList.contains('disabled')) {
     plusButtonElm.classList.add('disabled');
@@ -141,11 +143,13 @@ function changePlusButtonState() {
   }
 }
 
+// alterna o estado do modal de warning entre minimizado e não minimizado
 function changeModalWarningState() {
   if (!warningModalElm.classList.contains('disabled')) warningModalElm.classList.add('disabled');
   else warningModalElm.classList.remove('disabled');
 }
 
+// Executa ações e altera a forma da disposição as informações para o modal warning
 function modalDetails(text = 'Você tem certeza disso?', inactiveYes = false, noBtnMsg = 'não', callback) {
   changeModalWarningState();
   messageModal.innerText = text;
