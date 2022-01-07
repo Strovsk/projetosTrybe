@@ -40,6 +40,6 @@
 
 @keyframes rot-button-plus {
   to {
-    transform: rotate(180deg);
+    transform: rotate(225deg);
   }
 }

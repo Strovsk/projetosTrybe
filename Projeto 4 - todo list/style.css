@@ -41,7 +41,7 @@ body {
   flex-flow: column;
   z-index: 2;
   clip-path: circle(100%);
-  transition: 1s ease all;
+  transition: .5s ease all;
 }
 #option-panel.minimized {
   clip-path: circle(0 at 87.5% 81%);
