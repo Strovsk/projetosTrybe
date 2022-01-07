@@ -173,6 +173,9 @@ class Task {
   getLi() {
     return this.containerElm;
   }
+  getCompleted() {
+    return this.doneContainerElm;
+  }
   // retorna o elemento HTML do botão de remover tarefa
   getTrashButton() {
     return this.trashContainerElm;
@@ -201,8 +204,8 @@ class Task {
   }
   // adiciona a ação de completar a tarefa quando clicamos no botão done
   doneTaskButtonAction() {
-    this.doneContainerElm.onclick = (e) => {
-      // console.log('cliquei');
+    this.doneContainerElm.onclick = () => {
+      // console.log('tarefa marcada como concluída na classe task');
       this.doneSetIt();
     }
   }

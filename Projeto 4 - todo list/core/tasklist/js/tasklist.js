@@ -6,6 +6,7 @@ class taskList {
     this.filterMode = 'creation';
     this.filterDirection = 'auto';
     this.mostRecent = null;
+    this.completedTasks = 0;
   }
   // adiciona uma tarefa
   addTask(title, description) {
@@ -18,6 +19,7 @@ class taskList {
 
     this.taskRemoveAction(newTask);
     this.taskClickAction(newTask);
+    this.taskCompletedAction(newTask);
     this.mostRecent = newTask;
 
     // adicionar a atualização de inserção por filtro
@@ -47,6 +49,16 @@ class taskList {
         this.currentSelected = -1;
       });
       this.updateList();
+    });
+  }
+  taskCompletedAction(task) {
+    task.getCompleted().addEventListener('click', () => {
+      if (task.isCompleted) {
+        this.completedTasks += 1;
+      } else {
+        this.completedTasks -= 1;
+      }
+      console.log('evento no tasklist', this.completedTasks);
     });
   }
 
@@ -167,6 +179,7 @@ class taskList {
     this.tasks = toKeep;
     this.currentSelected = this.getCurrentSelectedIndex();
     this.updateList();
+    this.completedTasks = 0;
   }
   removeAllTasks() {
     this.currentSelected = -1;
@@ -174,6 +187,10 @@ class taskList {
     for (let index = 0; index < this.tasks.length; index++) this.tasks[index].delLi();
     this.tasks = [];
     this.updateScroll();
+    this.completedTasks = 0;
+  }
+  hasCompletedTasks() {
+    return this.completedTasks > 0 ? true : false;
   }
   updateScroll() { // external
     window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer

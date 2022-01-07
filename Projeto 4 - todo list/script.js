@@ -219,7 +219,16 @@ doneEditButton.addEventListener('click', () => {
 });
 
 removeCompletedContainer.onclick = () => {
-  listOfTasks.removeCompletedTasks();
+  if (listOfTasks.hasCompletedTasks()) modalDetails(
+    'Você tem certeza que deseja remover todas as tarefas marcadas como completas?', false, 'não',
+    () => {
+      listOfTasks.removeCompletedTasks();
+      checkEmptyTasksArea();
+      changeEditButtonState(listOfTasks.currentSelected);
+    });
+    else modalDetails(
+      'Não há tarefas completas para serem removidas', true, 'ok',
+      () => {return false;});
   changeEditButtonState(listOfTasks.currentSelected);
 }
 
@@ -231,13 +240,9 @@ removeAllTasksButton.addEventListener('click', () => {
       checkEmptyTasksArea();
       changeEditButtonState(listOfTasks.currentSelected);
     });
-    else modalDetails(
-      'Não há tarefas para serem removidas', true, 'ok',
-      () => {
-        listOfTasks.removeAllTasks();
-        checkEmptyTasksArea();
-        changeEditButtonState(listOfTasks.currentSelected);
-      });
+  else modalDetails(
+    'Não há tarefas para serem removidas', true, 'ok',
+    () => {return false});
 });
 warningModalNoBtn.addEventListener('click', () => {
   changeModalWarningState();
