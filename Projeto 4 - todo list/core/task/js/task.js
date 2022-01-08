@@ -87,8 +87,24 @@ class Task {
   }
   // retorna uma string formatada com a informação de data de criação ou de atualização
   formatDate(type = 'update') {
-    if(type === 'create') return `Data criação\n${this.creationDate.day}/${this.creationDate.month}/${this.creationDate.year} ${this.creationDate.hour}:${this.creationDate.min}`;
-    return `Última atualização\n${this.updateDate.day}/${this.updateDate.month}/${this.updateDate.year} ${this.updateDate.hour}:${this.updateDate.min}`;
+    const dayToPass = {
+      'update': {
+        day: this.updateDate.day < 10 ? '0' + this.updateDate.day : this.updateDate.day,
+        month: this.updateDate.month < 10 ? '0' + this.updateDate.month : this.updateDate.month,
+        year: this.updateDate.year < 10 ? '0' + this.updateDate.year : this.updateDate.year,
+        hour: this.updateDate.hour < 10 ? '0' + this.updateDate.hour : this.updateDate.hour,
+        min: this.updateDate.min < 10 ? '0' + this.updateDate.min : this.updateDate.min,
+      },
+      'creation': {
+        day: this.creationDate.day < 10 ? '0' + this.creationDate.day : this.creationDate.day,
+        month: this.creationDate.month < 10 ? '0' + this.creationDate.month : this.creationDate.month,
+        year: this.creationDate.year < 10 ? '0' + this.creationDate.year : this.creationDate.year,
+        hour: this.creationDate.hour < 10 ? '0' + this.creationDate.hour : this.creationDate.hour,
+        min: this.creationDate.min < 10 ? '0' + this.creationDate.min : this.creationDate.min,
+      },
+    }
+    const result = dayToPass[type];
+    return `Data criação\n${result.day}/${result.month}/${result.year} ${result.hour}:${result.min}`;
   }
   // atualiza a data da ultima atualização da task
   updateLastEdit() {
