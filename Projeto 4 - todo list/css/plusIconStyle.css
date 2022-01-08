@@ -12,8 +12,8 @@
   height: 45px;
   /* background: red; */
   position: absolute;
-  bottom: 14%;
-  right: 6%;
+  bottom: 14vh;
+  right: 6vw;
   align-self: flex-end;
   transition: .4s ease all;
   z-index: 4;
@@ -21,8 +21,8 @@
   transform: scale(0);
 }
 #add-task-plus-icon-container.to-close {
-  bottom: 74%;
-  right: 3%;
+  bottom: 74vh;
+  right: 3vw;
 }
 #add-task-plus-icon-container.disabled {
   right: -60px;

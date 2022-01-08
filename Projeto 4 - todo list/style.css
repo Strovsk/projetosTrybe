@@ -115,6 +115,7 @@ body {
   transform: translateY(15px) scaleY(0);
   transition: .3s all ease;
   order: -1;
+  user-select: none;
 }
 .input-master-container {
   display: flex;
@@ -186,6 +187,7 @@ body {
   font-weight: 550;
   font-size: 40px;
   margin-left: 18px;
+  user-select: none;
 }
 
 #list-area-top {
@@ -216,6 +218,7 @@ body {
   color: #919191;
   font-size: 1.2em;
   align-self: center;
+  user-select: none;
 }
 
 @media only screen and (max-width: 625px) {
