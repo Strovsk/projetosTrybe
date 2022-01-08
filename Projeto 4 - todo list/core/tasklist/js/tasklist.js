@@ -9,8 +9,8 @@ class taskList {
     this.completedTasks = 0;
   }
   // adiciona uma tarefa
-  addTask(title, description) {
-    let newTask = new Task(title, description);
+  addTask(title, description, creationDate = null, updateDate = null) {
+    let newTask = new Task(title, description, creationDate, updateDate);
     newTask.selectSetIt();
     
     this.tasks.push(newTask);
@@ -47,8 +47,9 @@ class taskList {
       task.getLi().addEventListener('animationend', () => {
         this.tasks.splice(this.tasks.indexOf(task), 1);
         this.currentSelected = -1;
+        this.storeTasks();
+        this.updateList();
       });
-      this.updateList();
     });
   }
   // adiciona ações a serem executadas na lista quando o clique no botão de completar tarefa acontece
@@ -65,7 +66,7 @@ class taskList {
   // atualiza toda a ul com os elementos presentes na lista
   updateList() {
     this.container.innerHTML = '';
-    for (let index = 0; index < this.tasks.length; index++) {
+    for (let index = 0; index < this.tasks.length; index += 1) {
       this.container.appendChild(this.tasks[index].getLi());
     }
   }
@@ -191,15 +192,17 @@ class taskList {
     this.currentSelected = this.getCurrentSelectedIndex();
     this.updateList();
     this.completedTasks = 0;
+    this.storeTasks();
   }
   // remove todas as tarefas e reseta a lista
   removeAllTasks() {
     this.currentSelected = -1;
     this.mostRecent = null;
-    for (let index = 0; index < this.tasks.length; index++) this.tasks[index].delLi();
+    for (let index = 0; index < this.tasks.length; index += 1) this.tasks[index].delLi();
     this.tasks = [];
     this.updateScroll();
     this.completedTasks = 0;
+    this.storeTasks();
   }
   // retorna true se a lista conter tarefas marcadas como concluídas
   hasCompletedTasks() {
@@ -209,6 +212,23 @@ class taskList {
     window.cScroll.setScrollOnff(); // Esta linha atualiza se a barra de rolagem customizada deve aparecer
     window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
     window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
+  }
+
+  storeTasks() {
+    let toStore = {};
+    if(this.tasks.length == 0) return window.localStorage.clear();
+    for (let index = 0; index < this.tasks.length; index += 1) {
+      toStore[index] = this.tasks[index].getModelObject();
+    }
+    window.localStorage.setItem('taskList', JSON.stringify(toStore));
+  }
+  loadTasks() {
+    let storedTasks = window.localStorage.getItem('taskList');
+    if(storedTasks == null) return;
+    storedTasks = JSON.parse(storedTasks);
+    for (let value of Object.values(storedTasks)) {
+      this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update);
+    }
   }
 }
 

@@ -5,11 +5,11 @@ chamar um popup como forma de alerta toda vez que o usuário tentar deletar e es
  */
 
 class Task {
-  constructor(title = 'No titled task', description = 'No description') {
+  constructor(title = 'No titled task', description = 'No description', creationDate = null, updateDate = null) {
     this.title = title;
     this.description = description;
-    this.creationDate = this.getDayInfo();
-    this.updateDate = this.creationDate;
+    if (creationDate == undefined) this.creationDate = this.getDayInfo(); else this.creationDate = creationDate;
+    if (updateDate == undefined) this.updateDate = this.creationDate; else this.updateDate = updateDate;
 
     this.isCompleted = false;
     this.isSelected = false;
@@ -352,6 +352,18 @@ class Task {
     window.cScroll.setScrollOnff(); // chamada para a animação do scroll
     window.cScroll.updateMiniBallPosition(); // atualiza a posição da bolinha no scroll
     window.cScroll.updateBallHeight(); // atualiza o tamanho da bola no scroll
+  }
+
+  getModelObject() {
+    return {
+      'title': this.title,
+      'description': this.description,
+      'dateInfo': {
+        'creation': this.creationDate,
+        'update': this.updateDate,
+      },
+      'completedState': this.isCompleted,
+    };
   }
 }
 

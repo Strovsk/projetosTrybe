@@ -192,8 +192,11 @@ addTaskButton.onclick = () => {
     changeEditButtonState(listOfTasks.currentSelected);
   });
   listOfTasks.mostRecent.getTrashButton().addEventListener('click', () => {
-    checkEmptyTasksArea();
+    listOfTasks.mostRecent.getLi().addEventListener('animationend', () => {
+      checkEmptyTasksArea();
+    });
   });
+  listOfTasks.storeTasks();
 };
 
 addTaskTitle.onkeyup = () => {
@@ -264,4 +267,13 @@ window.onload = () => {
   if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
     changeWindowLayoutState();
   }
+  listOfTasks.loadTasks();
+  checkEmptyTasksArea();
+}
+window.onreset = () => {
+  if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
+    changeWindowLayoutState();
+  }
+  listOfTasks.loadTasks();
+  checkEmptyTasksArea();
 }
