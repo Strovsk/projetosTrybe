@@ -6,6 +6,8 @@
 @import url(./css/plusIconStyle.css);
 @import url(./css/modalRemoveAllStyle.css);
 
+/* Preciso adicionar Querys para a localização do botão plus na tela
+implementar salvamento dos dados */
 * {
   margin: 0;
   box-sizing: border-box;
@@ -24,7 +26,7 @@ body {
   display: flex;
   align-items: center;
   flex-flow: column;
-  height: 50%;
+  height: 40%;
   pointer-events: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -75,7 +77,7 @@ body {
   border-bottom: 2px solid #000;
   padding-left: 8px;
   caret-color: #eee;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   transition: .1s all ease;
 }
 .add-task-input:focus {
@@ -100,30 +102,24 @@ body {
 }
 .add-task-input:focus + .add-task-label, .add-task-input:not(.add-task-input:placeholder-shown) + .add-task-label {
   color: rgba(27, 27, 27, .7);
-  transform: translateY(0);
-  transform: scale(1);
+  transform: translateY(15px) scaleY(1);
 }
 
 .add-task-label {
   font-size: 11px;
   font-family: Quicksand, sans-serif;
   font-weight: 700;
-  margin-left: 5px;
-  /* position: absolute; */
-  margin: 5px 5px; 
-  color: transparent;
+  margin-bottom: 25px;
   /* color: rgba(27, 27, 27, .5); */
-  transform: translateY(15px);
-  transform: scale(0);
+  transform: translateY(15px) scaleY(0);
   transition: .3s all ease;
+  order: -1;
 }
-#task-description-input-label {
-  margin-top: -16%;
-  margin-bottom: 20%;
-}
-#task-title-input-label {
-  margin-top: -16%;
-  margin-bottom: 20%;
+.input-master-container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 35px;
+  width: 100%;
 }
 
 #add-description-button {
@@ -134,6 +130,7 @@ body {
   margin-top: 4px;
   position: relative;
   z-index: 3;
+  margin-top: 30px;
 }
 
 #add-description-button:hover {
@@ -260,14 +257,6 @@ body {
   .list-scroll-container {
     width: 100vw;
   }
-  #task-title-input-label {
-    margin-top: -10%;
-    margin-bottom: 15%;
-  }
-  #task-description-input-label {
-    margin-top: -10%;
-    margin-bottom: 10%;
-  }
   #add-task-plus-icon-container {
     transform: scale(1);
   }
@@ -294,13 +283,5 @@ body {
   #options {
     height: 60%;
     justify-content: center;
-  }
-  #task-description-input-label {
-    margin-top: -16%;
-    margin-bottom: 20%;
-  }
-  #task-title-input-label {
-    margin-top: -16%;
-    margin-bottom: 20%;
   }
 }

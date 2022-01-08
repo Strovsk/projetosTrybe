@@ -10,6 +10,7 @@
   font-size: 20px;
   margin-top: 10px;
   position: relative;
+  margin-top: 40px;
 }
 
 #add-task-button:disabled {
