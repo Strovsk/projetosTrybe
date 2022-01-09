@@ -135,7 +135,7 @@ class Task {
   }
   // se o texto for grande, será mostrado o botao 'exibir completo'
   checkTaskScrollHeight() {
-    const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
+    const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(this.containerElm.innerHeight * this.liSizeFromViewHeight);
     if (bufferCheck) {
       this.expandElm.remove();
       this.descriptionElm.classList.add('expanded');
@@ -461,12 +461,13 @@ class Task {
     this.isSelected = true;
     this.containerElm.classList.add('selected');
   }
+  // extenal - atualiza o scroll customizado
   updateCustomScroll() {
     window.cScroll.setScrollOnff(); // chamada para a animação do scroll
     window.cScroll.updateMiniBallPosition(); // atualiza a posição da bolinha no scroll
     window.cScroll.updateBallHeight(); // atualiza o tamanho da bola no scroll
   }
-
+  // geta um objeto com todas as informações relevantes da tarefa
   getModelObject() {
     return {
       'title': this.title,
@@ -479,6 +480,7 @@ class Task {
     };
   }
 
+  // gera os elementos titulo da tarefa e icone close na janela de informação
   genModalTopContainer() {
     this.topModalContainerElm = document.createElement('section');
     this.topModalContainerElm.classList.add('top-modal');
@@ -494,6 +496,7 @@ class Task {
     this.topModalContainerElm.appendChild(this.modalTitleElm);
     this.topModalContainerElm.appendChild(this.modalCloseButtonContainerElm);
   }
+  // gera os elementos de data de criação e atualização da tarefa na janela de informação
   genModalDateInfo() {
     this.modalDateCreationElm = document.createElement('p');
     this.modalDateCreationElm.innerText = this.formatDate('creation', 'noLineBreak');
@@ -503,12 +506,14 @@ class Task {
     this.modalDateUpdateElm.innerText = this.formatDate('update', 'noLineBreak');
     this.modalDateUpdateElm.classList.add('modal-date-info');
   }
-  genMOdalDescription() {
+  // gera os elementos de descrição da tarefa na janela de informação
+  genModalDescription() {
     this.modalDescriptionElm = document.createElement('p');
     if (this.description == '') this.modalDescriptionElm.innerText = `Sem descrição`;
     else this.modalDescriptionElm.innerText = `Descrição: ${this.description}`;
     this.modalDescriptionElm.classList.add('modal-description');
   }
+  // gera o elemento de estado de conclusão da tarefa na janela de informação
   genModalComplete() {
     this.modalCompletedElm = document.createElement('p');
     this.modalCompletedElm.classList.add('modal-completed');
@@ -522,14 +527,14 @@ class Task {
       this.modalCompletedElm.classList.remove('on');
     }
   }
-
+  // geta a janela com informações sobre a tarefa
   genTaskInfoModal() {
     this.infoModalElm = document.createElement('div');
     this.infoModalElm.classList.add('modal-area');
     this.infoModalElm.classList.add('off');
 
     this.genModalTopContainer();
-    this.genMOdalDescription();
+    this.genModalDescription();
     this.genModalDateInfo();
     this.genModalComplete();
 
@@ -541,13 +546,16 @@ class Task {
 
     document.getElementsByTagName('body')[0].appendChild(this.infoModalElm);
   }
+  // checa se a jenela de informações da tarefa está sendo mostrada na tela
   isTaskInfoModalShowing() {
     return this.infoModalElm.classList.contains('off');
   }
+  // muda o estado da janjela de informações da tarefa para visível ou não visível
   changeTaskInfoModalState() {
     if (this.isTaskInfoModalShowing()) this.infoModalElm.classList.remove('off');
     else return this.infoModalElm.classList.add('off');
   }
+  // atualiza a janela de informações
   updateModal() {
     this.infoModalElm.remove();
     this.genTaskInfoModal();
