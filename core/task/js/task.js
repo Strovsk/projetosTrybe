@@ -11,10 +11,11 @@ class Task {
     if (creationDate == undefined) this.creationDate = this.getDayInfo(); else this.creationDate = creationDate;
     if (updateDate == undefined) this.updateDate = this.creationDate; else this.updateDate = updateDate;
 
-    this.isCompleted = !isCompleted;
+    this.isCompleted = isCompleted;
     this.isSelected = false;
     this.isExpanded = false;
     this.liSizeFromViewHeight = 0.15;
+
     
     // Elements section
     this.containerElm;
@@ -51,14 +52,14 @@ class Task {
     this.trashIconSvgPathTampa;
     this.trashIconSvgRectBody;
     this.createTrashSvg();
-
+    
     // info icon svg
     this.infoIconSvgContainer;
     this.infoIconSvgG;
     this.infoIconSvgBallPath;
     this.infoIconSvgBodyPath;
     this.createInfoSvg();
-
+    
     // close icon svg
     this.closeIconSvgContainer;
     this.closeIconSvgG;
@@ -68,7 +69,7 @@ class Task {
     
     this.genTaskInfoModal();
     this.genElement();
-    this.doneSetIt();
+    if (this.isCompleted) this.taskCompleteOn(); else this.taskCompleteOff();
   }
   // atualiza o titulo de uma tarefa
   setTitle(title) {
@@ -425,13 +426,19 @@ class Task {
   // altera a cor do botão de completar tarefa quando clicado para verde e marca a classe como completa
   doneSetIt() {
     if (!this.isCompleted) {
-      this.completeElm.classList.add('on');
-      this.doneIconSvgPath.setAttribute('fill', 'green');
+      this.taskCompleteOn();
     } else {
-      this.completeElm.classList.remove('on');
-      this.doneIconSvgPath.setAttribute('fill', 'black');
+      this.taskCompleteOff();
     }
     this.isCompleted = !this.isCompleted;
+  }
+  taskCompleteOn() {
+    this.completeElm.classList.add('on');
+    this.doneIconSvgPath.setAttribute('fill', 'green');
+  }
+  taskCompleteOff() {
+    this.completeElm.classList.remove('on');
+    this.doneIconSvgPath.setAttribute('fill', 'black');
   }
   // Expande ou minimza o texto quando o botão mostrar texto é clicado
   expandDescription() {
