@@ -1,0 +1,88 @@
+.lineC1 {
+  fill: #1b1b1b;
+}
+
+.lineC2, .lineC3 {
+  fill: none;
+  stroke-linecap: round;
+}
+
+.lineC2 {
+  stroke: #1b1b1b;
+  stroke-linejoin: round;
+  stroke-width: 5px;
+}
+
+.lineC3 {
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 6px;
+}
+
+#remove-all-container {
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background: red; */
+  /* margin-top: 7px; */
+  align-self: center;
+  cursor: pointer;
+  transition: .4s ease all;
+}
+
+#remove-all-container:hover {
+  background-color: rgba(27, 27, 27, .2);
+}
+
+#remove-all-container:hover::after {
+  content: 'Remover todas as tarefas';
+  display: block;
+  color: #eee;
+  text-align: center;
+  width: 100px;
+  font-size: 10px;
+  position: absolute;
+  background-color: #1b1b1b;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 104%;
+  right: 0%;
+  cursor: auto;
+  z-index: 2;
+  font-family: Quicksand, sans-serif;
+  font-size: 12px;
+}
+
+#barraA, #barraB {
+  transition: .3s linear all;
+  transform-origin: 50% 60%;
+}
+
+#remove-all-container:hover #barraA {
+  transform: rotate(360deg);
+}
+
+#remove-all-container:hover #barraB {
+  transform: rotate(-360deg);
+}
+
+/* #linha1, #linha2, #linha3 {
+  transform-origin: 100% center;
+} */
+
+#remove-all-container:hover #linha1, #remove-all-container:hover #linha2, #remove-all-container:hover #linha3 {
+  animation: line-scale .4s ease;
+}
+
+@keyframes line-scale {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,29 @@
+.vaso {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 6px;
+}
+.x {
+  stroke-linecap: round;
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 6px;
+}
+.vaso-detalhe {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 6px;
+}
+.body-click {
+  fill: transparent;
+}
+.tampa {
+  transition: .05s linear all;
+}
+.body-click:hover + .tampa, .tampa:hover {
+  transform: origin(0, 0);
+  transform: rotate(-5deg);
+}
