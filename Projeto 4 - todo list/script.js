@@ -198,7 +198,7 @@ addTaskButton.onclick = () => {
     });
   });
   listOfTasks.storeTasks();
-  changeWindowLayoutState();
+  if (window.innerWidth <= 625) changeWindowLayoutState();
 };
 
 addTaskTitle.onkeyup = () => {
