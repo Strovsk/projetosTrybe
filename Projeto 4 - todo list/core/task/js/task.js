@@ -195,7 +195,7 @@ class Task {
   // gera o botão que diz 'mostrar texto'
   genExpandButton () {
     this.expandElm = document.createElement('button');
-    this.expandElm.innerText = 'expandir';
+    this.expandElm.innerText = 'alternar conteúdo';
     this.expandElm.classList.add('view-more');
   }
   // gera o card e adiciona todas as informações de top, mid e bottom 
@@ -436,13 +436,12 @@ class Task {
     this.expandElm.onclick = () => {
       if (!this.isExpanded) {
         this.descriptionElm.classList.add('expand');
-        this.expandElm.innerText = 'minimizar';
         // this.dateElm.innerText = this.formatDate('create');
       } else {
         this.descriptionElm.classList.remove('expand');
-        this.expandElm.innerText = 'expandir';
         // this.dateElm.innerText = this.formatDate();
       }
+      this.expandElm.innerText = 'alternar conteúdo';
       this.isExpanded = !this.isExpanded;
     }
   }
