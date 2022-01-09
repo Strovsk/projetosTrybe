@@ -229,10 +229,13 @@ class taskList {
     storedTasks = JSON.parse(storedTasks);
     for (let value of Object.values(storedTasks)) {
       this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update, value.completedState);
-      console.log(value);
-      console.log(this.mostRecent.isCompleted);
       if (typeof callback === 'function') callback(this.mostRecent);
     }
+  }
+  updateCurrentLastEdit() {
+    if (this.currentSelected == -1) return;
+    this.tasks[this.currentSelected].updateLastEdit();
+    this.storeTasks();
   }
 }
 

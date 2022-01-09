@@ -137,6 +137,7 @@ class Task {
   // atualiza a data da ultima atualização da task
   updateLastEdit() {
     this.updateDate = this.getDayInfo();
+    this.dateElm.innerText = this.formatDate();
   }
   // se o texto for grande, será mostrado o botao 'exibir completo'
   checkTaskScrollHeight() { // função absolutamente quebrada

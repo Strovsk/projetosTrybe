@@ -226,6 +226,7 @@ doneEditButton.addEventListener('click', () => {
   editTaskArea.classList.add('disabled');
   changePlusButtonState();
   listOfTasks.storeTasks();
+  listOfTasks.updateCurrentLastEdit();
 });
 
 removeCompletedContainer.onclick = () => {
