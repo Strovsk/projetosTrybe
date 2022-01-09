@@ -226,6 +226,7 @@ doneEditButton.addEventListener('click', () => {
   editTaskArea.classList.add('disabled');
   changePlusButtonState();
   listOfTasks.storeTasks();
+  listOfTasks.updateCurrentLastEdit();
 });
 
 removeCompletedContainer.onclick = () => {
@@ -273,6 +274,9 @@ window.onload = () => {
   listOfTasks.loadTasks((loadingElement) => {
     loadingElement.getLi().addEventListener('click', () => {
       changeEditButtonState(listOfTasks.currentSelected);
+    });
+    loadingElement.getCompleted().addEventListener('click', () => {
+      listOfTasks.storeTasks();
     });
     loadingElement.getTrashButton().addEventListener('click', () => {
       loadingElement.getLi().addEventListener('animationend', () => {
