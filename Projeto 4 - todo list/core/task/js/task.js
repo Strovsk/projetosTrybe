@@ -14,7 +14,7 @@ class Task {
     this.isCompleted = false;
     this.isSelected = false;
     this.isExpanded = false;
-    this.liSizeFromViewHeight = .15;
+    this.liSizeFromViewHeight = 0.15;
     
     // Elements section
     this.containerElm;
@@ -134,7 +134,8 @@ class Task {
     this.updateDate = this.getDayInfo();
   }
   // se o texto for grande, será mostrado o botao 'exibir completo'
-  checkTaskScrollHeight() {
+  checkTaskScrollHeight() { // função absolutamente quebrada
+    const containerHeight = this.containerElm.getBoundingClientRect().height;
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(this.containerElm.innerHeight * this.liSizeFromViewHeight);
     if (bufferCheck) {
       this.expandElm.remove();
@@ -190,7 +191,7 @@ class Task {
   // gera o botão que diz 'mostrar texto'
   genExpandButton () {
     this.expandElm = document.createElement('button');
-    this.expandElm.innerText = 'ver texto';
+    this.expandElm.innerText = 'expandir';
     this.expandElm.classList.add('view-more');
   }
   // gera o card e adiciona todas as informações de top, mid e bottom 
@@ -431,11 +432,11 @@ class Task {
     this.expandElm.onclick = () => {
       if (!this.isExpanded) {
         this.descriptionElm.classList.add('expand');
-        this.expandElm.innerText = 'minimizar texto';
+        this.expandElm.innerText = 'minimizar';
         // this.dateElm.innerText = this.formatDate('create');
       } else {
         this.descriptionElm.classList.remove('expand');
-        this.expandElm.innerText = 'ver texto';
+        this.expandElm.innerText = 'expandir';
         // this.dateElm.innerText = this.formatDate();
       }
       this.isExpanded = !this.isExpanded;

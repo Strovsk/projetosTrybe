@@ -279,20 +279,3 @@ window.onload = () => {
   });
   checkEmptyTasksArea();
 }
-window.onreset = () => {
-  if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
-    changeWindowLayoutState();
-  }
-  listOfTasks.loadTasks((loadingElement) => {
-    loadingElement.getLi().addEventListener('click', () => {
-      changeEditButtonState(listOfTasks.currentSelected);
-    });
-    loadingElement.getTrashButton().addEventListener('click', () => {
-      loadingElement.getLi().addEventListener('animationend', () => {
-        checkEmptyTasksArea();
-      });
-    });
-  });
-
-  checkEmptyTasksArea();
-}
