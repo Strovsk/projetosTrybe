@@ -222,12 +222,13 @@ class taskList {
     }
     window.localStorage.setItem('taskList', JSON.stringify(toStore));
   }
-  loadTasks() {
+  loadTasks(callback) {
     let storedTasks = window.localStorage.getItem('taskList');
     if (storedTasks == null) return;
     storedTasks = JSON.parse(storedTasks);
     for (let value of Object.values(storedTasks)) {
       this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update);
+      if (typeof callback === 'function') callback(this.mostRecent);
     }
   }
 }

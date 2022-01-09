@@ -263,6 +263,8 @@ class Task {
       this.containerElm.addEventListener('animationend', () => {
         this.delLi();
         this.updateCustomScroll();
+        this.infoModalElm.remove();
+        this.infoModalElm = null;
       });
     }
   }

@@ -267,13 +267,32 @@ window.onload = () => {
   if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
     changeWindowLayoutState();
   }
-  listOfTasks.loadTasks();
+  listOfTasks.loadTasks((loadingElement) => {
+    loadingElement.getLi().addEventListener('click', () => {
+      changeEditButtonState(listOfTasks.currentSelected);
+    });
+    loadingElement.getTrashButton().addEventListener('click', () => {
+      loadingElement.getLi().addEventListener('animationend', () => {
+        checkEmptyTasksArea();
+      });
+    });
+  });
   checkEmptyTasksArea();
 }
 window.onreset = () => {
   if (window.getComputedStyle(optionPanelElm).getPropertyValue('position') == 'absolute') {
     changeWindowLayoutState();
   }
-  listOfTasks.loadTasks();
+  listOfTasks.loadTasks((loadingElement) => {
+    loadingElement.getLi().addEventListener('click', () => {
+      changeEditButtonState(listOfTasks.currentSelected);
+    });
+    loadingElement.getTrashButton().addEventListener('click', () => {
+      loadingElement.getLi().addEventListener('animationend', () => {
+        checkEmptyTasksArea();
+      });
+    });
+  });
+
   checkEmptyTasksArea();
 }
