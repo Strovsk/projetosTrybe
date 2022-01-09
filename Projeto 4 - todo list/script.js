@@ -179,6 +179,7 @@ addDescriptionButton.onclick = () => {
   } else {
     addDescriptionInput.classList.remove('on');
     addDescriptionButton.innerText = 'adicionar descrição';
+    addDescriptionInput.value = '';
   }
 };
 
