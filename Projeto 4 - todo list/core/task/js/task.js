@@ -5,13 +5,13 @@ chamar um popup como forma de alerta toda vez que o usuário tentar deletar e es
  */
 
 class Task {
-  constructor(title = 'No titled task', description = 'No description', creationDate = null, updateDate = null) {
+  constructor(title = 'No titled task', description = 'No description', creationDate = null, updateDate = null, isCompleted = false) {
     this.title = title;
     this.description = description;
     if (creationDate == undefined) this.creationDate = this.getDayInfo(); else this.creationDate = creationDate;
     if (updateDate == undefined) this.updateDate = this.creationDate; else this.updateDate = updateDate;
 
-    this.isCompleted = false;
+    this.isCompleted = !isCompleted;
     this.isSelected = false;
     this.isExpanded = false;
     this.liSizeFromViewHeight = 0.15;
@@ -68,6 +68,7 @@ class Task {
     
     this.genTaskInfoModal();
     this.genElement();
+    this.doneSetIt();
   }
   // atualiza o titulo de uma tarefa
   setTitle(title) {

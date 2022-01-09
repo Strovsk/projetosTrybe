@@ -274,6 +274,9 @@ window.onload = () => {
     loadingElement.getLi().addEventListener('click', () => {
       changeEditButtonState(listOfTasks.currentSelected);
     });
+    loadingElement.getCompleted().addEventListener('click', () => {
+      listOfTasks.storeTasks();
+    });
     loadingElement.getTrashButton().addEventListener('click', () => {
       loadingElement.getLi().addEventListener('animationend', () => {
         checkEmptyTasksArea();

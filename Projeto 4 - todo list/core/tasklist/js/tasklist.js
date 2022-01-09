@@ -9,8 +9,8 @@ class taskList {
     this.completedTasks = 0;
   }
   // adiciona uma tarefa
-  addTask(title, description, creationDate = null, updateDate = null) {
-    let newTask = new Task(title, description, creationDate, updateDate);
+  addTask(title, description, creationDate = null, updateDate = null, isCompleted = false) {
+    let newTask = new Task(title, description, creationDate, updateDate, isCompleted);
     newTask.selectSetIt();
     
     this.tasks.push(newTask);
@@ -228,7 +228,9 @@ class taskList {
     if (storedTasks == null) return;
     storedTasks = JSON.parse(storedTasks);
     for (let value of Object.values(storedTasks)) {
-      this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update);
+      this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update, value.completedState);
+      console.log(value);
+      console.log(this.mostRecent.isCompleted);
       if (typeof callback === 'function') callback(this.mostRecent);
     }
   }
