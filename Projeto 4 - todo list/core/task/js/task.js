@@ -71,12 +71,15 @@ class Task {
   }
   // atualiza o titulo de uma tarefa
   setTitle(title) {
-      this.title = title;
+    this.title = title;
+    this.modalTitleElm.innerText = this.title;
+    this.titleElm.innerText = this.title;
   }
   // atualiza a descrição de uma tarefa
   setDescription(description) {
-      this.description = description;
-      this.modalDescriptionElm.innerText = this.description;
+    this.description = description;
+    this.modalDescriptionElm.innerText = this.description;
+    this.descriptionElm.innerText = this.description;
   }
   // atualiza o titulo e a descrição do card
   updateCard() {

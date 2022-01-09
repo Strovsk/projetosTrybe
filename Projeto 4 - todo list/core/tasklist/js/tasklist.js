@@ -172,7 +172,7 @@ class taskList {
   editTask(newTitle, newDescription) {
     this.tasks[this.currentSelected].setTitle(newTitle);
     this.tasks[this.currentSelected].setDescription(newDescription);
-    this.tasks[this.currentSelected].updateCard();
+    // this.tasks[this.currentSelected].updateCard();
   }
   // retorna o título e descrição da tarefa atualmente selecionada
   getCurrentSelectedTaskInfo() {
@@ -213,7 +213,7 @@ class taskList {
     window.cScroll.updateBallHeight(); // Esta linha atualiza o tamanho da barra de scroll customizada
     window.cScroll.updateMiniBallPosition(); // Esta linha atualiza a posição da bola menor quando uma nova tarefa é criada
   }
-
+  // armazena tarefas no localstorage
   storeTasks() {
     let toStore = {};
     if (this.tasks.length == 0) return window.localStorage.clear();
@@ -222,6 +222,7 @@ class taskList {
     }
     window.localStorage.setItem('taskList', JSON.stringify(toStore));
   }
+  // carrega tarefas no localstorage
   loadTasks(callback) {
     let storedTasks = window.localStorage.getItem('taskList');
     if (storedTasks == null) return;
