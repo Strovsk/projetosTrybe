@@ -237,7 +237,7 @@ removeCompletedContainer.onclick = () => {
       changeEditButtonState(listOfTasks.currentSelected);
     });
     else modalDetails(
-      'Não há tarefas completas para serem removidas', true, 'ok',
+      'Não há tarefas completas a serem removidas', true, 'ok',
       () => {return false;});
   changeEditButtonState(listOfTasks.currentSelected);
 }
