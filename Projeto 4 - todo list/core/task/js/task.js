@@ -30,6 +30,8 @@ class Task {
     this.doneContainerElm;
     this.infoContainerElm;
     this.doneElm;
+    this.infoMdalElm;
+    this.modalCloseButtonContainerElm;
 
     // Done icon svg
     this.doneIconSvgContainer;
@@ -56,7 +58,15 @@ class Task {
     this.infoIconSvgBallPath;
     this.infoIconSvgBodyPath;
     this.createInfoSvg();
+
+    // close icon svg
+    this.closeIconSvgContainer;
+    this.closeIconSvgG;
+    this.closeIconSvgBarraA;
+    this.closeIconSvgBarraB;
+    this.createCloseSvg();
     
+    this.genTaskInfoModal();
     this.genElement();
   }
   // atualiza o titulo de uma tarefa
@@ -94,7 +104,7 @@ class Task {
       }
   }
   // retorna uma string formatada com a informação de data de criação ou de atualização
-  formatDate(type = 'update') {
+  formatDate(type = 'update', format = 'lineBreak') {
     const dayToPass = {
       'update': {
         day: this.updateDate.day < 10 ? '0' + this.updateDate.day : this.updateDate.day,
@@ -111,8 +121,13 @@ class Task {
         min: this.creationDate.min < 10 ? '0' + this.creationDate.min : this.creationDate.min,
       },
     }
+    const typeInfo = {
+      'creation': 'criação',
+      'update': 'atualização',
+    }
     const result = dayToPass[type];
-    return `Data criação\n${result.day}/${result.month}/${result.year} ${result.hour}:${result.min}`;
+    if(format == 'lineBreak') return `Data ${typeInfo[type]}\n${result.day}/${result.month}/${result.year} ${result.hour}:${result.min}`;
+    if(format == 'noLineBreak') return `Data de ${typeInfo[type]}: ${result.day}/${result.month}/${result.year} ${result.hour}:${result.min}`;
   }
   // atualiza a data da ultima atualização da task
   updateLastEdit() {
@@ -121,7 +136,7 @@ class Task {
   // se o texto for grande, será mostrado o botao 'exibir completo'
   checkTaskScrollHeight() {
     const bufferCheck = this.descriptionElm.scrollHeight <= Math.ceil(window.innerHeight * this.liSizeFromViewHeight);
-    if(bufferCheck) {
+    if (bufferCheck) {
       this.expandElm.remove();
       this.descriptionElm.classList.add('expanded');
     }
@@ -160,7 +175,7 @@ class Task {
 
     this.infoContainerElm = document.createElement('span');
     this.infoContainerElm.classList.add('icon-background');
-    // this.infoButtonAction();
+    this.infoButtonAction();
 
     this.trashContainerElm.appendChild(this.trashIconSvgContainer);
     this.doneContainerElm.appendChild(this.doneIconSvgContainer);
@@ -238,6 +253,7 @@ class Task {
     this.doneContainerElm.onclick = () => {
       // console.log('tarefa marcada como concluída na classe task');
       this.doneSetIt();
+      this.updateModal();
     }
   }
   // adiciona a ação de remover a tarefa quando clicamos no botão done
@@ -246,9 +262,19 @@ class Task {
       this.containerElm.classList.add('to-delete');
       this.containerElm.addEventListener('animationend', () => {
         this.delLi();
-        this.updateCustomScroll;
+        this.updateCustomScroll();
       });
     }
+  }
+  infoButtonAction() {
+    this.infoContainerElm.addEventListener('click', () => {
+      this.changeTaskInfoModalState();
+    });
+  }
+  closeModalButtonAction() {
+    this.modalCloseButtonContainerElm.addEventListener('click', () => {
+      this.changeTaskInfoModalState();
+    });
   }
   // cria através do javascript o svg do botão de completar tarefa
   createDoneSvg() {
@@ -348,6 +374,38 @@ class Task {
 
     this.infoIconSvgContainer.appendChild(this.infoIconSvgG);
   }
+  createCloseSvg() {
+    this.closeIconSvgContainer = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    //width="30" height="30" viewBox="0 0 200 200"
+    this.closeIconSvgContainer.setAttribute('width', '30');
+    this.closeIconSvgContainer.setAttribute('height', '30');
+    this.closeIconSvgContainer.setAttribute('viewBox', '0 0 200 200');
+    // this.closeIconSvgContainer.classList.add('trash');
+    
+    this.closeIconSvgG = document.createElementNS(`http://www.w3.org/2000/svg`, `g`);
+    this.closeIconSvgBarraA = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    // x1="75" y1="100" x2="123.5" y2="150"
+    this.closeIconSvgBarraA.classList.add('close-svg-style');
+    this.closeIconSvgBarraA.setAttribute('x', '-25');
+    this.closeIconSvgBarraA.setAttribute('y', '65');
+    this.closeIconSvgBarraA.setAttribute('width', '200');
+    this.closeIconSvgBarraA.setAttribute('height', '22');
+    this.closeIconSvgBarraA.setAttribute('rx', '8');
+    this.closeIconSvgBarraA.setAttribute('transform', 'translate(184 76) rotate(135)');
+    this.closeIconSvgBarraB = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    // x1="125" y1="100" x2="75" y2="150"
+    this.closeIconSvgBarraB.classList.add('close-svg-style');
+    this.closeIconSvgBarraB.setAttribute('x', '-25');
+    this.closeIconSvgBarraB.setAttribute('y', '65');
+    this.closeIconSvgBarraB.setAttribute('width', '200');
+    this.closeIconSvgBarraB.setAttribute('height', '22');
+    this.closeIconSvgBarraB.setAttribute('rx', '8');
+    this.closeIconSvgBarraB.setAttribute('transform', 'translate(75 182) rotate(-135)');
+
+    this.closeIconSvgG.appendChild(this.closeIconSvgBarraA);
+    this.closeIconSvgG.appendChild(this.closeIconSvgBarraB);
+    this.closeIconSvgContainer.appendChild(this.closeIconSvgG);
+  }
 
   // Basic operations
 
@@ -357,7 +415,7 @@ class Task {
   }
   // altera a cor do botão de completar tarefa quando clicado para verde e marca a classe como completa
   doneSetIt() {
-    if(!this.isCompleted) {
+    if (!this.isCompleted) {
       this.completeElm.classList.add('on');
       this.doneIconSvgPath.setAttribute('fill', 'green');
     } else {
@@ -369,7 +427,7 @@ class Task {
   // Expande ou minimza o texto quando o botão mostrar texto é clicado
   expandDescription() {
     this.expandElm.onclick = () => {
-      if(!this.isExpanded) {
+      if (!this.isExpanded) {
         this.descriptionElm.classList.add('expand');
         this.expandElm.innerText = 'minimizar texto';
         // this.dateElm.innerText = this.formatDate('create');
@@ -417,6 +475,80 @@ class Task {
       },
       'completedState': this.isCompleted,
     };
+  }
+
+  genModalTopContainer() {
+    this.topModalContainerElm = document.createElement('section');
+    this.topModalContainerElm.classList.add('top-modal');
+    
+    this.modalCloseButtonContainerElm = document.createElement('span');
+    this.modalCloseButtonContainerElm.classList.add('icon-background');
+    this.modalCloseButtonContainerElm.style.transform = 'scale(.8)';
+    this.modalCloseButtonContainerElm.appendChild(this.closeIconSvgContainer);
+    this.closeModalButtonAction();
+    this.modalTitleElm = document.createElement('h1');
+    this.modalTitleElm.innerText = this.title;
+    this.modalTitleElm.classList.add('top-modal-title');
+    this.topModalContainerElm.appendChild(this.modalTitleElm);
+    this.topModalContainerElm.appendChild(this.modalCloseButtonContainerElm);
+  }
+  genModalDateInfo() {
+    this.modalDateCreationElm = document.createElement('p');
+    this.modalDateCreationElm.innerText = this.formatDate('creation', 'noLineBreak');
+    this.modalDateCreationElm.classList.add('modal-date-info');
+
+    this.modalDateUpdateElm = document.createElement('p');
+    this.modalDateUpdateElm.innerText = this.formatDate('update', 'noLineBreak');
+    this.modalDateUpdateElm.classList.add('modal-date-info');
+  }
+  genMOdalDescription() {
+    this.modalDescriptionElm = document.createElement('p');
+    if (this.description == '') this.modalDescriptionElm.innerText = `Sem descrição`;
+    else this.modalDescriptionElm.innerText = `Descrição: ${this.description}`;
+    this.modalDescriptionElm.classList.add('modal-description');
+  }
+  genModalComplete() {
+    this.modalCompletedElm = document.createElement('p');
+    this.modalCompletedElm.classList.add('modal-completed');
+    if (this.isCompleted) {
+      this.modalCompletedElm.innerText = 'Tarefa concluída';
+      this.modalCompletedElm.classList.add('on');
+      this.modalCompletedElm.classList.remove('off');
+    } else {
+      this.modalCompletedElm.innerText = 'Tarefa não concluída';
+      this.modalCompletedElm.classList.add('off');
+      this.modalCompletedElm.classList.remove('on');
+    }
+  }
+
+  genTaskInfoModal() {
+    this.infoModalElm = document.createElement('div');
+    this.infoModalElm.classList.add('modal-area');
+    this.infoModalElm.classList.add('off');
+
+    this.genModalTopContainer();
+    this.genMOdalDescription();
+    this.genModalDateInfo();
+    this.genModalComplete();
+
+    this.infoModalElm.appendChild(this.topModalContainerElm);
+    this.infoModalElm.appendChild(this.modalDateCreationElm);
+    this.infoModalElm.appendChild(this.modalDateUpdateElm);
+    this.infoModalElm.appendChild(this.modalDescriptionElm);
+    this.infoModalElm.appendChild(this.modalCompletedElm);
+
+    document.getElementsByTagName('body')[0].appendChild(this.infoModalElm);
+  }
+  isTaskInfoModalShowing() {
+    return this.infoModalElm.classList.contains('off');
+  }
+  changeTaskInfoModalState() {
+    if (this.isTaskInfoModalShowing()) this.infoModalElm.classList.remove('off');
+    else return this.infoModalElm.classList.add('off');
+  }
+  updateModal() {
+    this.infoModalElm.remove();
+    this.genTaskInfoModal();
   }
 }
 

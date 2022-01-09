@@ -21,7 +21,7 @@ class customScroll { // Esta classe controla o comportamento do scroll
     this.ballActiveAction();
 
     this.contentArea.onscroll = () => {
-      if(!this.activeLeftMouseButton) this.updateMiniBallPosition();
+      if (!this.activeLeftMouseButton) this.updateMiniBallPosition();
     }
   }
   // Esse método adiciona a propriedade de arrastar a bola
@@ -53,7 +53,7 @@ class customScroll { // Esta classe controla o comportamento do scroll
   }
   // mostra ou remove da tela o scroll quando o conteúdo não cabe na área comum
   setScrollOnff(forceOff = false) {
-    if(!this.isScrollHeightGreaterThanSizeHeight() || forceOff) this.barContainer.style.display = 'none';
+    if (!this.isScrollHeightGreaterThanSizeHeight() || forceOff) this.barContainer.style.display = 'none';
     else this.barContainer.style.display = 'flex';
   }
   // atualiza proporcinalmente o tamanho da barra de acordo com o viewport da área de conteúdo

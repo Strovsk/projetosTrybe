@@ -97,7 +97,7 @@ class taskList {
       },
     }
     filterListTypes[type]();
-    if(order == 'reverse') this.tasks = this.tasks.reverse();
+    if (order == 'reverse') this.tasks = this.tasks.reverse();
     this.updateList();
   }
   // função de comparação para callback do método .sort() baseada no título da task
@@ -182,7 +182,7 @@ class taskList {
   removeCompletedTasks() {
     let toKeep = []
     for (let index = 0; index < this.tasks.length; index += 1) {
-      if(this.tasks[index].isCompleted) {
+      if (this.tasks[index].isCompleted) {
         this.tasks[index].delLi();
       } else {
         toKeep.push(this.tasks[index]);
@@ -216,7 +216,7 @@ class taskList {
 
   storeTasks() {
     let toStore = {};
-    if(this.tasks.length == 0) return window.localStorage.clear();
+    if (this.tasks.length == 0) return window.localStorage.clear();
     for (let index = 0; index < this.tasks.length; index += 1) {
       toStore[index] = this.tasks[index].getModelObject();
     }
@@ -224,7 +224,7 @@ class taskList {
   }
   loadTasks() {
     let storedTasks = window.localStorage.getItem('taskList');
-    if(storedTasks == null) return;
+    if (storedTasks == null) return;
     storedTasks = JSON.parse(storedTasks);
     for (let value of Object.values(storedTasks)) {
       this.addTask(value.title, value.description, value.dateInfo.creation, value.dateInfo.update);

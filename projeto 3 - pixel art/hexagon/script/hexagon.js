@@ -118,31 +118,31 @@ class HexagonField {
     }
     this.pattern2 = {
       '-1': (size, element, stopP) => {
-        if(this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos1(), 1, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos2(), 2, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos3(), 3, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos4(), 4, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos5(), 5, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos1(), 1, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos2(), 2, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos3(), 3, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos4(), 4, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos5(), 5, stopP-1);
       },
       0: (size, element, stopP) => {
-        if(this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
       },
       3: (size, element, stopP) => {
         this.createFrom2(size, element.getPos3(), 3, stopP-1);
       },
       4: (size, element, stopP) => {
         this.createFrom2(size, element.getPos3(), 3, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos4(), 4, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos4(), 4, stopP-1);
         this.createFrom2(size, element.getPos5(), 5, stopP-1);
       },
       2: (size, element, stopP) => {
         this.createFrom2(size, element.getPos1(), 1, stopP-1);
-        if(this.getAvailable()) this.createFrom2(size, element.getPos2(), 2, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos2(), 2, stopP-1);
         this.createFrom2(size, element.getPos3(), 3, stopP-1);
       },
       5: (size, element, stopP) => {
-        if(this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
+        if (this.getAvailable()) this.createFrom2(size, element.getPos0(), 0, stopP-1);
         this.createFrom2(size, element.getPos5(), 5, stopP-1);
       },
       1: (size, element, stopP) => {
@@ -175,7 +175,7 @@ class HexagonField {
   }
 
   createFrom(size = {w : 100, h : 90}, position={x : 250, y : 250}, identifier = -1, stopPoint = 3){
-    if(stopPoint <= 0) return;
+    if (stopPoint <= 0) return;
 
     let generic = new Hexagon(size, position);
     this.container.appendChild(generic.getElement());
@@ -183,7 +183,7 @@ class HexagonField {
     this.patternDefault[identifier](size, generic, stopPoint);
   }
   createFrom2(size = {w : 100, h : 90}, position={x : 250, y : 250}, identifier = -1, stopPoint = 4){
-    if(stopPoint <= 0) return;
+    if (stopPoint <= 0) return;
 
     let generic = new Hexagon(size, position);
     this.container.appendChild(generic.getElement());
@@ -191,8 +191,8 @@ class HexagonField {
     this.pattern2[identifier](size, generic, stopPoint);
   }
   createFrom3(size = {w : 80, h : 70}, position={x : this.container.getBoundingClientRect().width - size.w, y : this.container.getBoundingClientRect().height / 2}, identifier = -1, stopPoint = 10){ // Não quero fazer recursivamente
-    if(stopPoint <= 0) return;
-    if(
+    if (stopPoint <= 0) return;
+    if (
       position.y + this.container.getBoundingClientRect().top >= this.container.getBoundingClientRect().top - (size.h/2) &&
       position.y + this.container.getBoundingClientRect().top <= this.container.getBoundingClientRect().top - (size.h/2) + this.container.getBoundingClientRect().height &&
       position.x + this.container.getBoundingClientRect().left >= this.container.getBoundingClientRect().left &&
@@ -202,7 +202,7 @@ class HexagonField {
         this.container.appendChild(generic.getElement());
         this.pattern3[identifier](size, generic, stopPoint);
       } else { return; }
-    if(identifier == -2) return;
+    if (identifier == -2) return;
   }
 
   getAvailable(){
