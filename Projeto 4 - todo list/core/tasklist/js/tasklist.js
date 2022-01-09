@@ -114,51 +114,51 @@ class taskList {
   }
   // função de comparação para callback do método .sort() baseada na data de criação da task
   filterCompareCreationDate(itemA, itemB) {
-    if (itemA.creationDate.year > itemB.creationDate.year) return -1;
-    if (itemA.creationDate.year < itemB.creationDate.year) return 1;
+    if (itemA.creationDate.year < itemB.creationDate.year) return -1;
+    if (itemA.creationDate.year > itemB.creationDate.year) return 1;
 
-    if (itemA.creationDate.month > itemB.creationDate.month) return -1;
-    if (itemA.creationDate.month < itemB.creationDate.month) return 1;
+    if (itemA.creationDate.month < itemB.creationDate.month) return -1;
+    if (itemA.creationDate.month > itemB.creationDate.month) return 1;
 
-    if (itemA.creationDate.day > itemB.creationDate.day) return -1;
-    if (itemA.creationDate.day < itemB.creationDate.day) return 1;
+    if (itemA.creationDate.day < itemB.creationDate.day) return -1;
+    if (itemA.creationDate.day > itemB.creationDate.day) return 1;
     
-    if (itemA.creationDate.hour > itemB.creationDate.hour) return -1;
-    if (itemA.creationDate.hour < itemB.creationDate.hour) return 1;
+    if (itemA.creationDate.hour < itemB.creationDate.hour) return -1;
+    if (itemA.creationDate.hour > itemB.creationDate.hour) return 1;
     
-    if (itemA.creationDate.min > itemB.creationDate.min) return -1;
-    if (itemA.creationDate.min < itemB.creationDate.min) return 1;
+    if (itemA.creationDate.min < itemB.creationDate.min) return -1;
+    if (itemA.creationDate.min > itemB.creationDate.min) return 1;
     
-    if (itemA.creationDate.sec > itemB.creationDate.sec) return -1;
-    if (itemA.creationDate.sec < itemB.creationDate.sec) return 1;
+    if (itemA.creationDate.sec < itemB.creationDate.sec) return -1;
+    if (itemA.creationDate.sec > itemB.creationDate.sec) return 1;
     
-    if (itemA.creationDate.ms > itemB.creationDate.ms) return -1;
-    if (itemA.creationDate.ms < itemB.creationDate.ms) return 1;
+    if (itemA.creationDate.ms < itemB.creationDate.ms) return -1;
+    if (itemA.creationDate.ms > itemB.creationDate.ms) return 1;
 
     return 0;
   }
   // função de comparação para callback do método .sort() baseada no data de atualização da task
   filterCompareUpdateDate(itemA, itemB) {
-    if (itemA.updateDate.year > itemB.updateDate.year) return -1;
-    if (itemA.updateDate.year < itemB.updateDate.year) return 1;
+    if (itemA.updateDate.year < itemB.updateDate.year) return -1;
+    if (itemA.updateDate.year > itemB.updateDate.year) return 1;
 
-    if (itemA.updateDate.month > itemB.updateDate.month) return -1;
-    if (itemA.updateDate.month < itemB.updateDate.month) return 1;
+    if (itemA.updateDate.month < itemB.updateDate.month) return -1;
+    if (itemA.updateDate.month > itemB.updateDate.month) return 1;
 
-    if (itemA.updateDate.day > itemB.updateDate.day) return -1;
-    if (itemA.updateDate.day < itemB.updateDate.day) return 1;
+    if (itemA.updateDate.day < itemB.updateDate.day) return -1;
+    if (itemA.updateDate.day > itemB.updateDate.day) return 1;
     
-    if (itemA.updateDate.hour > itemB.updateDate.hour) return -1;
-    if (itemA.updateDate.hour < itemB.updateDate.hour) return 1;
+    if (itemA.updateDate.hour < itemB.updateDate.hour) return -1;
+    if (itemA.updateDate.hour > itemB.updateDate.hour) return 1;
     
-    if (itemA.updateDate.min > itemB.updateDate.min) return -1;
-    if (itemA.updateDate.min < itemB.updateDate.min) return 1;
+    if (itemA.updateDate.min < itemB.updateDate.min) return -1;
+    if (itemA.updateDate.min > itemB.updateDate.min) return 1;
     
-    if (itemA.updateDate.sec > itemB.updateDate.sec) return -1;
-    if (itemA.updateDate.sec < itemB.updateDate.sec) return 1;
+    if (itemA.updateDate.sec < itemB.updateDate.sec) return -1;
+    if (itemA.updateDate.sec > itemB.updateDate.sec) return 1;
     
-    if (itemA.updateDate.ms > itemB.updateDate.ms) return -1;
-    if (itemA.updateDate.ms < itemB.updateDate.ms) return 1;
+    if (itemA.updateDate.ms < itemB.updateDate.ms) return -1;
+    if (itemA.updateDate.ms > itemB.updateDate.ms) return 1;
 
     return 0;
   }
