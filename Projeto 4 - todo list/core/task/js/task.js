@@ -76,6 +76,7 @@ class Task {
   // atualiza a descrição de uma tarefa
   setDescription(description) {
       this.description = description;
+      this.modalDescriptionElm.innerText = this.description;
   }
   // atualiza o titulo e a descrição do card
   updateCard() {

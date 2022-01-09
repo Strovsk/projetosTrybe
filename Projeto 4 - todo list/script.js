@@ -197,6 +197,7 @@ addTaskButton.onclick = () => {
     });
   });
   listOfTasks.storeTasks();
+  changeWindowLayoutState();
 };
 
 addTaskTitle.onkeyup = () => {
@@ -223,6 +224,7 @@ doneEditButton.addEventListener('click', () => {
   taskDescriptionInputEdit.value = '';
   editTaskArea.classList.add('disabled');
   changePlusButtonState();
+  listOfTasks.storeTasks();
 });
 
 removeCompletedContainer.onclick = () => {
