@@ -1,0 +1,7 @@
+.saleProduct {
+  width: 50vw; height: calc(0.4 * 50vw);
+  background-image: url(../assets/saleProduct/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 50px;
+}
