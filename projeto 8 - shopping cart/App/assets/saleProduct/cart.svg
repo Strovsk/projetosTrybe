@@ -33,13 +33,13 @@
 
     <linearGradient id="mainPaletteGradient" data-name="main palette gradient" y1="71.5" x2="143" y2="71.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#74b2a8"> <!-- verde claro -->
-        <animate attributeName="stop-color" values="#74b2a8; #3d3d99; #2c2a63; #3d3d99; #74b2a8" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#74b2a8; #3d3d99; #2c2a63; #3d3d99; #74b2a8" dur="2s" repeatCount="indefinite"/>
       </stop>
       <stop offset="0.52" stop-color="#3d3d99"> <!-- azul claro -->
-        <animate attributeName="stop-color" values="#3d3d99; #2c2a63; #3d3d99; #74b2a8; 3d3d99" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#3d3d99; #2c2a63; #3d3d99; #74b2a8; 3d3d99" dur="2s" repeatCount="indefinite"/>
       </stop>
       <stop offset="1" stop-color="#2c2a63"> <!-- azul escuro -->
-        <animate attributeName="stop-color" values="#2c2a63; #3d3d99; #74b2a8; #3d3d99; #2c2a63" dur="3s" repeatCount="indefinite"/>
+        <animate attributeName="stop-color" values="#2c2a63; #3d3d99; #74b2a8; #3d3d99; #2c2a63" dur="2s" repeatCount="indefinite"/>
       </stop>
     </linearGradient>
 
