@@ -1,4 +1,3 @@
-// todo colocar treco rgba na cor das bolinas e colocar todos os itens na frente das bolinhas no component sale
 (() => {
   let buffer;
   const categoriesList = [];
