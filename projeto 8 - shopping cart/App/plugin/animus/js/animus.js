@@ -1,9 +1,18 @@
 import { Ball } from "./entity/ball.js";
 import { Vector } from "./vector.js";
 
+const canvasContainerElm = document.getElementsByClassName('mini-ball-container')[0];
+const canvasContainerBoundings = () => canvasContainerElm.getBoundingClientRect();
 const canvasElm = document.getElementById('mini-ballCvs');
 const canvas = canvasElm.getContext('2d');
 const canvasDimensions = () => canvasElm.getBoundingClientRect();
+
+//  UpdateCanvasSize
+(() => {
+  canvasElm.width = canvasContainerBoundings().width;
+  canvasElm.height = canvasContainerBoundings().height;
+  console.log('rodada com sucesso');
+})();
 
 const gravity = new Vector(0.2, 270);
 const impulse = new Vector(0.2, 60);
