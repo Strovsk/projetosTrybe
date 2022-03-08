@@ -14,19 +14,28 @@
     <input type="text" name="searchProducts" class="searchHeader-inputBar" placeholder="Pesquisar por um produto" />
     <button type="button" class="searchHeader-button">pesquisar</button>
   </header>
+
   <section class="productInfoBar">
     <h3>exibindo resultados para: "produto pesquisado"</h3>
   </section>
+
   <section class="saleProduct">
     <div class="mini-ball-container">
       <canvas id="mini-ballCvs" width="700" height="290"></canvas>
     </div>
     <script type="module" src="./plugin/animus/js/animloader.js"></script>
-    <div id="saleProduct-priceContent">
-      <h1>Imperdível</h1>
-      <h1>R$129.99</h1>
+    <div class="saleProduct-imageContainer">
+      <img class="saleProduct-image" src="./assets/saleProduct/productImage.png" alt="Vaso de Planta">
     </div>
-    <h1>Duas bolas com preço caindo</h1>
+    <div class="saleProduct-textContent">
+      <div id="saleProduct-priceContent">
+        <h1>Imperdível</h1>
+        <h1>R$129.99</h1>
+      </div>
+      <div class="saleProduct-nameContent">
+        <h1>Duas bolas com preço caindo</h1>
+      </div>
+    </div>
   </section>
 </body>
 </html>

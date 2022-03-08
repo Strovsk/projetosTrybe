@@ -5,10 +5,52 @@
   background-size: cover;
   margin-left: 50px;
   position: relative;
+  border-radius: 3px;
+
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-around;
+}
+
+.saleProduct-textContent {
+  display: flex;
+  flex-flow: nowrap column;
+}
+
+.saleProduct-imageContainer {
+  background: white;
+  height: 250px; width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  /* padding: 4% 0; */
+}
+
+.saleProduct-image {
+  height: 100%;
 }
 
 .saleProduct h1 {
   color: #ffffff;
+  text-align: right;
+}
+
+
+/* #saleProduct-priceContent {
+  background: green;
+} */
+
+/* .saleProduct-nameContent {
+  background: red;
+} */
+
+.saleProduct-nameContent h1:nth-child(1) {
+  position: absolute;
+  display: inline-block;
+  right: 50px;
+  text-shadow: -3px 0 3px rgba(0, 0, 0, .5);
+  /* color: red; */
 }
 
 .mini-ball-container {
