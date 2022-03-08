@@ -1,0 +1,26 @@
+
+  .mini-ball-container {
+    width: 300px; height: 200px;
+    /* background: linear-gradient(to bottom, #e0e0e0, #eee); */
+    background-image: url('../../../1x/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: -5px -5px 10px #fff,
+      4px 4px 10px rgba(27, 27, 27, .5);
+    /* border: 15px solid #1b1b1b; */
+    border-radius: 5px 5px 0 0;
+    position: relative;
+  }
+  
+  .mini-ball {
+    width: 50px; height: 50px;
+    background: #1b1b1b;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  #mini-ballCvs {
+    /* width: 100%; height: 100%; */
+    position: absolute;
+    /* border: 2px solid red; */
+  }
