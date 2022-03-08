@@ -26,10 +26,14 @@
   align-self: center;
   /* padding: 4% 0; */
   z-index: 3;
+  border-radius: 10px;
+  box-shadow: 
+    5px 5px 10px #2C2A63,
+    4px 4px 10px #74B2A8 inset;
 }
 
 .saleProduct-image {
-  height: 100%;
+  height: 90%;
 }
 
 .saleProduct h1 {
