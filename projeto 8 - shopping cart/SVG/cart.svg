@@ -27,6 +27,10 @@
       }
     </style>
 
+    <filter id="gaussianEffect">
+      <feGaussianBlur in="sourceGraphic" stdDeviation="2" />
+    </filter>
+
     <linearGradient id="mainPaletteGradient" data-name="main palette gradient" y1="71.5" x2="143" y2="71.5" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#74b2a8"> <!-- verde claro -->
         <animate attributeName="stop-color" values="#74b2a8; #3d3d99; #2c2a63; #3d3d99; #74b2a8" dur="3s" repeatCount="indefinite"/>
@@ -48,5 +52,7 @@
         <path id="topCart" class="cls-3" d="M95,34.43,80.5,38.62a27.18,27.18,0,0,1-8.79,1L37.47,38.12,1.9,36.52a.32.32,0,0,1-.08-.62L40.73,24.65,94.7,31A1.76,1.76,0,0,1,95,34.43Z"/>
       </g>
     </g>
+
+    <use id="shadow" xlink:href="#cartContainer" filter="url(#gaussianEffect)" />
 
 </svg>
