@@ -1,0 +1,44 @@
+:root {
+  --back-style-1: drop-shadow(5px 5px 5px white);
+  --back-style-2: drop-shadow(11px -6px 0 #a77eed);
+  --cube-size: 100px;
+  --space-x: 11px;
+  --space-y: -5px;
+}
+
+.cube {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-flow: nowrap column;
+  width: 100px; height: 140px;
+  /* background: green; */
+}
+
+.cube-faceContainer {
+  position: relative;
+}
+
+.cube-face {
+  width: 100px; height: 100px;
+  /* margin-top: 8%; */
+  position: absolute;
+  border-radius: 24px;
+  background: linear-gradient(-15deg, #362745, #74B2A8, #74B2A8);
+}
+
+.cube-faceContainer div:last-child {
+  left: 11px;
+  top: -5px;
+  background: linear-gradient(130deg, #362745, #74B2A8, #74B2A8);
+  z-index: -1;
+}
+
+.cube-face.cube-shadow {
+  background: rgba(0, 0, 0, .5);
+  width: 111px;
+  height: 111px;
+  filter: blur(7px);
+  transform: rotateX(70deg) rotateZ(10deg);
+  animation: toScale 1s infinite alternate;
+}
