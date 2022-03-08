@@ -4,7 +4,7 @@
 @import url(./css/productInfoBar.css);
 @import url(./css/categories.css);
 
-@import url(./plugin/staticCube/css/staticCube.css);
+@import url(./components/staticCube/css/staticCube.css);
 
 body {
   margin: 0;
