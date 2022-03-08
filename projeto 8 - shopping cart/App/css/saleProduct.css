@@ -25,6 +25,7 @@
   justify-content: center;
   align-self: center;
   /* padding: 4% 0; */
+  z-index: 3;
 }
 
 .saleProduct-image {
@@ -34,6 +35,7 @@
 .saleProduct h1 {
   color: #ffffff;
   text-align: right;
+  z-index: 4;
 }
 
 

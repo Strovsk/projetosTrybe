@@ -16,8 +16,8 @@ const radiusRand = () => 1 + (5 * Math.random());
 const angleRand = () => (360 * Math.random());
 const colorRand = () => ({
     0: '#1b1b1b',
-    1: '#2C2A63',
-    2: '#74B2A8',
+    1: '#2C2A63dd',
+    2: '#74B2A8dd',
   })[Math.round(2 * Math.random())];
 const ballsList = [];
 for (let index = 0; index < 100; index += 1) {
