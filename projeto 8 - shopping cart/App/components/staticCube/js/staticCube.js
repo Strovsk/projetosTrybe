@@ -1,5 +1,5 @@
 class StaticCube {
-  constructor(containerId, cubeName = 'categorie') {
+  constructor(containerId, cubeName = 'category') {
     this.containerElm = document.querySelector(containerId);
     this.cubeContainerElm;
     this.cubeElm;

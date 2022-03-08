@@ -19,7 +19,7 @@
 
 .saleProduct-imageContainer {
   background: white;
-  height: 250px; width: 250px;
+  height: 220px; width: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,7 +28,7 @@
   z-index: 3;
   border-radius: 10px;
   box-shadow: 
-    5px 5px 10px #2C2A63,
+    5px 5px 10px #2C2A63dd,
     4px 4px 10px #74B2A8 inset;
 }
 
