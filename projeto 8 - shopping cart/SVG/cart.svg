@@ -17,20 +17,26 @@
       }
 
       .cls-2 {
-        stroke: url(#Gradiente_sem_nome_7-2);
+        stroke: url(#Gradiente_sem_nome_7);
       }
 
       .cls-3 {
-        stroke: url(#Gradiente_sem_nome_7-3);
+        stroke: url(#Gradiente_sem_nome_7);
       }
     </style>
+    
     <linearGradient id="Gradiente_sem_nome_7" data-name="Gradiente sem nome 7" y1="71.5" x2="143" y2="71.5" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#74b2a8"/>
-      <stop offset="0.52" stop-color="#3d3d99"/>
-      <stop offset="1" stop-color="#2c2a63"/>
+      <stop offset="0" stop-color="#74b2a8"> <!-- verde claro -->
+        <animate attributeName="stop-color" values="#74b2a8; #3d3d99; #2c2a63; #3d3d99; #74b2a8" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.52" stop-color="#3d3d99"> <!-- azul claro -->
+        <animate attributeName="stop-color" values="#3d3d99; #2c2a63; #3d3d99; #74b2a8; 3d3d99" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#2c2a63"> <!-- azul escuro -->
+        <animate attributeName="stop-color" values="#2c2a63; #3d3d99; #2c2a63; #3d3d99; #2c2a63" dur="3s" repeatCount="indefinite"/>
+      </stop>
     </linearGradient>
-    <linearGradient id="Gradiente_sem_nome_7-2" x1="1.08" y1="83.1" x2="104.85" y2="83.1" xlink:href="#Gradiente_sem_nome_7"/>
-    <linearGradient id="Gradiente_sem_nome_7-3" x1="1.09" y1="32.17" x2="96.75" y2="32.17" xlink:href="#Gradiente_sem_nome_7"/>
+
   </defs>
   <g id="Camada_2" data-name="Camada 2">
     <g id="Camada_3" data-name="Camada 3">
