@@ -1,8 +1,16 @@
 #cart {
   width: 30vw; height: 80vh;
   right: 7vw;
-  top: 15vh;
+  top: 15%;
   position: fixed;
   box-shadow: 6px 6px 15px rgba(0, 0, 0, .2);
   border-radius: 55px;
+
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.cart-iconContainer {
+  margin-top: 15px;
 }
