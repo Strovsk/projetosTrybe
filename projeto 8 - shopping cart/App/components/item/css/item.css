@@ -46,19 +46,22 @@
     right: 0; top: 0;
   }
 
-  .item-thumb {
+  .item-thumbContainer {
     width: 150px; height: 70px;
+  }
+  .item-thumb {
+    width: 80%; height: 100%;
   }
 
   .item-title {
     margin-left: 15px; 
-    margin-rigth: 15px;
+    margin-right: 15px;
     margin-bottom: 0;
   }
 
   .item-subtitle {
     margin-left: 15px; 
-    margin-rigth: 15px;
+    margin-right: 15px;
   } 
 
 /*   .item-pmt {

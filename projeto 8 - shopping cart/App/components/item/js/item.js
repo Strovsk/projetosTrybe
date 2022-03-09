@@ -9,6 +9,7 @@ class Item {
     // Elements
     this.containerElm;
     this.priceElm;
+    this.imgContainerElm;
     this.imgElm;
     this.titleElm;
     this.subtitleElm;
@@ -32,6 +33,7 @@ class Item {
   genElements() {
     this.containerElm = document.createElement('div');
     this.priceElm = document.createElement('h1');
+    this.imgContainerElm = document.createElement('div');
     this.imgElm = document.createElement('img');
     this.titleElm = document.createElement('h1');
     this.subtitleElm = document.createElement('p');
@@ -43,6 +45,7 @@ class Item {
   loadClasses () {
     this.containerElm.classList.add('item');
     this.priceElm.classList.add('item-price');
+    this.imgContainerElm.classList.add('item-thumbContainer');
     this.imgElm.classList.add('item-thumb');
     this.titleElm.classList.add('item-title');
     this.subtitleElm.classList.add('item-subtitle');
@@ -53,6 +56,8 @@ class Item {
   
   loadStructure() {
     this.containerElm.appendChild(this.priceElm);
+    this.imgContainerElm.appendChild(this.imgElm);
+    this.containerElm.appendChild(this.imgContainerElm);
     this.containerElm.appendChild(this.imgElm);
     this.containerElm.appendChild(this.titleElm);
     this.containerElm.appendChild(this.subtitleElm);
