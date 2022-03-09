@@ -28,8 +28,11 @@
   z-index: 3;
   border-radius: 10px;
   box-shadow: 
-    5px 5px 10px #2C2A63dd,
-    4px 4px 10px #74B2A8 inset;
+  5px 5px 20px rgba(61, 61, 153, .5),
+  5px 5px 20px rgba(116, 178, 168, 1),
+  5px 5px 5px rgba(27, 27, 27, 1),
+  2px 2px 5px rgba(27, 27, 27, .5) inset,
+  4px 4px 10px #74B2A8 inset;
 }
 
 .saleProduct-image {
