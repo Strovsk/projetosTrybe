@@ -4,21 +4,21 @@
   --color-three: #d8cdc7;
 }
 
-body {
+/* body {
   heigth: 100vh;
   background: #e0e0e0;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-h1 {
+.item h1 {
   font-family: Roboto, sans-serif;
   font-size: 13px;
   font-weight: 700px;
 }
 
-p {
+.item p {
  font-family: Roboto, sans-serif;
   font-size: 10px;
   font-weight: 700px; 

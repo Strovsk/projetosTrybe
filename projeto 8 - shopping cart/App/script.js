@@ -6,3 +6,7 @@
     categoriesList.push(buffer);
   }
 })();
+
+(() => {
+  const itemListElm = document.getElementsByClassName('itemList')[0];
+})();
