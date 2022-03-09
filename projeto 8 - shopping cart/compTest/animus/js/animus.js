@@ -14,15 +14,15 @@ const vecRand180 = () => Math.round(30 + (180 * Math.random()));
 const radiusRand = () => 1 + (5 * Math.random());
 const angleRand = () => (360 * Math.random());
 const colorRand = () => ({
-    0: '#1b1b1b',
-    1: '#2c2a63',
+    0: '#1b1b1bee',
+    1: '#2c2a63ee',
   })[Math.round(1 * Math.random())];
 const ballsList = [];
 for (let index = 0; index < 100; index += 1) {
-  let buffer = new Ball(randX(), -10, vecRand(), 10, 2, angleRand(), radiusRand(), colorRand(), '#mini-ballCvs');
+  let buffer = new Ball(randX(), -10, 5, 5, 5, 0, radiusRand(), colorRand(), '#mini-ballCvs');
   buffer.vec.addForce('g', gravity);
   buffer.vec.addForce('imp', impulse);
-  buffer.vec.getForces()['imp'].setAngle(vecRand180());
+  // buffer.vec.getForces()['imp'].setAngle(vecRand180());
   buffer.vec.addForce('friction', fr);
 
   ballsList.push(buffer);
