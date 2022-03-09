@@ -38,6 +38,7 @@ export class Ball extends Entity {
         if (this.isColisionWallUniverse().bottomWall(this.radius)) {
           this.vec.applyForce('imp');
           this.vec.magDecay(this.vec.mag * .02, 1);
+          this.y -= (this.radius + 1);
         }
       },
       left: () => {
@@ -45,6 +46,7 @@ export class Ball extends Entity {
           this.vec.reflect('x');
           this.vec.magDecay(this.vec.mag * .03, 1);
           this.vec.getForces()['imp'].reflect('x');
+          this.x += (this.radius + 1);
         }
       },
       right: () => {
@@ -52,6 +54,7 @@ export class Ball extends Entity {
           this.vec.magDecay(this.vec.mag * .04, 1);
           this.vec.reflect('x');
           this.vec.getForces()['imp'].reflect('x');
+          this.x -= (this.radius + 1);
         }
       },
 
