@@ -9,4 +9,9 @@
 
 (() => {
   const itemListElm = document.getElementsByClassName('itemList')[0];
+  for (let index = 0; index < 6; index += 1) {
+    let buffer = new Item();
+    itemListElm.appendChild(buffer.getContainer());
+  }
+  // itemListElm.appendChild(item.getContainer());
 })();

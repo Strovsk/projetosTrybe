@@ -6,6 +6,30 @@ class Item {
      price = 29.9,
      pmt = 12,
   ) {
+    // Elements
+    this.containerElm;
+    this.priceElm;
+    this.imgElm;
+    this.titleElm;
+    this.subtitleElm;
+    this.separatorElm;
+    this.pmtElm;
+    this.addCart;
+
+    // Content
+    this.title = title;
+    this.subtitle =subtitle;
+    this.imgUrl = imgUrl;
+    this.price = price;
+    this.pmt = pmt;
+   
+    this.genElements();
+    this.loadClasses();
+    this.loadStructure();
+    this.loadContent();
+  }
+
+  genElements() {
     this.containerElm = document.createElement('div');
     this.priceElm = document.createElement('h1');
     this.imgElm = document.createElement('img');
@@ -14,17 +38,8 @@ class Item {
     this.separatorElm = document.createElement('span');
     this.pmtElm = document.createElement('h1');
     this.addCart = document.createElement('button');
-    this.title = title;
-    this.subtitle =subtitle;
-    this.imgUrl = imgUrl;
-    this.price = price;
-    this.pmt = pmt;
-   
-    this.loadClasses();
-    this.loadStructure();
-    this.loadContent();
-   // console.log(this.n);
   }
+
   loadClasses () {
     this.containerElm.classList.add('item');
     this.priceElm.classList.add('item-price');
@@ -54,11 +69,8 @@ class Item {
     this.pmtElm.innerText = `${this.pmt}x de R$ ${(this.price / this.pmt).toFixed(2)}`
     this.addCart.innerText = 'Adicionar ao carrinho';
   }
-  
+
   getContainer() {
     return this.containerElm;
   }
 }
-
-const objTest = new item();
-document.body.appendChild(objTest.getContainer());
