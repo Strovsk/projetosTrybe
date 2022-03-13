@@ -29,7 +29,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 180px; height: 265px;
+  width: 180px; height: 300px;
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5); 
   position: relative;
@@ -47,10 +47,11 @@
   }
 
   .item-thumbContainer {
-    width: 150px; height: 70px;
+    width: 80%;
+    /* background: red; */
   }
   .item-thumb {
-    width: 80%; height: 100%;
+    width: 100%;
   }
 
   .item-title {
@@ -69,8 +70,8 @@
   } */
 
   .item-separator {
-    width: 20px; height: 20px;
-    background:linear-gradient(var(--color-two), var(--color-one));
+    width: 15px; height: 15px;
+    background: linear-gradient(var(--color-two), var(--color-one));
     border-radius: 50%;
     box-shadow: 0 -2px 3px rgba(0, 0, 0, .8) inset;
     

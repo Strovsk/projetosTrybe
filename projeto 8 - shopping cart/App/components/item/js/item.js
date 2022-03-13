@@ -58,7 +58,7 @@ class Item {
     this.containerElm.appendChild(this.priceElm);
     this.imgContainerElm.appendChild(this.imgElm);
     this.containerElm.appendChild(this.imgContainerElm);
-    this.containerElm.appendChild(this.imgElm);
+    // this.containerElm.appendChild(this.imgElm);
     this.containerElm.appendChild(this.titleElm);
     this.containerElm.appendChild(this.subtitleElm);
     this.containerElm.appendChild(this.separatorElm);
