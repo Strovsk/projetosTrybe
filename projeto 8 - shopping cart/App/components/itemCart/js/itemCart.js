@@ -1,15 +1,15 @@
-export class itemCart {
+class itemCart {
   constructor(itemId) {
-    this.containerElm = document.createElement('div');
-    this.itemNameElm = document.createElement('h2');
+    this.containerElm;
+    this.itemName;
 
-    this.itemPriceQtdContainerElm = document.createElement('div');
-    this.itemPriceElm = document.createElement('h3');
-    this.itemQtdElm = document.createElement('h3');
+    this.itemPriceQtdContainer;
+    this.itemPrice;
+    this.itemQtd;
 
-    this.adjustBoxContainerElm = document.createElement('div');
-    this.adjustBoxButtonMinusElm = document.createElement('div');
-    this.adjustBoxButtonPlusElm = document.createElement('div');
+    this.adjustBoxContainer;
+    this.adjustBoxButtonMinus;
+    this.adjustBoxButtonPlus;
 
     this.itemInfo = this.getItemInfo(itemId);
 
@@ -72,6 +72,10 @@ export class itemCart {
     this.itemNameElm.innerText = this.itemInfo.name;
     this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}`;
     this.itemPriceElm.innerText = formatedPrice.format(this.itemInfo.price * this.itemInfo.qtd);
+  }
+
+  getContainer() {
+    return this.containerElm;
   }
 
   getItemInfo() {

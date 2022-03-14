@@ -15,3 +15,9 @@
   }
   // itemListElm.appendChild(item.getContainer());
 })();
+
+(() => {
+  const containerCart = document.getElementsByClassName('cart-itemSection')[0];
+  const testItemCart = new itemCart('MLB');
+  containerCart.appendChild(testItemCart.getContainer());
+})();

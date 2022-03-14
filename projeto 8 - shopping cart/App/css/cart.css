@@ -7,10 +7,12 @@
   border-radius: 55px;
 
   display: flex;
+  flex-flow: column nowrap;
   /* align-items: center; */
   justify-content: center;
 }
 
 .cart-iconContainer {
+  align-self: center;
   margin-top: 15px;
 }

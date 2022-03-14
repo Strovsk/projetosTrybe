@@ -1,5 +1,5 @@
 :root {
-  --containerSize: 400px;
+  --containerSize: 100px;
   --buttonSize: calc(var(--containerSize) / 4);
 }
 
