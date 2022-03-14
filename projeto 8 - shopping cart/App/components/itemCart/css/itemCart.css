@@ -1,0 +1,74 @@
+:root {
+  --containerSize: 400px;
+  --buttonSize: calc(var(--containerSize) / 4);
+}
+
+.AdjustBox {
+/*   background: red; */
+  background: transparent;
+  width: var(--containerSize); height: calc(var(--containerSize) / 2);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.AdjustBox-button {
+  width: var(--buttonSize); height: var(--buttonSize);
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
+  
+  display: flex;
+  align-items: center;
+  position: relative;
+  
+  transition: .3s ease all;
+  cursor: pointer;
+}
+
+.AdjustBox-button:hover {
+/*   background-color: linear-gradient(rgba(27, 27, 27, .4), #eeeeee); */
+/*   background-color: red; */
+  background-color: rgba(27, 27, 27, .4);
+}
+
+/*   .AdjustBox-button--plus {
+    display: flex;
+    align-items: center;
+    position: relative;
+  } */
+
+/*   .AdjustBox-button--plus {
+    display: flex;
+    align-items: center;
+    position: relative;
+  } */
+
+  .AdjustBox-button--plus::after {
+    display: block;
+    content: '';
+    background: #1b1b1b;
+    border-radius: 5px;
+    width: 50%; height: 10%;
+    left: 25%;
+    position: absolute;
+  }
+
+  .AdjustBox-button--plus::before {
+    display: block;
+    content: '';
+    background: #1b1b1b;
+    border-radius: 5px;
+    width: 10%; height: 50%;
+    left: 45%;
+    position: absolute;
+  }
+
+  .AdjustBox-button--minus::after {
+    display: block;
+    content: '';
+    background: #1b1b1b;
+    border-radius: 5px;
+    width: 50%; height: 10%;
+    left: 25%;
+    position: absolute;
+  }
