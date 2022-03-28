@@ -1,8 +1,10 @@
-(() => { // adicionando uma categoria
+(async () => { // adicionando uma categoria
+  const categoriesList = await getCategories();
   let buffer;
-  const categoriesList = [];
+  console.log(categoriesList);
   for (let index = 0; index < 4; index += 1) {
-    buffer = new StaticCube('#categories');
+    // buffer = new StaticCube('#categories');
+    buffer = new StaticCube('#categories', categoriesList[index].name);
     categoriesList.push(buffer);
   }
 })();
@@ -21,5 +23,3 @@
   const testItemCart = new itemCart('MLB');
   containerCart.appendChild(testItemCart.getContainer());
 })();
-
-getCategories();
