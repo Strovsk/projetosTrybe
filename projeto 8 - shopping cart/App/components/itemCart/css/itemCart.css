@@ -28,7 +28,7 @@
 .AdjustBox-button:hover {
 /*   background-color: linear-gradient(rgba(27, 27, 27, .4), #eeeeee); */
 /*   background-color: red; */
-  background-color: rgba(27, 27, 27, .4);
+background-color: rgba(27, 27, 27, .4);
 }
 
 /*   .AdjustBox-button--plus {
@@ -71,4 +71,26 @@
     width: 50%; height: 10%;
     left: 25%;
     position: absolute;
+  }
+
+  .itemCart {
+    width: 80%;
+  }
+
+  .itemCart-itemName {
+    margin: 0;
+  }
+
+  .itemCart-itemPrice {
+    margin: 0;
+  }
+  
+  .itemCart-itemQtd {
+    margin: 0;
+  }
+
+  .itemCart-priceQtdContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
   }

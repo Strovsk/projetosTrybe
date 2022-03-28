@@ -63,8 +63,15 @@ class itemCart {
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button');
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button--minus');
 
-    this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button');
-    this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button--plus');
+    this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button');
+    this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button--plus');
+
+    this.itemPriceQtdContainerElm.classList.add('itemCart-priceQtdContainer');
+
+    this.containerElm.classList.add('itemCart');
+    this.itemNameElm.classList.add('itemCart-itemName');
+    this.itemPriceElm.classList.add('itemCart-itemPrice');
+    this.itemQtdElm.classList.add('itemCart-itemQtd');
   }
 
   loadContent() {

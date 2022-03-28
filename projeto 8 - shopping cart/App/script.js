@@ -1,4 +1,4 @@
-(() => {
+(() => { // adicionando uma categoria
   let buffer;
   const categoriesList = [];
   for (let index = 0; index < 4; index += 1) {
@@ -16,8 +16,10 @@
   // itemListElm.appendChild(item.getContainer());
 })();
 
-(() => {
+(() => { // adicionando item ao carrinho
   const containerCart = document.getElementsByClassName('cart-itemSection')[0];
   const testItemCart = new itemCart('MLB');
   containerCart.appendChild(testItemCart.getContainer());
 })();
+
+getCategories();
