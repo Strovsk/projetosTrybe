@@ -15,3 +15,31 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+.notSupportScreen {
+  display: none;
+}
+
+@media only screen and (max-width: 900px) {
+  header,
+  section,
+  main,
+  div.item,
+  #categories,
+  #search-bar,
+  .itemList,
+  .saleProduct,
+  #cart {
+    display: none;
+    height: 100vh;
+  }
+  .notSupportScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: nowrap column;
+    width: 100vw; height: 100vh;
+  }
+  .notSupportScreen h1 {
+    text-align: center;
+  }
+}
