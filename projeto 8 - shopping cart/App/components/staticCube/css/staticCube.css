@@ -14,6 +14,9 @@
   width: 100px; height: 140px;
   /* background: green; */
 }
+.cube:hover {
+  animation: hoverCube .3s ease infinite alternate;
+}
 
 .cube-faceContainer {
   position: relative;
@@ -41,4 +44,14 @@
   filter: blur(7px);
   transform: rotateX(70deg) rotateZ(10deg);
   animation: toScale 1s infinite alternate;
+}
+
+.cube-title {
+  z-index: 4;
+}
+
+@keyframes hoverCube {
+  to {
+    transform: translateY(-5px);
+  }
 }

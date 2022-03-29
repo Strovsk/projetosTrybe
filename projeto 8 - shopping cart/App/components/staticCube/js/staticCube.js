@@ -36,6 +36,7 @@ class StaticCube {
     this.cubeElm.classList.add('cube-faceContainer');
     this.cubeFrontElm.classList.add('cube-face');
     this.cubeBackElm.classList.add('cube-face');
+    this.cubeNameElm.classList.add('cube-title');
     // this.cubeShadow.classList.add('cube-face');
     // this.cubeShadow.classList.add('cube-shadow');
   }
