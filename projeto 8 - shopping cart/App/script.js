@@ -11,7 +11,7 @@
 
 // NOTE adicionando item na lista de produtos
 const addItemToProductList = (container, element) => {
-  let buffer = new Item(element.title, element.description, element.thumbnail, element.price, element.installments.quantity);
+  let buffer = new Item(element.title, element.shipping.free_shipping ? 'Entrega gratuita': 'Frete barato', element.thumbnail, element.price, element.installments.quantity);
   container.appendChild(buffer.getContainer());
 };
 
