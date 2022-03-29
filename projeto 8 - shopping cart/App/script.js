@@ -5,7 +5,7 @@
   console.log(categoriesList);
   for (let index = 0; index < 4; index += 1) {
     // buffer = new StaticCube('#categories');
-    buffer = new StaticCube('#categories', categoriesList[index].name);
+    buffer = new StaticCube('#categories', categoriesList[index].name, () => renderProducts(categoriesList[index].id));
     categoriesList.push(buffer);
   }
 })();
@@ -19,10 +19,9 @@
   }
   // itemListElm.appendChild(item.getContainer());
 })(); */
-const addItemToProductList = (element) => {
-  const itemListElm = document.getElementsByClassName('itemList')[0];
+const addItemToProductList = (container, element) => {
   let buffer = new Item(element.title, element.description, element.thumbnail, element.price, 12);
-  itemListElm.appendChild(buffer.getContainer());
+  container.appendChild(buffer.getContainer());
 };
 
 // NOTE adicionando item ao carrinho
@@ -34,12 +33,15 @@ const addItemToProductList = (element) => {
 
 // NOTE função para carregar a lista de produtos
 const renderProductsList = (productsList) => {
-  productsList.forEach(element => addItemToProductList(element));
+  const itemListElm = document.getElementsByClassName('itemList')[0];
+  itemListElm.innerHTML = '';
+  productsList.forEach(element => addItemToProductList(itemListElm, element));
 }
 
 // NOTE adicionando a oferta
-(async () => {
-  const categoriesList = await getCategories();
+const renderProducts = async (categoryId) => {
+  let categoriesList = categoryId || await getCategories();
+  categoriesList = typeof categoriesList === 'string' ? [{id: categoryId}]: categoriesList;
   let productsList = await getProductsList(categoriesList[0].id);
   console.log(productsList.results[0]);
   productsList = productsList.results;
@@ -55,4 +57,6 @@ const renderProductsList = (productsList) => {
   imageElm.src = firstItem.thumbnail;
 
   renderProductsList(productsList.slice(1, undefined));
-})();
+};
+
+renderProducts();

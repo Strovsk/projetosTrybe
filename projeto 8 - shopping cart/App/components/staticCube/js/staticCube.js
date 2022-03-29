@@ -1,7 +1,8 @@
 class StaticCube {
-  constructor(containerId, cubeName = 'category') {
+  constructor(containerId, cubeName = 'category', callback) {
     this.containerElm = document.querySelector(containerId);
     this.cubeContainerElm;
+    this.cubeCallbackClick = callback;
     this.cubeElm;
     this.cubeFrontElm;
     this.cubeBackElm;
@@ -42,5 +43,6 @@ class StaticCube {
   }
   _fillContents() {
     this.cubeNameElm.innerText = this.cubeText;
+    this.cubeContainerElm.addEventListener('click', this.cubeCallbackClick);
   }
 }
