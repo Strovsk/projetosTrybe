@@ -60,6 +60,10 @@
   right: 50px;
   text-shadow: -3px 0 3px rgba(0, 0, 0, .5);
   font-size: 1em;
+  width: 40%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   /* color: red; */
 }
 
