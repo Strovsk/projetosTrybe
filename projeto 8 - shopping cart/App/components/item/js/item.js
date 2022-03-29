@@ -48,6 +48,7 @@ class Item {
     this.imgContainerElm.classList.add('item-thumbContainer');
     this.imgElm.classList.add('item-thumb');
     this.titleElm.classList.add('item-title');
+    this.titleElm.classList.add('item-title--hidden');
     this.subtitleElm.classList.add('item-subtitle');
     this.separatorElm.classList.add('item-separator');
     this.pmtElm.classList.add('item-pmt');

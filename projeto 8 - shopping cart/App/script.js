@@ -10,15 +10,20 @@
   }
 })();
 
-// NOTE adicoinando item ao carrinho
-(() => {
+// NOTE adicionando itens na lista de produtos
+/* (() => {
   const itemListElm = document.getElementsByClassName('itemList')[0];
   for (let index = 0; index < 6; index += 1) {
     let buffer = new Item();
     itemListElm.appendChild(buffer.getContainer());
   }
   // itemListElm.appendChild(item.getContainer());
-})();
+})(); */
+const addItemToProductList = (element) => {
+  const itemListElm = document.getElementsByClassName('itemList')[0];
+  let buffer = new Item(element.title, element.description, element.thumbnail, element.price, 12);
+  itemListElm.appendChild(buffer.getContainer());
+};
 
 // NOTE adicionando item ao carrinho
 (() => {
@@ -28,15 +33,17 @@
 })();
 
 // NOTE função para carregar a lista de produtos
-
+const renderProductsList = (productsList) => {
+  productsList.forEach(element => addItemToProductList(element));
+}
 
 // NOTE adicionando a oferta
 (async () => {
   const categoriesList = await getCategories();
-  let firstItem = await getProductsList(categoriesList[0].id);
-  console.log(firstItem.results[0]);
-  firstItem = firstItem.results[0];
-  const containerOfferElm = document.getElementsByClassName('saleProduct-textContent')[0];
+  let productsList = await getProductsList(categoriesList[0].id);
+  console.log(productsList.results[0]);
+  productsList = productsList.results;
+  firstItem = productsList[0];
 
   const titleProductElm = document.getElementsByClassName('saleProduct-nameContent')[0].children[0];
   titleProductElm.innerText = firstItem.title;
@@ -46,4 +53,6 @@
 
   const imageElm = document.getElementsByClassName('saleProduct-image')[0];
   imageElm.src = firstItem.thumbnail;
+
+  renderProductsList(productsList.slice(1, undefined));
 })();
