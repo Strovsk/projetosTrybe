@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500&display=swap');
+@import url('./trashIconStyle.css');
+@import url('./doneIconStyle.css');
+@import url('./infoModalStyle.css');
+
+.task-date {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.date {
+  color: rgba(102, 102, 102, .5);
+  font-family: Quicksand, sans-serif;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 10px;
+}
+.desc-check {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  text-indent: 20px;
+}
+
+.task-title {
+  display: block;
+  /* overflow-x: hidden; */
+  word-wrap: break-all;
+  /* text-overflow: ellipsis; */
+}
+
+.description {
+  width: 95%;
+  height: 15vh;
+  overflow-y: hidden;
+  /* overflow-wrap: break-word; */
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  text-align: justify;
+}
+.description.expand {
+  height: auto;
+}
+.description.expanded {
+  height: auto;
+}
+ul {
+  margin-left: 50px;
+}
+.task-li {
+  font-family: Quicksand, sans-serif;
+  font-weight: 400;
+  width: 100%;
+  margin-left: 8px;
+  height: auto;
+  list-style: none;
+  padding: 30px;
+  padding-left: 45px;
+  transition: .3s background ease-in;
+  position: relative;
+}
+.task-li.clicked {
+  animation: task-click-animation .5s ease;
+}
+.task-li.to-delete {
+  animation: remove-li .5s linear;
+}
+.task-li::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 85%;
+  background: #888;
+  border-radius: 20px;
+  z-index: 2;
+  left: 20px;
+  top: 5%;
+}
+.task-li.selected::before {
+  content: '';
+  display: block;
+  animation: task-bar-click-animation .3s linear;
+  background: #000;
+}
+
+.icons {
+  margin-top: 15px;
+  position: relative;
+  width: 30px;
+  background: transparent;
+  width: 100%;
+  /* background: red; */
+  display: flex;
+}
+.icon-background:not(.icon-background:nth-child(1)) {
+  margin-left: 20px;
+}
+.icon-background {
+  /* background: rgba(0, 0, 0, .3); */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-background::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .1);
+  transform: scale(0);
+  z-index: -1;
+  transition: .2s all ease-in-out;
+}
+.icon-background:hover::before {
+  background: rgba(0, 0, 0, .1);
+  transform: scale(1);
+}
+
+.completed-task {
+  background-color: rgba(0, 0, 0, .1);
+  font-weight: 700;
+  font-size: 10pt;
+  display: inline-block;
+  height: auto;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+  color: green;
+  transform: scale(0);
+  transition: .3s all ease;
+}
+.completed-task.on {
+  /* width: 150px;
+  height: 25px; */
+  transform: scale(1);
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+.icon:hover {
+  transform: scale(1.04);
+}
+
+.view-more {
+  background-color: transparent;
+  border: none;
+  font-family: Quicksand, sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+.view-more:hover {
+  text-decoration: underline;
+}
+
+@keyframes task-click-animation {
+  from {
+    transform: scale(.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes task-bar-click-animation {
+  from {
+    transform: scale(.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes remove-li {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}

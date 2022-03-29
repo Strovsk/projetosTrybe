@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="143" height="143" viewBox="0 0 143 143">
+  <title>cart glowing</title>
+  <desc>Created By Strovsk</desc>
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+        stroke: url(#mainPaletteGradient);
+      }
+
+      .cls-2, .cls-3 {
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke: url(#mainPaletteGradient);
+      }
+
+      .cls-3 {
+        stroke: url(#mainPaletteGradient);
+      }
+    </style>
+
+    <filter id="gaussianEffect">
+      <feGaussianBlur in="sourceGraphic" stdDeviation="2" />
+    </filter>
+
+    <linearGradient id="mainPaletteGradient" data-name="main palette gradient" y1="71.5" x2="143" y2="71.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#74b2a8"> <!-- verde claro -->
+        <animate attributeName="stop-color" values="#74b2a8; #3d3d99; #2c2a63; #3d3d99; #74b2a8" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.52" stop-color="#3d3d99"> <!-- azul claro -->
+        <animate attributeName="stop-color" values="#3d3d99; #2c2a63; #3d3d99; #74b2a8; 3d3d99" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#2c2a63"> <!-- azul escuro -->
+        <animate attributeName="stop-color" values="#2c2a63; #3d3d99; #74b2a8; #3d3d99; #2c2a63" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+
+  </defs>
+
+    <g id="cartContainer" data-name="Camada 3">
+      <path id="circle" class="cls-1" d="M13,32.17A70.53,70.53,0,0,1,114.42,15.56M4.83,48.51a70.62,70.62,0,0,0,13.05,68.76M33.73,131A70.51,70.51,0,0,0,142,71.5"/>
+      <g id="cart">
+        <path id="bottomCart" class="cls-2" d="M95.15,34.67,58.93,85.87Zm-37.8,79.54c-3.38-2.56,1.58-28.34,1.58-28.34L25.16,90,25,89.61,16.92,123a6,6,0,0,0,5.69,7.38c15.82.31,52.22,1,62.42,1.14,7.16.1,13.61-2.7,18-5.27a2.67,2.67,0,0,0-1.05-5C88.51,119.71,59.93,116.15,57.35,114.21ZM1.83,40.39,23.41,86.21a2.65,2.65,0,0,0,4.26.76l44-47L4.34,36.61A2.65,2.65,0,0,0,1.83,40.39Z"/>
+        <path id="topCart" class="cls-3" d="M95,34.43,80.5,38.62a27.18,27.18,0,0,1-8.79,1L37.47,38.12,1.9,36.52a.32.32,0,0,1-.08-.62L40.73,24.65,94.7,31A1.76,1.76,0,0,1,95,34.43Z"/>
+      </g>
+    </g>
+
+    <use id="shadow" xlink:href="#cartContainer" filter="url(#gaussianEffect)" />
+
+</svg>
