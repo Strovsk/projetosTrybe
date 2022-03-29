@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="113.5" viewBox="0 0 200 113.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1b1b1b;
+      }
+    </style>
+  </defs>
+  <g id="Camada_2" data-name="Camada 2">
+    <g id="filter">
+      <rect class="cls-1" width="200" height="25" rx="12.5"/>
+      <rect class="cls-1" y="38.5" width="154" height="25" rx="12.5"/>
+      <rect class="cls-1" x="1" y="88.5" width="99" height="25" rx="12.5"/>
+    </g>
+  </g>
+</svg>

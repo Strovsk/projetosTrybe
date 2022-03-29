@@ -1,0 +1,27 @@
+#warning-modal {
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  width: 300px;
+  height: auto;
+  background: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+  z-index: 5;
+  display: flex;
+  flex-flow: column;
+  border-radius: 4px;
+}
+#warning-modal.disabled {
+  display: none;
+}
+#message-modal {
+  font-family: Quicksand, sans-serif;
+  font-size: 15px;
+  text-align: center;
+  padding: 15px;
+}
+#buttons-container-modal {
+  display: flex;
+  align-self: flex-end;
+  padding: 10px;
+}

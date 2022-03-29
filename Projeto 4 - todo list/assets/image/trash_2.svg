@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="199" viewBox="0 0 200 199">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 6px;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <g id="Camada_2" data-name="Camada 2">
+    <g id="trash">
+      <path id="tampa" d="M200,33.5a8.5,8.5,0,0,1-8.5,8.5H8.5a8.5,8.5,0,0,1,0-17H95a13,13,0,1,1,10,0H191.5A8.51,8.51,0,0,1,200,33.5Z"/>
+      <path id="vaso" class="cls-1" d="M180,52V161a35,35,0,0,1-35,35H57a35,35,0,0,1-35-35V52"/>
+      <g id="x">
+        <line id="barraB" class="cls-2" x1="75" y1="100" x2="123.5" y2="150"/>
+        <line id="barraA" class="cls-2" x1="125" y1="100" x2="75" y2="150"/>
+      </g>
+    </g>
+  </g>
+</svg>
