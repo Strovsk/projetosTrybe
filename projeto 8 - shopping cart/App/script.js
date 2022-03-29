@@ -4,23 +4,14 @@
   let buffer;
   console.log(categoriesList);
   for (let index = 0; index < 4; index += 1) {
-    // buffer = new StaticCube('#categories');
     buffer = new StaticCube('#categories', categoriesList[index].name, () => renderProducts(categoriesList[index].id));
     categoriesList.push(buffer);
   }
 })();
 
-// NOTE adicionando itens na lista de produtos
-/* (() => {
-  const itemListElm = document.getElementsByClassName('itemList')[0];
-  for (let index = 0; index < 6; index += 1) {
-    let buffer = new Item();
-    itemListElm.appendChild(buffer.getContainer());
-  }
-  // itemListElm.appendChild(item.getContainer());
-})(); */
+// NOTE adicionando item na lista de produtos
 const addItemToProductList = (container, element) => {
-  let buffer = new Item(element.title, element.description, element.thumbnail, element.price, 12);
+  let buffer = new Item(element.title, element.description, element.thumbnail, element.price, element.installments.quantity);
   container.appendChild(buffer.getContainer());
 };
 
@@ -59,4 +50,25 @@ const renderProducts = async (categoryId) => {
   renderProductsList(productsList.slice(1, undefined));
 };
 
+// NOTE search products
+async function searchAction() {
+  document.getElementsByClassName('searchHeader-button')[0].addEventListener('click', async () => {
+    const list = await searchProduct(target.value);
+    list = list.results;
+    console.log(list);
+    renderProductsList(list);
+    console.log(target.value);
+  });
+}
+
+// NOTE validate button
+function activeButtton() {
+  document.getElementsByClassName('searchHeader-inputBar')[0].addEventListener('change', ({ target }) => {
+    document.getElementsByClassName('searchHeader-button')[0].disabled = !(target.value.length > 0);
+    console.log(target.value);
+    console.log(document.getElementsByClassName('searchHeader-button')[0].disabled);
+  });
+}
+
 renderProducts();
+activeButtton();

@@ -19,7 +19,7 @@ class Item {
 
     // Content
     this.title = title;
-    this.subtitle =subtitle;
+    this.subtitle = subtitle;
     this.imgUrl = imgUrl;
     this.price = price;
     this.pmt = pmt;
@@ -68,11 +68,11 @@ class Item {
   }
   
   loadContent() {
-    this.priceElm.innerText = `R$ ${(this.price).toFixed(2)}`;
+    this.priceElm.innerText = `R$ ${(this.price).toFixed(2).replace('.', ',')}`;
     this.imgElm.src = this.imgUrl;
     this.titleElm.innerText = this.title;
     this.subtitleElm.innerText = this.subtitle;
-    this.pmtElm.innerText = `${this.pmt}x de R$ ${(this.price / this.pmt).toFixed(2)}`
+    this.pmtElm.innerText = `${this.pmt}x de R$ ${(this.price / this.pmt).toFixed(2).replace('.', ',')}`
     this.addCart.innerText = 'Adicionar ao carrinho';
   }
 

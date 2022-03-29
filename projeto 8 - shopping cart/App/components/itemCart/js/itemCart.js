@@ -87,7 +87,7 @@ class itemCart {
 
   getItemInfo() {
     return {
-      name: 'Maria',
+      name: 'Mock de produto',
       qtd: 2,
       price: 50,
     };
