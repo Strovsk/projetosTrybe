@@ -169,6 +169,42 @@ body {
   width: 100vw;
 }
 
+/* NOTE media */
+
+@media (max-width: 980px) {
+  .Login {
+    height: max-content;
+    align-items: center;
+    background: white;
+    display: flex;
+    flex-flow: nowrap column;
+    /* height: 100vh; */
+    justify-content: space-around;
+    row-gap: 15px;
+    width: 100vw;
+  }
+  /* #bio {
+    width: 70vw;
+    margin-right: 0;
+  } */
+  .phrase {
+    font-size: 10px;
+  }
+  .Login-gameTitle {
+    width: 100vw;
+  }
+  .Login-gameTitle span {
+    font-size: 4em;
+  }
+  .Login-formContainer {
+    width: 80vw;
+  }
+  .Login-modelContainer {
+    order: 2;
+  }
+}
+
+/* NOTE Cube animation */
 .Login-cubeBackground li {
   animation: cube 10s ease-in forwards infinite;
   border: solid 1px #e5e5e5;
