@@ -1,0 +1,86 @@
+:root {
+
+  --fontSize: 15px;
+
+  --fontSizeLabel: 20px;
+}
+
+.InputLabel {
+  align-items: flex-end;
+
+  /* background-color: green */
+  border-bottom: 2px solid #666;
+  column-gap: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  font-size: var(--fontSize);
+}
+
+.InputLabel-text {
+  bottom: 7px;
+
+  /* color: #1b1b1b; */
+  color: darkcyan;
+  font-size: var(--fontSizeLabel);
+  order: 2;
+  pointer-events: none;
+  right: 0%;
+}
+
+.InputLabel-input {
+  background: transparent;
+
+  /* background: green; */
+  border: none;
+  font-size: var(--fontSize);
+  height: 40px;
+  outline: none;
+  padding: 10px 10px 0 5px;
+  padding-right: 30%;
+  width: 75%;
+}
+
+.InputLabel-input::placeholder {
+  font-size: var(--fontSize);
+  transition: 0.1s ease all;
+}
+
+.InputLabel-input:focus::placeholder {
+  transform: translateY(-15px) translateX(-17%) scale(0.7);
+}
+
+/* .InputLabel-input:focus {
+  animation: inputBar 100ms linear normal;
+
+  border-bottom: 2px solid tran;
+} */
+
+.InputLabel-input:focus > .InputLabel {
+  animation: inputBar 100ms linear normal;
+
+  /* border-bottom: 2px solid #42a5f5; */
+  border-bottom: 2px solid darkcyan;
+}
+
+.InputLabel-input:focus:not( :placeholder-shown ) {
+
+  /* color: #0077c1; */
+  color: darkcyan;
+}
+
+.InputLabel-input:not( :placeholder-shown ) .InputLabel-text {
+
+  /* color: #0077c1; */
+  color: darkcyan;
+}
+
+@keyframes inputBar {
+
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

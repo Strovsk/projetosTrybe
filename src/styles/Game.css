@@ -1,0 +1,189 @@
+* {
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+.Game {
+  align-items: center;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  padding: 0 0.8rem;
+}
+
+/* .Game  */
+.GameHeader {
+  align-items: center;
+  background-color: darkcyan;
+  border: 1px solid darkcyan;
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(37 37 37);
+  display: flex;
+  flex-direction: column-reverse;
+  height: 250px;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  width: 232px;
+}
+
+.GameHeader section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.GameHeader section img {
+  border-radius: 2rem;
+  height: 70px;
+  margin: 0.3rem 0 0.4rem;
+  width: 70px;
+}
+
+.GameHeader .containerPerfil {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.GameHeader .containerPerfil h4 {
+  background-color: darkcyan;
+  color: rgb(253, 254, 255);
+  font-size: 1.5rem;
+
+}
+
+.GameHeader .containerPerfil span {
+  background-color: darkcyan;
+  color: aliceblue;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+
+}
+
+.Game .GameHeader span {
+  align-items: center;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Game .GameHeader p {
+  margin-top: 0.3rem;
+}
+
+.Game .GameHeader h2 {
+  color: aliceblue;
+}
+
+.Game .GameBody {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
+  height: 500px;
+  width: 500px;
+}
+
+.Game .GameBody .sectionPrymary {
+  max-height: 90%;
+  padding: 1.3rem;
+}
+
+.Game .GameBody div h2 {
+  color: darkcyan;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.Game .GameBody .sectionSecond {
+  align-items: center;
+
+  /* border: 1px solid rgb(60, 180, 49); */
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem;
+}
+
+.Game .GameBody .sectionSecond span {
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: aliceblue;
+  font-size: 1.2rem;
+  margin: 0.3rem 0 0.5rem;
+  padding: 0.3rem;
+}
+
+.Game .GameBody section p {
+  background-color: darkcyan;
+  border-radius: 0.2rem;
+  box-shadow: 1px 1px 1px 1px darkcyan;
+  color: aliceblue;
+  margin: 0.3rem 0;
+  padding: 0.3rem;
+}
+
+.Game .GameBody section aside {
+  align-items: center;
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: aliceblue;
+  font-size: 1.2rem;
+  margin: 0.3rem auto 0.9rem;
+  max-width: 90%;
+  padding: 0.5rem;
+}
+
+
+.Game .GameBody .questOptions {
+
+  /* border: 1px solid rgb(17, 859, 255); */
+  border-radius: 0.3rem;
+  color: aliceblue;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.4rem 0.3rem;
+}
+
+.Game .GameBody div button {
+  border: 1px solid rgb(39, 39, 39);
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+
+
+}
+
+.Game .GameBody .questOptions button {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.2rem;
+  color: darkcyan;
+  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0.5rem 0.3rem 0.2rem 0;
+  padding: 0.4rem 0.8rem;
+  transition: 0.2s;
+}
+
+
+.Game .GameBody .buttonTime button {
+  border: none;
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: darkcyan;
+  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.4rem 1rem;
+  transition: 0.2s;
+}
+
+.Game .GameBody .buttonTime button:hover {
+  background-color: darkcyan;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: rgb(245, 245, 246);
+}
