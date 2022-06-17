@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="88.5" height="88.5" viewBox="0 0 88.5 88.5">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: 0.5px;
+      }
+    </style>
+  </defs>
+  <g id="Camada_2" data-name="Camada 2">
+    <g id="Camada_1-2" data-name="Camada 1">
+      <g id="squares_type_3">
+        <path id="square3" class="cls-1" d="M88.25.25v62a26.48,26.48,0,0,0-26,26H.25V.25Z"/>
+        <path id="square2" class="cls-1" d="M81.75,6.25v53.2a22.72,22.72,0,0,0-22.3,22.3H6.25V6.25Z"/>
+        <path id="square1" class="cls-1" d="M73.75,14.25V56.18A17.89,17.89,0,0,0,56.18,73.75H14.25V14.25Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

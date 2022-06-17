@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.943e41c0.css",
+    "main.js": "/static/js/main.1c82a043.js",
+    "static/media/shareIcon.svg": "/static/media/shareIcon.0162aa71578ef591eb531dcb30801f1f.svg",
+    "static/media/whiteHeartIcon.svg": "/static/media/whiteHeartIcon.6690d94e688d445712c855c7ded7389b.svg",
+    "static/media/blackHeartIcon.svg": "/static/media/blackHeartIcon.f4563148a53687f9befe2ce741dfdedb.svg",
+    "static/media/logo.svg": "/static/media/logo.be670ab5f44cc2341ba143f8aa259a24.svg",
+    "static/media/pizza.svg": "/static/media/pizza.45f34fba399e9e04c235b24f725e19ed.svg",
+    "static/media/garfo.svg": "/static/media/garfo.7cc655b7d9711510bf4096ad7df9ce44.svg",
+    "static/media/coke.svg": "/static/media/coke.685ff90559a63875c100db6aad16d52d.svg",
+    "static/media/martini.svg": "/static/media/martini.d224dba77ba3e616fc5b968a593fd5c7.svg",
+    "static/media/circle2.svg": "/static/media/circle2.8a806699958ecf8b35ceaae9108ebb41.svg",
+    "static/media/circle1.svg": "/static/media/circle1.642997595737e8956dc1ec2964900bcf.svg",
+    "static/media/square1.svg": "/static/media/square1.2e83dfaec9c9e6a58def11e2e45728f2.svg",
+    "static/media/square2.svg": "/static/media/square2.2f297bcedc550c07ed011f3de97315b4.svg",
+    "index.html": "/index.html",
+    "static/media/square3.svg": "/static/media/square3.e3cb59e5e6720b6f266241b385e3b5ba.svg",
+    "main.943e41c0.css.map": "/static/css/main.943e41c0.css.map",
+    "main.1c82a043.js.map": "/static/js/main.1c82a043.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.943e41c0.css",
+    "static/js/main.1c82a043.js"
+  ]
+}
