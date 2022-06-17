@@ -1,0 +1,23 @@
+.CircleAcc {
+  left: 20px;
+  position: absolute;
+  top: 20px;
+  width: 250px;
+}
+
+.cls-1 {
+  fill: none;
+  stroke: #2b2b2b;
+  stroke-miterlimit: 10;
+  stroke-width: 0.5px;
+}
+
+@media ( min-width : 1000px ) {
+
+  .CircleAcc {
+    left: 200px;
+    position: absolute;
+    top: 50px;
+    width: 400px;
+  }
+}

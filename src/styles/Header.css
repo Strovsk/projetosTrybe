@@ -1,0 +1,32 @@
+@import url('./Typograph.css') ;
+
+.Header {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.Header-title {
+  font-family: Roboto Flex , sans-serif;
+  font-size: 45px;
+  margin-right: 15px;
+}
+
+.Header-searchBar {
+  transform: scaleY(0) translateY(-40px);
+  transform-origin: 50% 0;
+  width: 90vw;
+}
+
+.Header-searchBar.isActive {
+  transform: scaleY(1) translateY(0);
+}
+
+.Header-radioContainer {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}

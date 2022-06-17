@@ -1,0 +1,40 @@
+.HeartIcon {
+  pointer-events: none;
+}
+
+.RecommendedList {
+  background: red;
+  display: inline-flex;
+  height: 300px;
+  justify-content: flex-start;
+  list-style: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  width: 100vw;
+}
+
+.RecommendedList li {
+  background: green;
+  height: 300px;
+  margin: 0;
+  margin-left: 30px;
+  padding: 0;
+  width: 50vw;
+}
+
+.RecommendedList li img {
+  height: 80%;
+  width: 40vw;
+}
+
+.StartRecipe {
+  bottom: 0;
+  position: fixed;
+}
+
+@media ( min-width : 1000px ) {
+
+  .StartRecipe {
+    height: 60px;
+  }
+}

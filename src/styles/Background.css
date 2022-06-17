@@ -1,0 +1,134 @@
+.Background {
+  background-color: #e5303e;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+.Background * {
+  opacity: 0.5;
+  position: absolute;
+}
+
+.Background-circle1 {
+  height: 100px;
+  left: 70%;
+  top: -5%;
+}
+
+.Background-circle2 {
+  height: 100px;
+  left: 30%;
+  top: 15%;
+}
+
+.Background-square1 {
+  height: 100px;
+  left: 5%;
+  top: -6%;
+}
+
+.Background-square2 {
+  bottom: 5%;
+  height: 100px;
+  left: 7%;
+}
+
+.Background-square3 {
+  height: 100px;
+  right: -5%;
+  top: 50%;
+}
+
+.Background-martini {
+  height: 100px;
+  left: 5%;
+  top: 40%;
+}
+
+.Background-pizza {
+  height: 100px;
+  right: 5%;
+  top: 25%;
+}
+
+.Background-coke {
+  bottom: 3%;
+  height: 100px;
+  right: 20%;
+}
+
+.Background-fork {
+  bottom: 0;
+  height: 40%;
+  position: absolute;
+  right: 0;
+  transform: rotate(-45deg);
+}
+
+@media ( min-width : 1000px ) {
+
+  .Background * {
+    opacity: 0.5;
+    position: absolute;
+  }
+
+  .Background-circle1 {
+    height: 200px;
+    left: 70%;
+    top: -5%;
+  }
+
+  .Background-circle2 {
+    height: 200px;
+    left: 30%;
+    top: 15%;
+  }
+
+  .Background-square1 {
+    height: 200px;
+    left: 5%;
+    top: -6%;
+  }
+
+  .Background-square2 {
+    bottom: 5%;
+    height: 200px;
+    left: 7%;
+  }
+
+  .Background-square3 {
+    height: 200px;
+    right: -5%;
+    top: 50%;
+  }
+
+  .Background-martini {
+    height: 200px;
+    left: 5%;
+    top: 40%;
+  }
+
+  .Background-pizza {
+    height: 200px;
+    right: 5%;
+    top: 25%;
+  }
+
+  .Background-coke {
+    bottom: 3%;
+    height: 200px;
+    right: 20%;
+  }
+
+  .Background-fork {
+    bottom: 0;
+    height: 40%;
+    position: absolute;
+    right: 0;
+    transform: rotate(-45deg);
+  }
+
+}
+

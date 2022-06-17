@@ -1,0 +1,103 @@
+@import url('./Typograph.css') ;
+
+.ItemCard {
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: nowrap column;
+  height: 60vh;
+  justify-content: flex-end;
+  margin-top: 10px;
+  position: relative;
+  row-gap: 10px;
+  width: 80vw;
+}
+
+.ItemCard--minimal {
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-flow: nowrap column;
+  height: 40vh;
+  justify-content: flex-end;
+  margin-top: 10px;
+  position: relative;
+  row-gap: 10px;
+  width: 45vw;
+}
+
+.ItemCard-imgContainer {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.ItemCard-imgContainer img {
+  border-radius: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+.ItemCard-title {
+  color: white;
+  font-family: Roboto Flex , sans-serif;
+  font-size: 10vw;
+  margin-left: 10px;
+  z-index: 4;
+}
+
+.ItemCard-shadow {
+  background: linear-gradient(to top, black, transparent);
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+@media ( min-width : 1000px ) {
+
+  .ItemCard {
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: nowrap column;
+    height: 20vw;
+    justify-content: flex-end;
+    margin: 10px 10px 0 0;
+    position: relative;
+    width: 20vw;
+  }
+
+  .ItemCard-title {
+    color: white;
+    font-family: Roboto Flex , sans-serif;
+    font-size: 3vw;
+    margin-left: 10px;
+    z-index: 4;
+  }
+
+  .ItemCard-shadow:hover {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+  }
+
+  .ItemCard--minimal {
+    align-items: flex-start;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: nowrap column;
+    height: 40vh;
+    justify-content: flex-end;
+    margin-top: 10px;
+    position: relative;
+    row-gap: 10px;
+    width: 45vw;
+  }
+}
