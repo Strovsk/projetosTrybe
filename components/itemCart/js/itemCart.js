@@ -1,5 +1,5 @@
 class itemCart {
-  constructor(itemId) {
+  constructor(item) {
     this.containerElm;
     this.itemName;
 
@@ -11,8 +11,7 @@ class itemCart {
     this.adjustBoxButtonMinus;
     this.adjustBoxButtonPlus;
 
-    this.itemInfo = this.getItemInfo(itemId);
-
+    this.itemInfo = this.itemStore(item);
     this.build();
     /*
       <div class="AdjustBox">
@@ -20,6 +19,18 @@ class itemCart {
         <div class="AdjustBox-button AdjustBox-button--plus"></div>
       </div>
     */
+  }
+
+  getStore() {
+    if (!localStorage.getItem('cart'))
+      localStorage.setItem('cart', JSON.stringify({}));
+    return JSON.parse(
+      localStorage.getItem('cart'),
+    );
+  }
+
+  saveStore(cartList) {
+    localStorage.setItem('cart', JSON.stringify(cartList));
   }
 
   build() {
@@ -62,9 +73,11 @@ class itemCart {
 
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button');
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button--minus');
+    this.adjustBoxButtonMinusElm.classList.add('is-deactivated');
 
     this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button');
     this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button--plus');
+    if (this.itemInfo.available === 1) this.adjustBoxButtonPlusElm.classList.add('is-deactivated');
 
     this.itemPriceQtdContainerElm.classList.add('itemCart-priceQtdContainer');
 
@@ -74,22 +87,61 @@ class itemCart {
     this.itemQtdElm.classList.add('itemCart-itemQtd');
   }
 
-  loadContent() {
+  updateTotalPrice() {
     const formatedPrice = new Intl.NumberFormat('pt-br', { style: 'currency', currency: 'BRL' });
-    this.itemNameElm.innerText = this.itemInfo.name;
-    this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}`;
-    this.itemPriceElm.innerText = formatedPrice.format(this.itemInfo.price * this.itemInfo.qtd);
+    this.itemPriceElm.innerText = formatedPrice.format(this.itemInfo.total);
+  }
+
+  loadContent() {
+    this.itemNameElm.innerText = this.itemInfo.payload.title;
+    this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}   disp. ${this.itemInfo.available}`;
+    this.updateTotalPrice();
+
+    this.adjustBoxButtonPlusElm.addEventListener('click', () => {
+      if (this.itemInfo.qtd === this.itemInfo.available) return;
+      this.itemInfo.qtd += 1;
+      this.updateStore();
+      this.adjustBoxButtonMinusElm.classList.remove('is-deactivated');
+      this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}   disp. ${this.itemInfo.available}`;
+      if (this.itemInfo.qtd === this.itemInfo.available) return this.adjustBoxButtonPlusElm.classList.add('is-deactivated');
+    });
+
+    this.adjustBoxButtonMinusElm.addEventListener('click', () => {
+      if (this.itemInfo.qtd === 1) return;
+      this.itemInfo.qtd -= 1;
+      this.adjustBoxButtonPlusElm.classList.remove('is-deactivated');
+      if (this.itemInfo.qtd === 1) this.adjustBoxButtonMinusElm.classList.add('is-deactivated');
+      this.updateStore();
+      this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd} disp. ${this.itemInfo.available}`;
+    });
   }
 
   getContainer() {
     return this.containerElm;
   }
 
-  getItemInfo() {
-    return {
-      name: 'Mock de produto',
-      qtd: 2,
-      price: 50,
+  itemStore(item, qtd = 1) {
+    const payload = item;
+    const price = item.price;
+    const available = item.available_quantity;
+    const store = this.getStore();
+    const itemInfo = {
+      payload,
+      price,
+      available,
+      qtd,
+      total: price,
     };
+    store[item.title] = itemInfo;
+    this.saveStore(store);
+    return itemInfo;
+  }
+  
+  updateStore() {
+    const store = this.getStore();
+    this.itemInfo.total = this.itemInfo.price * this.itemInfo.qtd;
+    store[this.itemInfo.payload.title] = this.itemInfo; 
+    this.updateTotalPrice();
+    this.saveStore(store);
   }
 }

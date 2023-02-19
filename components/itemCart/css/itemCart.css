@@ -53,6 +53,21 @@ background-color: rgba(27, 27, 27, .4);
     position: absolute;
   }
 
+  .AdjustBox-button--plus.is-deactivated {
+    box-shadow: none;
+    background-color: rgba(27, 27, 27, .4); ;
+  }
+
+  .AdjustBox-button--plus.is-deactivated::after {
+    display: block;
+    content: '';
+    background: #666;
+    border-radius: 5px;
+    width: 50%; height: 10%;
+    left: 25%;
+    position: absolute;
+  }
+
   .AdjustBox-button--plus::before {
     display: block;
     content: '';
@@ -67,6 +82,21 @@ background-color: rgba(27, 27, 27, .4);
     display: block;
     content: '';
     background: #1b1b1b;
+    border-radius: 5px;
+    width: 50%; height: 10%;
+    left: 25%;
+    position: absolute;
+  }
+
+  .AdjustBox-button--minus.is-deactivated {
+    box-shadow: none;
+    background-color: rgba(27, 27, 27, .4); ;
+  }
+
+  .AdjustBox-button--minus.is-deactivated::after {
+    display: block;
+    content: '';
+    background: #666;
     border-radius: 5px;
     width: 50%; height: 10%;
     left: 25%;
