@@ -3,8 +3,9 @@ class Item {
     title = 'Type something greater with too information', 
     subtitle = 'This a breafly description about this item. I think we need to do something together...', 
     imgUrl = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.h4robmSvgFH6_zN7wnArsQHaE7%26pid%3DApi&f=1',
-     price = 29.9,
-     pmt = 12,
+    price = 29.9,
+    pmt = 12,
+    productInfo,
   ) {
     // Elements
     this.containerElm;
@@ -16,6 +17,8 @@ class Item {
     this.separatorElm;
     this.pmtElm;
     this.addCart;
+
+    this.productInfo = productInfo;
 
     // Content
     this.title = title;
