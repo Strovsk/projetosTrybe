@@ -11,7 +11,7 @@
 
 // NOTE adicionando item na lista de produtos
 const addItemToProductList = (container, element) => {
-  console.log(element);
+  // console.log(element);
   const buffer = new Item(
     element.title,
     element.shipping.free_shipping ? 'Entrega gratuita': 'Frete barato',
@@ -44,7 +44,14 @@ function addToCart(element) {
 const renderProductsList = (productsList) => {
   const itemListElm = document.getElementsByClassName('itemList')[0];
   itemListElm.innerHTML = '';
-  productsList.forEach(element => addItemToProductList(itemListElm, element));
+  let filteredProducts = [];
+  if (productsList.length < 33) {
+    const numberOfProducts = productsList.length - (productsList.length % 3);
+    filteredProducts = productsList.slice(undefined, numberOfProducts);
+  } else {
+    filteredProducts = productsList.slice(undefined, 33);
+  }
+  filteredProducts.forEach(element => addItemToProductList(itemListElm, element));
 }
 
 // NOTE adicionando a oferta
