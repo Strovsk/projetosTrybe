@@ -2,7 +2,7 @@
 (async () => { 
   const categoriesList = await getCategories();
   let buffer;
-  console.log(categoriesList);
+  // console.log(categoriesList);
   for (let index = 0; index < 4; index += 1) {
     buffer = new StaticCube('#categories', categoriesList[index].name, () => renderProducts(categoriesList[index].id));
     categoriesList.push(buffer);

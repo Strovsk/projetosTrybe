@@ -18,6 +18,13 @@
   animation: hoverCube .3s ease infinite alternate;
 }
 
+.cube-icon {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 48px;
+  height: 48px;
+}
+
 .cube-faceContainer {
   position: relative;
 }
