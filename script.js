@@ -11,15 +11,33 @@
 
 // NOTE adicionando item na lista de produtos
 const addItemToProductList = (container, element) => {
-  let buffer = new Item(element.title, element.shipping.free_shipping ? 'Entrega gratuita': 'Frete barato', element.thumbnail, element.price, element.installments.quantity);
+  console.log(element);
+  const buffer = new Item(
+    element.title,
+    element.shipping.free_shipping ? 'Entrega gratuita': 'Frete barato',
+    element.thumbnail,
+    element.price,
+    element.installments.quantity,
+    element,
+  );
+  buffer.addCart.addEventListener('click', () => {
+    addToCart(element);
+  });
   container.appendChild(buffer.getContainer());
 };
 
 // NOTE adicionando item ao carrinho
-(() => {
+function addToCart(element) {
   const containerCart = document.getElementsByClassName('cart-itemSection')[0];
-  const testItemCart = new itemCart('MLB');
-  containerCart.appendChild(testItemCart.getContainer());
+  const item = new itemCart(element);
+  containerCart.appendChild(item.getContainer());
+}
+// NOTE carrega itens do carrinho
+(() => {
+  if (!localStorage.getItem('cart')) return;
+  let items = JSON.parse(localStorage.getItem('cart'));
+  items = Object.values(items);
+  items.forEach((product) => addToCart(product.payload));
 })();
 
 // NOTE função para carregar a lista de produtos
