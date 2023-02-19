@@ -49,8 +49,10 @@ class itemCart {
     this.itemQtdElm = document.createElement('h3');
 
     this.adjustBoxContainerElm = document.createElement('div');
+    this.adjustBoxButtonsContainerElm = document.createElement('div');
     this.adjustBoxButtonMinusElm = document.createElement('div');
     this.adjustBoxButtonPlusElm = document.createElement('div');
+    this.adjustBoxRemoveButtonElm = document.createElement('h4');
   }
 
   mountItems() {
@@ -61,8 +63,10 @@ class itemCart {
 
     this.containerElm.appendChild(this.itemPriceQtdContainerElm);
 
-    this.adjustBoxContainerElm.appendChild(this.adjustBoxButtonMinusElm);
-    this.adjustBoxContainerElm.appendChild(this.adjustBoxButtonPlusElm);
+    this.adjustBoxButtonsContainerElm.appendChild(this.adjustBoxButtonMinusElm);
+    this.adjustBoxButtonsContainerElm.appendChild(this.adjustBoxButtonPlusElm);
+    this.adjustBoxContainerElm.appendChild(this.adjustBoxButtonsContainerElm);
+    this.adjustBoxContainerElm.appendChild(this.adjustBoxRemoveButtonElm);
 
     this.containerElm.appendChild(this.adjustBoxContainerElm);
   }
@@ -71,6 +75,7 @@ class itemCart {
     this.adjustBoxContainerElm.classList.add('AdjustBox');
     this.adjustBoxContainerElm.classList.add('AdjustBox');
 
+    this.adjustBoxButtonsContainerElm.classList.add('AdjustBox-buttonsContainer');
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button');
     this.adjustBoxButtonMinusElm.classList.add('AdjustBox-button--minus');
     this.adjustBoxButtonMinusElm.classList.add('is-deactivated');
@@ -78,6 +83,8 @@ class itemCart {
     this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button');
     this.adjustBoxButtonPlusElm.classList.add('AdjustBox-button--plus');
     if (this.itemInfo.available === 1) this.adjustBoxButtonPlusElm.classList.add('is-deactivated');
+
+    this.adjustBoxRemoveButtonElm.classList.add('AdjustBox-button--remove');
 
     this.itemPriceQtdContainerElm.classList.add('itemCart-priceQtdContainer');
 
@@ -92,9 +99,14 @@ class itemCart {
     this.itemPriceElm.innerText = formatedPrice.format(this.itemInfo.total);
   }
 
+  updateAvailability() {
+    this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}   disp. ${this.itemInfo.available}`;
+  }
+
   loadContent() {
     this.itemNameElm.innerText = this.itemInfo.payload.title;
-    this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}   disp. ${this.itemInfo.available}`;
+    this.adjustBoxRemoveButtonElm.innerText = 'remover';
+    this.updateAvailability()
     this.updateTotalPrice();
 
     this.adjustBoxButtonPlusElm.addEventListener('click', () => {
@@ -102,8 +114,9 @@ class itemCart {
       this.itemInfo.qtd += 1;
       this.updateStore();
       this.adjustBoxButtonMinusElm.classList.remove('is-deactivated');
-      this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd}   disp. ${this.itemInfo.available}`;
+      this.updateAvailability()
       if (this.itemInfo.qtd === this.itemInfo.available) return this.adjustBoxButtonPlusElm.classList.add('is-deactivated');
+      window.calculateTotal();
     });
 
     this.adjustBoxButtonMinusElm.addEventListener('click', () => {
@@ -113,9 +126,14 @@ class itemCart {
       if (this.itemInfo.qtd === 1) this.adjustBoxButtonMinusElm.classList.add('is-deactivated');
       this.updateStore();
       this.itemQtdElm.innerText = `qtd. ${this.itemInfo.qtd} disp. ${this.itemInfo.available}`;
+      window.calculateTotal();
+    });
+    
+    this.adjustBoxRemoveButtonElm.addEventListener('click', () => {
+      this.removeStore();
     });
   }
-
+  
   getContainer() {
     return this.containerElm;
   }
@@ -125,6 +143,7 @@ class itemCart {
     const price = item.price;
     const available = item.available_quantity;
     const store = this.getStore();
+    if (Object.keys(store).some((element) => element === item.title)) return;
     const itemInfo = {
       payload,
       price,
@@ -134,6 +153,7 @@ class itemCart {
     };
     store[item.title] = itemInfo;
     this.saveStore(store);
+    window.calculateTotal();
     return itemInfo;
   }
   
@@ -143,5 +163,14 @@ class itemCart {
     store[this.itemInfo.payload.title] = this.itemInfo; 
     this.updateTotalPrice();
     this.saveStore(store);
+    window.calculateTotal();
+  }
+  
+  removeStore() {
+    const store = this.getStore();
+    delete store[this.itemInfo.payload.title];
+    this.saveStore(store);
+    this.containerElm.remove();
+    window.calculateTotal();
   }
 }

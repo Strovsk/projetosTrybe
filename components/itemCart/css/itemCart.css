@@ -9,7 +9,14 @@
   width: var(--containerSize); height: calc(var(--containerSize) / 2);
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.AdjustBox-buttonsContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  column-gap: 10px;
 }
 
 .AdjustBox-button {
@@ -22,6 +29,11 @@
   position: relative;
   
   transition: .3s ease all;
+  cursor: pointer;
+}
+
+.AdjustBox-button--remove {
+  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -108,14 +120,19 @@ background-color: rgba(27, 27, 27, .4);
   }
 
   .itemCart-itemName {
+    font-size: 11pt;
+    font-weight: 300;
     margin: 0;
+    text-decoration: underline;
   }
-
+  
   .itemCart-itemPrice {
+    font-size: 10pt;
     margin: 0;
   }
   
   .itemCart-itemQtd {
+    font-size: 10pt;
     margin: 0;
   }
 
